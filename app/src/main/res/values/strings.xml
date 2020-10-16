@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">UdeaCov</string>
+
+    <!-- Login Labels -->
+    <string name="udea_cov">Udea-Cov</string>
+
+</resources>
