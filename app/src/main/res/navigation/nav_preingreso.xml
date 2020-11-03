@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_preingreso"
+    app:startDestination="@id/preingreso1">
+
+    <fragment
+        android:id="@+id/preingreso1"
+        android:name="co.edu.udea.udeacov.preingreso1"
+        android:label="fragment_preingreso1"
+        tools:layout="@layout/fragment_preingreso1" >
+        <action
+            android:id="@+id/action_preingreso1_to_preingreso2"
+            app:destination="@id/preingreso2" />
+    </fragment>
+    <fragment
+        android:id="@+id/preingreso2"
+        android:name="co.edu.udea.udeacov.preingreso2"
+        android:label="fragment_preingreso2"
+        tools:layout="@layout/fragment_preingreso2" />
+</navigation>

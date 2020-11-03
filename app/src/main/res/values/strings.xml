@@ -1,7 +1,20 @@
 <resources>
-    <string name="app_name">UdeaCov</string>
 
+    <string name="app_name">UdeA-Cov</string>
     <!-- Login Labels -->
-    <string name="udea_cov">Udea-Cov</string>
+    <string name="app_title">UdeA-Cov</string>
+    <string name="no_tienes_cuenta">¿No tienes cuenta?</string>
+    <string name="registrarse"><u>Registrarse</u></string>
+
+    <!-- formulario de preingreso -->
+    <string name="text_preingreso">Encuesta-Preingreso de condiciones de salud y convivencia COVID-19.</string>
+    <string name="textView">Toda la información se recoge con fines estrictamente de interés público ante la situación decretada por las Autoridades Públicas, para proteger y salvaguardar un interés esencial para la vida de las personas, en consecuencia, autorizo a la Universidad de Antioquia y a mi empleador / contratante, para el manejo de la información aportada en esta autoevaluación de condiciones de salud con el propósito de desarrollar acciones de promoción y prevención frente al riesgo de contagio acorde con lo normado por el Ministerio de Salud y las demás autoridades competentes.
+
+De conformidad con lo establecido en la Ley 1581 de 2012 de protección de datos personales, se podrá suministrar información a las entidades públicas o administrativas que en el ejercicio de sus funciones legales así lo requieran, o a las personas establecidas en el artículo 13 de la ley.
+
+Los datos proporcionados por el usuario deben ser veraces, completos, exactos, actualizados, comprobables y comprensibles y en consecuencia el usuario asume toda la responsabilidad sobre la falta de veracidad o exactitud de éstos. </string>
+    <!-- TODO: Remove or change this placeholder text -->
+
+
 
 </resources>
