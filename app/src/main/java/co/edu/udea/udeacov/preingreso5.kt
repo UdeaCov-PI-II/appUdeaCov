@@ -5,12 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
-import androidx.navigation.findNavController
-import com.wajahatkarim3.easyvalidation.core.view_ktx.nonEmpty
-import com.wajahatkarim3.easyvalidation.core.view_ktx.onlyNumbers
-import com.wajahatkarim3.easyvalidation.core.view_ktx.validator
-import kotlinx.android.synthetic.main.fragment_preingreso1.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -19,21 +13,19 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [preingreso1.newInstance] factory method to
+ * Use the [preingreso5.newInstance] factory method to
  * create an instance of this fragment.
  */
-class preingreso1 : Fragment() {
+class preingreso5 : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
-
         }
     }
 
@@ -42,34 +34,8 @@ class preingreso1 : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_preingreso1, container, false)
+        return inflater.inflate(R.layout.fragment_preingreso5, container, false)
     }
-
-
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        var myEditText = view.findViewById<EditText>(R.id.preingreso1_nombre)
-        var myDoc = view.findViewById<EditText>(R.id.preingreso1_doc)
-        myDoc.onlyNumbers(){
-            myDoc.error = it
-        }
-        myEditText.validator()
-            .nonEmpty()
-            .onlyNumbers()
-            .addErrorCallback { myEditText.error=it }
-            .check()
-
-
-
-
-        preingresobtn_siguiente1.setOnClickListener{
-            it.findNavController().navigate(R.id.action_preingreso1_to_preingreso2)
-        }
-
-    }
-
-
 
     companion object {
         /**
@@ -78,12 +44,12 @@ class preingreso1 : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment preingreso1.
+         * @return A new instance of fragment preingreso5.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            preingreso1().apply {
+            preingreso5().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)

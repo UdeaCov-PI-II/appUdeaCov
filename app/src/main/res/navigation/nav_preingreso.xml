@@ -18,5 +18,29 @@
         android:id="@+id/preingreso2"
         android:name="co.edu.udea.udeacov.preingreso2"
         android:label="fragment_preingreso2"
-        tools:layout="@layout/fragment_preingreso2" />
+        tools:layout="@layout/fragment_preingreso2" >
+        <action
+            android:id="@+id/action_preingreso2_to_preingreso3"
+            app:destination="@id/preingreso3" />
+    </fragment>
+    <fragment
+        android:id="@+id/preingreso3"
+        android:name="co.edu.udea.udeacov.preingreso3"
+        android:label="preingreso3" >
+        <action
+            android:id="@+id/action_preingreso3_to_preingreso4"
+            app:destination="@id/preingreso4" />
+    </fragment>
+    <fragment
+        android:id="@+id/preingreso4"
+        android:name="co.edu.udea.udeacov.preingreso4"
+        android:label="preingreso4" >
+        <action
+            android:id="@+id/action_preingreso4_to_preingreso5"
+            app:destination="@id/preingreso5" />
+    </fragment>
+    <fragment
+        android:id="@+id/preingreso5"
+        android:name="co.edu.udea.udeacov.preingreso5"
+        android:label="preingreso5" />
 </navigation>

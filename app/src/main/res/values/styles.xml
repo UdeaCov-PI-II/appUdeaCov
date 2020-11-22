@@ -5,7 +5,6 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-
     </style>
 
     <style name="custom_button">
@@ -13,8 +12,18 @@
         <item name="android:textColor">#FFFFFF</item>
         <item name="android:textSize">12sp</item>
         <item name="android:padding">5dp</item>
+    </style>
 
-
+    <style name="spinnerItemStyle">
+        <item name="android:padding">10dp</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#E0E0E0</item>
+    </style>
+    <style name="spinnerDropDownItemStyle">
+        <item name="android:padding">20dp</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">#E0E0E0</item>
     </style>
 
 </resources>
+
