@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".preingreso2">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:id="@+id/preingreso_1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center|top"
+        android:orientation="vertical">>
+
+        <EditText
+            android:id="@+id/preingreso_txt4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="7"
+            android:hint="fecha de nacimiento mm/dd/yyyy"
+            android:textSize="14sp" />
+        <TextView
+            android:id="@+id/preingreso_textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/correo_notificaciones"
+            android:textSize="14sp" />
+        <EditText
+            android:id="@+id/preingreso_txt5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="7"
+            android:textSize="14sp" />
+        <TextView
+            android:id="@+id/preingreso_textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/vinculo_universidad"
+            android:textSize="14sp" />
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <CheckBox
+                    android:id="@+id/preingreso_checkBox1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Empleado Administrativo"
+                    android:textSize="12sp" />
+
+                <CheckBox
+                    android:id="@+id/preingreso_checkBox2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Trabajador Oficial"
+                    android:textSize="12sp" />
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <CheckBox
+                    android:id="@+id/preingreso_checkBox3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Profesor Vinculado"
+                    android:textSize="12sp" />
+
+                <CheckBox
+                    android:id="@+id/preingreso_checkBox4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Docente de cátedra"
+                    android:textSize="12sp" />
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <CheckBox
+                    android:id="@+id/preingreso_checkBox5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Contratista de servicios"
+                    android:textSize="12sp" />
+
+                <CheckBox
+                    android:id="@+id/preingreso_checkBox6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Estudiante de Pregrado"
+                    android:textSize="12sp" />
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <CheckBox
+                    android:id="@+id/preingreso_checkBox7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Estudiante de Posgrado"
+                    android:textSize="12sp" />
+
+                <CheckBox
+                    android:id="@+id/preingreso_checkBox8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CIS, FUA, Externo o Egresado"
+                    android:textSize="12sp" />
+            </TableRow>
+
+        </TableLayout>
+
+        <EditText
+            android:id="@+id/preingreso_txt6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="7"
+            android:hint="Detalle vínculo con la Universidad de Antioquia"
+            android:textSize="14sp" />
+        <EditText
+            android:id="@+id/preingreso_txt7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="7"
+            android:hint="Cargo"
+            android:textSize="14sp" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="5dp" />
+        <TextView
+            android:id="@+id/preingreso_textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/ARL"
+            android:textSize="14sp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="5dp" />
+
+        <Spinner
+            android:id="@+id/preingreso_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/ARL_array" />
+        <EditText
+            android:id="@+id/preingreso_txt8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="7"
+            android:hint="Teléfono de contacto"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/preingresobtn_siguiente2"
+            style="@style/custom_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:text="Siguiente" />
+
+
+    </LinearLayout>
+</FrameLayout>

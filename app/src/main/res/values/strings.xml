@@ -1,7 +1,154 @@
 <resources>
-    <string name="app_name">UdeaCov</string>
 
+    <string name="app_name">UdeA-Cov</string>
     <!-- Login Labels -->
-    <string name="udea_cov">Udea-Cov</string>
+    <string name="app_title">UdeA-Cov</string>
+    <string name="no_tienes_cuenta">¿No tienes cuenta?</string>
+    <string name="registrarse"><u>Registrarse</u></string>
+
+    <!-- formulario de preingreso -->
+    <string name="text_preingreso">Encuesta-Preingreso de condiciones de salud y convivencia COVID-19.</string>
+    <string name="documento">1. Tipo de documento</string>
+    <string-array name="Tipo_documento">
+        <item>Cédula de ciudadanía</item>
+        <item>Cédula de extranjería</item>
+        <item>Tarjeta de Identidad</item>
+        <item>Pasaporte</item>
+        <item>Otro</item>
+
+    </string-array>
+    <string name="textView">Autorización de tratamiento de datos</string>
+    <string name="textView1">Toda la información se recoge con fines estrictamente de interés público ante la situación decretada por las Autoridades Públicas, para proteger y salvaguardar un interés esencial para la vida de las personas, en consecuencia, autorizo a la Universidad de Antioquia y a mi empleador / contratante, para el manejo de la información aportada en esta autoevaluación de condiciones de salud con el propósito de desarrollar acciones de promoción y prevención frente al riesgo de contagio acorde con lo normado por el Ministerio de Salud y las demás autoridades competentes.
+
+De conformidad con lo establecido en la Ley 1581 de 2012 de protección de datos personales, se podrá suministrar información a las entidades públicas o administrativas que en el ejercicio de sus funciones legales así lo requieran, o a las personas establecidas en el artículo 13 de la ley.
+
+Los datos proporcionados por el usuario deben ser veraces, completos, exactos, actualizados, comprobables y comprensibles y en consecuencia el usuario asume toda la responsabilidad sobre la falta de veracidad o exactitud de éstos. </string>
+    <string name="correo_notificaciones"> Correo para notificaciones de resultados de su evaluación</string>
+    <string name="vinculo_universidad">Vínculo con la Universidad de Antioquia</string>
+
+    <string name="ARL"> ARL Administradora Riesgos Laborales a la cual está afiliado</string>
+    <string-array name="ARL_array">
+        <item>POSITIVA Compañía De Seguros</item>
+        <item>SURA ARL</item>
+        <item>COLMENA SA Compañía De Seguros De Vida</item>
+        <item>COLPATRIA Seguros De Vida Colpatria SA</item>
+        <item>BOLIVAR Compañía De Seguros Bolívar SA</item>
+        <item>LIBERTY Seguros De Vida</item>
+        <item>MAPFRE Colombia Vida Seguros SA</item>
+        <item>LA EQUIDAD Seguros De Vida Organismo Cooperativo La Equidad Vida</item>
+        <item>ALFA Seguros De Vida Alfa SA</item>
+        <item>AURORA Compañía De Seguros De Vida Aurora</item>
+        <item>NO APLICA: Estudiante que no está en práctica</item>
+        <item>Otro</item>
+
+    </string-array>
+    <string name="SedesEdificio">¿Ubicación de las Sedes /Edificio donde realizas tu actividad y permaneces con mayor frecuencia?</string>
+    <string-array name="sedes">
+        <item>Bodega 2, Transporte Sierra</item>
+        <item>Casa Bolívar</item>
+        <item>Casa de la Corporación de Patologías Tropicales</item>
+        <item>Casa Laboratorio Arqueológico</item>
+        <item>Casa Olano</item>
+        <item>Casa Serpentario</item>
+        <item>Carmen de Viboral</item>
+        <item>Caucasia</item>
+        <item>Centro  cultural de la Facultad de Artes</item>
+        <item>Ciudad Universitaria</item>
+        <item>Ciudadela Robledo</item>
+        <item>Centro Internacional de Idiomas</item>
+        <item>Edificio Antioquia</item>
+        <item>Edificio Antigua Facultad de Derecho</item>
+        <item>Edificio Bedout</item>
+        <item>Edificio de Extensión</item>
+        <item>Enfermería</item>
+        <item>Edificio San Ignacio (Paraninfo)</item>
+        <item>Facultad Nacional de Salud Pública</item>
+        <item>IPS Universitaria</item>
+        <item>Hacienda La Candelaria</item>
+        <item>Hacienda La Montaña</item>
+        <item>Hacienda Vegas de la Clara</item>
+        <item>Medicina</item>
+        <item>Odontología</item>
+        <item>Parque de Emprendimiento Empresarial</item>
+        <item>Parque de la Vida</item>
+        <item>Patología en el Hospital San Vicente</item>
+        <item>Puerto Berrío</item>
+        <item>Santa Fé de Antioquia</item>
+        <item>Sede de Investigación Universitaria - SIU</item>
+        <item>Segovia - Remedios</item>
+        <item>Sonsón</item>
+        <item>TIP y Taquilla única de correos</item>
+        <item>Urabá - Apartadó</item>
+        <item>Urabá - Ciencias del Mar</item>
+        <item>Urabá - Tulenapa</item>
+        <item>Yarumal</item>
+        <item>Otro, externo</item>
+    </string-array>
+    <string name="bloques">¿Bloque y nomenclatura de la oficina en donde realizas normalmente tus labores?</string>
+    <string name="unidad">¿Unidad Académica / Administrativa a la que perteneces?</string>
+
+    <string-array name="unidad">
+        <item>Corporación Académica para el Estudio de Patologías Tropicales</item>
+        <item>Corporación Académica Ciencias Básicas Biomédicas</item>
+        <item>Corporación Académica Ambiental</item>
+        <item>Dirección Bienestar Universitario</item>
+        <item>Dirección de Comunicaciones</item>
+        <item>Dirección Jurídica</item>
+        <item>Dirección de Planeación y Desarrollo Institucional</item>
+        <item>Dirección de Posgrados</item>
+        <item>Dirección de Regionalización</item>
+        <item>Dirección de Relaciones Internacionales</item>
+        <item>Escuela de Idiomas</item>
+        <item>Escuela Interamericana de Bibliotecología</item>
+        <item>Escuela de Microbiología</item>
+        <item>Escuela de Nutrición y Dietética</item>
+        <item>Facultad de Artes</item>
+        <item>Facultad de Ciencias Agrarias</item>
+        <item>Facultad de Ciencias Económicas</item>
+        <item>Facultad de Ciencias Exactas y Naturales</item>
+        <item>FCEN - Instituto de Biología</item>
+        <item>FCEN - Instituto de Física</item>
+        <item>FCEN - Instituto de Matemáticas</item>
+        <item>FCEN - Instituto de Química</item>
+        <item>Facultad de Ciencias Farmacéuticas y Alimentarias</item>
+        <item>Facultad de Ciencias Sociales y Humanas</item>
+        <item>Facultad de Comunicaciones</item>
+        <item>Facultad de Derecho y Ciencias Políticas</item>
+        <item>Facultad de Educación</item>
+        <item>Facultad de Enfermería</item>
+        <item>Facultad de Ingeniería</item>
+        <item>Facultad de Medicina</item>
+        <item>Facultad Nacional de Salud Pública</item>
+        <item>Facultad de Odontología</item>
+        <item>Instituto de Estudios Políticos</item>
+        <item>Instituto de Estudios Regionales</item>
+        <item>Instituto de Filosofía</item>
+        <item>Instituto Universitario de Educación Física y Deporte</item>
+        <item>Oficina de Auditoría Institucional</item>
+        <item>Rectoría</item>
+        <item>Secretaría General</item>
+        <item>SIU</item>
+        <item>Vicerrectoría Administrativa</item>
+        <item>Vicerrectoría de Docencia</item>
+        <item>Vicerrectoría de Extensión</item>
+        <item>Vicerrectoría General</item>
+        <item>Vicerrectoría de Investigación</item>
+
+    </string-array>
+
+    <string-array name="transporte">
+        <item>Caminando</item>
+        <item>Bicicleta</item>
+        <item>Moto</item>
+        <item>Carro</item>
+        <item>Bus</item>
+        <item>Metro</item>
+        <item>Otro</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- TODO: Remove or change this placeholder text -->
+
 
 </resources>
