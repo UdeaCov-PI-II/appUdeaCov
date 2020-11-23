@@ -7,7 +7,7 @@
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
-        android:id="@+id/preingreso_1"
+        android:id="@+id/preingreso2_1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center|top"
