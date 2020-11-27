@@ -1,19 +1,20 @@
 package co.edu.udea.udeacov
 
-import android.content.Intent
+
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.text.InputType
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import android.widget.RadioButton
+import android.widget.RadioGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import com.wajahatkarim3.easyvalidation.core.view_ktx.nonEmpty
-import com.wajahatkarim3.easyvalidation.core.view_ktx.onlyNumbers
-import com.wajahatkarim3.easyvalidation.core.view_ktx.validator
 import kotlinx.android.synthetic.main.fragment_preingreso1.*
 import kotlinx.android.synthetic.main.fragment_preingreso1.view.*
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -42,8 +43,19 @@ class preingreso1 : Fragment() {
     }
 
     private fun validate() :Boolean{
-        if(preingreso1_correo.text.toString().isEmpty()){
+        val radioGroup1 = preingreso1_radioGroup.checkedRadioButtonId
+
+        if(preingreso1_username.text.toString().isEmpty()){
+            preingreso1_username.error = "campo vacío"
+            return false
+        }else if(preingreso1_password.text.toString().isEmpty()){
+            preingreso1_password.error = "campo vacío"
+            return false
+        }else if(preingreso1_correo.text.toString().isEmpty()){
             preingreso1_correo.error = "campo vacío"
+            return false
+        }else if(radioGroup1 == -1){
+            Toast.makeText(activity, "Ingresar el tipo de documento", Toast.LENGTH_SHORT).show();
             return false
         }else if(preingreso1_doc.text.toString().isEmpty()){
             preingreso1_doc.error = "campo vacío"
@@ -68,16 +80,32 @@ class preingreso1 : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        
+        var rg = view.findViewById<RadioGroup>(R.id.preingreso1_radioGroup)
+        var option = ""
+        rg.setOnCheckedChangeListener { _, i ->
+            if(i != -1){
+                var aux = preingreso1_radioGroup.checkedRadioButtonId
+                var radioButton: View = preingreso1_radioGroup.findViewById(aux)
+                var indice: Int = preingreso1_radioGroup.indexOfChild(radioButton)
+                var respuesta: RadioButton = preingreso1_radioGroup.getChildAt(indice) as RadioButton
+                option = respuesta.text.toString()
+                var editText1 = view.findViewById<EditText>(R.id.preingreso1_otro)
+                if(option == "Otro"){
+                    editText1.visibility = View.VISIBLE
+                } else{
+                    editText1.visibility = View.INVISIBLE
+                }
+            }
+        }
+
         preingresobtn_siguiente1.setOnClickListener{
             if(validate()){
                 Toast.makeText(activity, "Campos diligenciados", Toast.LENGTH_SHORT).show();
                 it.findNavController().navigate(R.id.action_preingreso1_to_preingreso2)
             }
-
         }
-
     }
-
     companion object {
         /**
          * Use this factory method to create a new instance of

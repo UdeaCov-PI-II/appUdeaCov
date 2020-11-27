@@ -9,14 +9,6 @@
     <!-- formulario de preingreso -->
     <string name="text_preingreso">Encuesta-Preingreso de condiciones de salud y convivencia COVID-19.</string>
     <string name="documento">1. Tipo de documento</string>
-    <string-array name="Tipo_documento">
-        <item>Cédula de ciudadanía</item>
-        <item>Cédula de extranjería</item>
-        <item>Tarjeta de Identidad</item>
-        <item>Pasaporte</item>
-        <item>Otro</item>
-
-    </string-array>
     <string name="textView">Autorización de tratamiento de datos</string>
     <string name="textView1">Toda la información se recoge con fines estrictamente de interés público ante la situación decretada por las Autoridades Públicas, para proteger y salvaguardar un interés esencial para la vida de las personas, en consecuencia, autorizo a la Universidad de Antioquia y a mi empleador / contratante, para el manejo de la información aportada en esta autoevaluación de condiciones de salud con el propósito de desarrollar acciones de promoción y prevención frente al riesgo de contagio acorde con lo normado por el Ministerio de Salud y las demás autoridades competentes.
 
@@ -24,25 +16,10 @@ De conformidad con lo establecido en la Ley 1581 de 2012 de protección de datos
 
 Los datos proporcionados por el usuario deben ser veraces, completos, exactos, actualizados, comprobables y comprensibles y en consecuencia el usuario asume toda la responsabilidad sobre la falta de veracidad o exactitud de éstos. </string>
     <string name="correo_notificaciones"> Correo para notificaciones de resultados de su evaluación</string>
-    <string name="vinculo_universidad">Vínculo con la Universidad de Antioquia</string>
+    <string name="vinculo_universidad">5. Vínculo con la Universidad de Antioquia (si tienes varios vínculos puede elegir varios) *</string>
 
     <string name="ARL"> ARL Administradora Riesgos Laborales a la cual está afiliado</string>
-    <string-array name="ARL_array">
-        <item>POSITIVA Compañía De Seguros</item>
-        <item>SURA ARL</item>
-        <item>COLMENA SA Compañía De Seguros De Vida</item>
-        <item>COLPATRIA Seguros De Vida Colpatria SA</item>
-        <item>BOLIVAR Compañía De Seguros Bolívar SA</item>
-        <item>LIBERTY Seguros De Vida</item>
-        <item>MAPFRE Colombia Vida Seguros SA</item>
-        <item>LA EQUIDAD Seguros De Vida Organismo Cooperativo La Equidad Vida</item>
-        <item>ALFA Seguros De Vida Alfa SA</item>
-        <item>AURORA Compañía De Seguros De Vida Aurora</item>
-        <item>NO APLICA: Estudiante que no está en práctica</item>
-        <item>Otro</item>
-
-    </string-array>
-    <string name="SedesEdificio">¿Ubicación de las Sedes /Edificio donde realizas tu actividad y permaneces con mayor frecuencia?</string>
+    <string name="SedesEdificio">8. Ubicación de las Sedes /Edificio donde realizas tu actividad y permaneces con mayor frecuencia *</string>
     <string-array name="sedes">
         <item>Bodega 2, Transporte Sierra</item>
         <item>Casa Bolívar</item>
@@ -84,8 +61,8 @@ Los datos proporcionados por el usuario deben ser veraces, completos, exactos, a
         <item>Yarumal</item>
         <item>Otro, externo</item>
     </string-array>
-    <string name="bloques">¿Bloque y nomenclatura de la oficina en donde realizas normalmente tus labores?</string>
-    <string name="unidad">¿Unidad Académica / Administrativa a la que perteneces?</string>
+    <string name="bloques">9. Bloque y nomenclatura de la oficina en donde realizas normalmente tus labores *</string>
+    <string name="unidad">10. Unidad Académica / Administrativa a la que perteneces *</string>
 
     <string-array name="unidad">
         <item>Corporación Académica para el Estudio de Patologías Tropicales</item>
@@ -133,18 +110,8 @@ Los datos proporcionados por el usuario deben ser veraces, completos, exactos, a
         <item>Vicerrectoría de Extensión</item>
         <item>Vicerrectoría General</item>
         <item>Vicerrectoría de Investigación</item>
-
     </string-array>
 
-    <string-array name="transporte">
-        <item>Caminando</item>
-        <item>Bicicleta</item>
-        <item>Moto</item>
-        <item>Carro</item>
-        <item>Bus</item>
-        <item>Metro</item>
-        <item>Otro</item>
-    </string-array>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

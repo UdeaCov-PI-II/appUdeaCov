@@ -5,6 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import android.widget.RadioButton
+import android.widget.RadioGroup
+import android.widget.Toast
 import androidx.navigation.findNavController
 import kotlinx.android.synthetic.main.fragment_preingreso1.*
 import kotlinx.android.synthetic.main.fragment_preingreso2.*
@@ -32,6 +36,24 @@ class preingreso2 : Fragment() {
         }
     }
 
+    private fun validate() :Boolean{
+        if(preingreso2_correoN.text.toString().isEmpty()){
+            preingreso2_correoN.error = "campo vacío"
+            return false
+        }else if(preingreso2_checkBox1.isChecked == false && preingreso2_checkBox2.isChecked == false && preingreso2_checkBox3.isChecked == false && preingreso2_checkBox4.isChecked == false &&
+            preingreso2_checkBox5.isChecked == false && preingreso2_checkBox6.isChecked == false && preingreso2_checkBox7.isChecked == false && preingreso2_checkBox8.isChecked == false){
+            Toast.makeText(activity, "Ingresar vínculo con la universidad", Toast.LENGTH_SHORT).show();
+            return false
+        }else if(preingreso2_cargo.text.toString().isEmpty()){
+            preingreso2_cargo.error = "campo vacío"
+            return false
+        }else if(preingreso2_telefono.text.toString().isEmpty()){
+            preingreso2_telefono.error = "campo vacío"
+            return false
+        }
+        return true
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -42,8 +64,30 @@ class preingreso2 : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        var rg = view.findViewById<RadioGroup>(R.id.preingreso2_radioGroup)
+        var option = ""
+        rg.setOnCheckedChangeListener { _, i ->
+            if(i != -1){
+                var aux = preingreso2_radioGroup.checkedRadioButtonId
+                var radioButton: View = preingreso2_radioGroup.findViewById(aux)
+                var indice: Int = preingreso2_radioGroup.indexOfChild(radioButton)
+                var respuesta: RadioButton = preingreso2_radioGroup.getChildAt(indice) as RadioButton
+                option = respuesta.text.toString()
+                var editText1 = view.findViewById<EditText>(R.id.preingreso2_otro)
+                if(option == "Otro"){
+                    editText1.visibility = View.VISIBLE
+                } else{
+                    editText1.visibility = View.INVISIBLE
+                }
+            }
+        }
+
         preingresobtn_siguiente2.setOnClickListener{
-            it.findNavController().navigate(R.id.action_preingreso2_to_preingreso3)
+            if(validate()){
+                Toast.makeText(activity, "Campos diligenciados", Toast.LENGTH_SHORT).show();
+                it.findNavController().navigate(R.id.action_preingreso2_to_preingreso3)
+            }
         }
 
     }

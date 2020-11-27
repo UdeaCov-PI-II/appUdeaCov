@@ -17,10 +17,50 @@
             android:layout_height="match_parent"
             android:layout_marginTop="8dp"
             android:gravity="center|top"
-            android:orientation="vertical">>
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/preingreso1_textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#616161"
+                android:text="Ingresa tu nombre de usuario"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/preingreso1_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="7"
+                android:hint="Tu respuesta"
+                android:textSize="14sp" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="15dp" />
+
+            <TextView
+                android:id="@+id/preingreso1_textView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#616161"
+                android:text="Ingresa tu contraseña"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/preingreso1_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="7"
+                android:textSize="14sp"
+                android:inputType="textPassword" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="15dp" />
+
+            <TextView
+                android:id="@+id/preingreso1_textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#616161"
@@ -41,7 +81,7 @@
                 android:layout_height="15dp" />
 
             <TextView
-                android:id="@+id/preingreso1_textView1"
+                android:id="@+id/preingreso1_textView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#616161"
@@ -52,19 +92,61 @@
                 android:layout_width="match_parent"
                 android:layout_height="5dp" />
 
-            <Spinner
-                android:id="@+id/preingreso1_spinner"
+            <RadioGroup
+                android:id="@+id/preingreso1_radioGroup"
+                android:layout_width="370dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/radioButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Cédula de ciudadanía" />
+
+                <RadioButton
+                    android:id="@+id/radioButton1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Cédula de extranjería" />
+
+                <RadioButton
+                    android:id="@+id/radioButton2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Tarjeta de Identidad" />
+
+                <RadioButton
+                    android:id="@+id/radioButton3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Pasaporte" />
+
+                <RadioButton
+                    android:id="@+id/radioButton4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Otro" />
+            </RadioGroup>
+
+            <EditText
+                android:id="@+id/preingreso1_otro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/spinnerItemStyle"
-                android:entries="@array/Tipo_documento" />
+                android:ems="7"
+                android:textSize="14sp"/>
 
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="15dp" />
 
             <TextView
-                android:id="@+id/preingreso1_textView2"
+                android:id="@+id/preingreso1_textView4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#616161"
@@ -85,7 +167,7 @@
                 android:layout_height="15dp" />
 
             <TextView
-                android:id="@+id/preingreso1_textView3"
+                android:id="@+id/preingreso1_textView5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#616161"
@@ -105,7 +187,7 @@
                 android:layout_height="15dp" />
 
             <TextView
-                android:id="@+id/preingreso1_textView4"
+                android:id="@+id/preingreso1_textView6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/textView"
@@ -117,7 +199,7 @@
                 android:layout_height="5dp" />
 
             <TextView
-                android:id="@+id/preingreso1_textView5"
+                android:id="@+id/preingreso1_textView7"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/textView1"
