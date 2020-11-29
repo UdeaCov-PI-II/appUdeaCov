@@ -37,14 +37,6 @@ class preingreso3 : Fragment() {
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_preingreso3, container, false)
-    }
-
     private fun validate() :Boolean{
         val radioGroup = preingreso3_radioGroup.checkedRadioButtonId
         val radioGroup3 = preingreso3_radioGroup1.checkedRadioButtonId
@@ -63,6 +55,14 @@ class preingreso3 : Fragment() {
             return false
         }
         return true
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_preingreso3, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
