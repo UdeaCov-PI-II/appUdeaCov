@@ -27,6 +27,7 @@ class preingreso2 : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    var bandera: Boolean? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +47,9 @@ class preingreso2 : Fragment() {
             return false
         }else if(preingreso2_cargo.text.toString().isEmpty()){
             preingreso2_cargo.error = "campo vacío"
+            return false
+        }else if(bandera==true && preingreso2_otro.text.toString().isEmpty()){
+            preingreso2_otro.error = "campo vacío"
             return false
         }else if(preingreso2_telefono.text.toString().isEmpty()){
             preingreso2_telefono.error = "campo vacío"
@@ -76,8 +80,10 @@ class preingreso2 : Fragment() {
                 option = respuesta.text.toString()
                 var editText1 = view.findViewById<EditText>(R.id.preingreso2_otro)
                 if(option == "Otro"){
+                    bandera = true
                     editText1.visibility = View.VISIBLE
                 } else{
+                    bandera = false
                     editText1.visibility = View.INVISIBLE
                 }
             }

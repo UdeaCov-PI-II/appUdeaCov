@@ -5,8 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import android.widget.RadioButton
+import android.widget.RadioGroup
 import android.widget.Toast
 import androidx.navigation.findNavController
+import kotlinx.android.synthetic.main.fragment_preingreso1.*
 import kotlinx.android.synthetic.main.fragment_preingreso2.*
 import kotlinx.android.synthetic.main.fragment_preingreso3.*
 import kotlinx.android.synthetic.main.fragment_preingreso4.*
@@ -25,6 +29,7 @@ class preingreso4 : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    var bandera: Boolean? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,15 +65,19 @@ class preingreso4 : Fragment() {
         }else if(preingreso4_altura.text.toString().isEmpty()){
             preingreso4_altura.error = "campo vacío"
             return false
-        }else if(radioGroup1 == -1 && radioGroup2 == -1 && radioGroup3 == -1 && radioGroup4 == -1 && radioGroup5 == -1 && radioGroup6 == -1 && radioGroup7 == -1 && radioGroup8 == -1 &&
-            radioGroup9 == -1 && radioGroup10 == -1 && radioGroup11 == -1 && radioGroup12 == -1 && radioGroup13 == -1 && radioGroup14 == -1 && radioGroup15 == -1 && radioGroup16 == -1 ){
+        }else if(radioGroup1 == -1 || radioGroup2 == -1 || radioGroup3 == -1 || radioGroup4 == -1 || radioGroup5 == -1 || radioGroup6 == -1 || radioGroup7 == -1 || radioGroup8 == -1 ||
+            radioGroup9 == -1 || radioGroup10 == -1 || radioGroup11 == -1 || radioGroup12 == -1 || radioGroup13 == -1 || radioGroup14 == -1 || radioGroup15 == -1 || radioGroup16 == -1 ){
             Toast.makeText(activity, "Debes introducir una respuesta por fila", Toast.LENGTH_SHORT).show();
             return false
         }else if(preingreso4_checkBox1.isChecked == false && preingreso4_checkBox2.isChecked == false && preingreso4_checkBox3.isChecked == false && preingreso4_checkBox4.isChecked == false
             && preingreso4_checkBox5.isChecked == false){
             Toast.makeText(activity, "Registrar si tiene algún tipo de incapacidad", Toast.LENGTH_SHORT).show();
             return false
-        }else if(radioGroup17 == -1){
+        }else if(bandera==true && preingreso4_otro.text.toString().isEmpty()){
+            preingreso4_otro.error = "campo vacío"
+            return false
+        }
+        else if(radioGroup17 == -1){
             Toast.makeText(activity, "Ingresar grupo sanguíneo", Toast.LENGTH_SHORT).show();
             return false
         }else if(radioGroup18 == -1){
@@ -77,7 +86,6 @@ class preingreso4 : Fragment() {
         }
         return true
     }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -88,9 +96,39 @@ class preingreso4 : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        var rg = view.findViewById<RadioGroup>(R.id.preingreso4_radioGroup18)
+        var option = ""
+        rg.setOnCheckedChangeListener { _, i ->
+            if(i != -1){
+                var aux = preingreso4_radioGroup18.checkedRadioButtonId
+                var radioButton: View = preingreso4_radioGroup18.findViewById(aux)
+                var indice: Int = preingreso4_radioGroup18.indexOfChild(radioButton)
+                var respuesta: RadioButton = preingreso4_radioGroup18.getChildAt(indice) as RadioButton
+                option = respuesta.text.toString()
+
+            }
+        }
+        preingreso4_checkBox5.setOnClickListener {
+            var editText1 = view.findViewById<EditText>(R.id.preingreso4_otro)
+            if(preingreso4_checkBox5.isChecked == true){
+                bandera = true
+                editText1.visibility = View.VISIBLE
+            }else{
+                bandera = false
+                editText1.visibility = View.INVISIBLE
+            }
+        }
 
         preingresobtn_siguiente4.setOnClickListener{
-            it.findNavController().navigate(R.id.action_preingreso4_to_preingreso5)
+            if(validate()){
+                if(option == "Si"){
+                    Toast.makeText(activity, "Campos diligenciados", Toast.LENGTH_SHORT).show();
+                    it.findNavController().navigate(R.id.action_preingreso4_to_preingreso5)
+                } else{
+                    Toast.makeText(activity, "Campos diligenciados", Toast.LENGTH_SHORT).show();
+                    it.findNavController().navigate(R.id.action_preingreso4_to_preingreso62)
+                }
+            }
         }
 
     }

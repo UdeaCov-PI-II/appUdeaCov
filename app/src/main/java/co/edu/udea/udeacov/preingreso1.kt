@@ -31,6 +31,7 @@ class preingreso1 : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    var bandera: Boolean? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,6 +57,9 @@ class preingreso1 : Fragment() {
             return false
         }else if(radioGroup1 == -1){
             Toast.makeText(activity, "Ingresar el tipo de documento", Toast.LENGTH_SHORT).show();
+            return false
+        }else if(bandera==true && preingreso1_otro.text.toString().isEmpty()){
+            preingreso1_otro.error = "campo vacío"
             return false
         }else if(preingreso1_doc.text.toString().isEmpty()){
             preingreso1_doc.error = "campo vacío"
@@ -92,8 +96,10 @@ class preingreso1 : Fragment() {
                 option = respuesta.text.toString()
                 var editText1 = view.findViewById<EditText>(R.id.preingreso1_otro)
                 if(option == "Otro"){
+                    bandera = true
                     editText1.visibility = View.VISIBLE
                 } else{
+                    bandera = false
                     editText1.visibility = View.INVISIBLE
                 }
             }

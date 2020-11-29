@@ -28,6 +28,7 @@ class preingreso3 : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    var bandera: Boolean? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,6 +53,9 @@ class preingreso3 : Fragment() {
             return false
         }else if(radioGroup3 == -1){
             Toast.makeText(activity, "Ingresar como te transportas", Toast.LENGTH_SHORT).show();
+            return false
+        }else if(bandera==true && preingreso3_otro.text.toString().isEmpty()){
+            preingreso3_otro.error = "campo vacío"
             return false
         }
         return true
@@ -79,8 +83,10 @@ class preingreso3 : Fragment() {
                 option = respuesta.text.toString()
                 var editText1 = view.findViewById<EditText>(R.id.preingreso3_otro)
                 if(option == "Otro"){
+                    bandera = true
                     editText1.visibility = View.VISIBLE
                 } else{
+                    bandera = false
                     editText1.visibility = View.INVISIBLE
                 }
             }
