@@ -25,5 +25,22 @@
         <item name="android:textColor">#E0E0E0</item>
     </style>
 
+    <!-- Barra de Progreso -->
+    <style name="steps_custom">
+        <item name="sv_doneCircleColor">@color/colorAccent</item>
+        <item name="sv_doneCircleRadius">18dp</item>
+        <item name="sv_doneStepLineColor">@color/colorPrimaryDark</item>
+        <item name="sv_doneStepMarkColor">@color/colorPrimary</item>
+        <item name="sv_doneTextColor">@color/colorPrimary</item>
+        <item name="sv_nextStepLineColor">@color/colorPrimaryDark</item>
+        <item name="sv_nextTextColor">@color/colorPrimaryDark</item>
+        <item name="sv_selectedCircleRadius">12dp</item>
+        <item name="sv_selectedStepNumberColor">@color/colorPrimary</item>
+        <item name="sv_selectedTextColor">@color/colorPrimary</item>
+        <item name="sv_stepLineWidth">4dp</item>
+        <item name="sv_stepNumberTextSize">18sp</item>
+
+    </style>
+
 </resources>
 
