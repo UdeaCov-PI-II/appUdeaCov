@@ -12,119 +12,128 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <LinearLayout
-            android:id="@+id/preingreso"
+            android:id="@+id/preingreso5"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-
+            android:layout_marginTop="8dp"
             android:gravity="center|top"
             android:orientation="vertical">>
 
             <TextView
-                android:id="@+id/preingreso_textView"
+                android:id="@+id/preingreso5_textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Condiciones de los convivientes"
                 android:textColor="#DD000000"
+                android:textSize="20sp" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="15dp" />
+
+            <TextView
+                android:id="@+id/preingreso5_textView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="E. Información de convivientes"
+                android:textColor="#DD000000"
+                android:textSize="15sp" />
+            <TextView
+                android:id="@+id/preingreso5_textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Personas (adultas, adolescentes o niños) que viven en la misma residencia en la cual usted permanece sean o no familiares"
+                android:textColor="#616161"
                 android:textSize="15sp" />
 
             <Space
                 android:layout_width="match_parent"
-                android:layout_height="10dp" />
+                android:layout_height="15dp" />
 
             <TextView
-                android:id="@+id/preingreso_textView2"
+                android:id="@+id/preingreso5_textView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Información de convivientes"
-                android:textColor="#DD000000"
-                android:textSize="14sp" />
-            <TextView
-                android:id="@+id/preingreso_textView3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Personas (adultas, adolescentes o niños) que viven en la misma residencia en la cual usted permanece sean o no familiares"
-                android:textSize="13sp" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="10dp" />
-
-            <TextView
-                android:id="@+id/txt"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="¿Las personas con las que convives tienen alguna de las siguientes características? " />
+                android:text="¿Las personas con las que convives tienen alguna de las siguientes características? "
+                android:textColor="#616161"
+                android:textSize="14sp"/>
 
             <CheckBox
-                android:id="@+id/checkBox"
+                android:id="@+id/preingreso5_checkBox1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Son mayores de 60 años pero menores de 70 años." />
 
             <CheckBox
-                android:id="@+id/checkBox2"
+                android:id="@+id/preingreso5_checkBox2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Son mayores de 70 años." />
 
             <CheckBox
-                android:id="@+id/checkBox3"
+                android:id="@+id/preingreso5_checkBox3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Son personas con preexistencias como Diabetes, Enfermedad cardiovascular, Hipertensión arterial, Accidente Cerebrovascular , VIH, Cáncer, Uso de corticoides o inmunosupresores, EPOC , obesidad , desnutrición, fumadores." />
 
             <CheckBox
-                android:id="@+id/checkBox4"
+                android:id="@+id/preingreso5_checkBox4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Son personas que trabajan en el sector salud (clínicas u hospitales)" />
 
             <CheckBox
-                android:id="@+id/checkBox5"
+                android:id="@+id/preingreso5_checkBox5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Son niños a mi cuidado exclusivo (niños de 0 a 12 años)" />
 
             <CheckBox
-                android:id="@+id/checkBox6"
+                android:id="@+id/preingreso5_checkBox6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Son adolescentes a mi cuidado exclusivo (de 12 a 18 años)" />
 
             <CheckBox
-                android:id="@+id/checkBox7"
+                android:id="@+id/preingreso5_checkBox7"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Son otras personas a mi cuidado exclusivo que no pueden valerse por sí mismas." />
 
             <CheckBox
-                android:id="@+id/checkBox8"
+                android:id="@+id/preingreso5_checkBox8"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Son mujeres en embarazo." />
 
             <CheckBox
-                android:id="@+id/checkBox9"
+                android:id="@+id/preingreso5_checkBox9"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Son mujeres que tuvieron su hijo hace 6 semanas o menos." />
 
             <CheckBox
-                android:id="@+id/checkBox10"
+                android:id="@+id/preingreso5_checkBox10"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Ninguna de las anteriores" />
 
             <CheckBox
-                android:id="@+id/checkBox11"
+                android:id="@+id/preingreso5_checkBox11"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Otro" />
 
+            <EditText
+                android:id="@+id/preingreso5_otro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="7"
+                android:textSize="14sp"/>
 
-
-
-
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="15dp" />
 
             <Button
                 android:id="@+id/preingresobtn_siguiente5"

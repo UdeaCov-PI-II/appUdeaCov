@@ -6,163 +6,326 @@
     tools:context=".preingreso2">
 
     <!-- TODO: Update blank fragment layout -->
-    <LinearLayout
-        android:id="@+id/preingreso_1"
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center|top"
-        android:orientation="vertical">>
+        android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/preingreso_txt4"
+        <LinearLayout
+            android:id="@+id/preingreso2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="7"
-            android:hint="fecha de nacimiento mm/dd/yyyy"
-            android:textSize="14sp" />
-        <TextView
-            android:id="@+id/preingreso_textView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/correo_notificaciones"
-            android:textSize="14sp" />
-        <EditText
-            android:id="@+id/preingreso_txt5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="7"
-            android:textSize="14sp" />
-        <TextView
-            android:id="@+id/preingreso_textView3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/vinculo_universidad"
-            android:textSize="14sp" />
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp"
+            android:gravity="center|top"
+            android:orientation="vertical">
 
-        <TableLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <TableRow
+            <TextView
+                android:id="@+id/preingreso2_textView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <CheckBox
-                    android:id="@+id/preingreso_checkBox1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Empleado Administrativo"
-                    android:textSize="12sp" />
+                android:layout_height="wrap_content"
+                android:textColor="#616161"
+                android:text="4. Fecha de nacimiento *"
+                android:textSize="14sp" />
 
-                <CheckBox
-                    android:id="@+id/preingreso_checkBox2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Trabajador Oficial"
-                    android:textSize="12sp" />
-            </TableRow>
-            <TableRow
+            <EditText
+                android:id="@+id/preingreso2_fecha"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <CheckBox
-                    android:id="@+id/preingreso_checkBox3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Profesor Vinculado"
-                    android:textSize="12sp" />
+                android:layout_height="wrap_content"
+                android:ems="7"
+                android:hint="mm/dd/yyyy"
+                android:textSize="14sp" />
 
-                <CheckBox
-                    android:id="@+id/preingreso_checkBox4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Docente de cátedra"
-                    android:textSize="12sp" />
-            </TableRow>
-            <TableRow
+            <Space
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <CheckBox
-                    android:id="@+id/preingreso_checkBox5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Contratista de servicios"
-                    android:textSize="12sp" />
+                android:layout_height="15dp" />
 
-                <CheckBox
-                    android:id="@+id/preingreso_checkBox6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Estudiante de Pregrado"
-                    android:textSize="12sp" />
-            </TableRow>
-            <TableRow
+            <TextView
+                android:id="@+id/preingreso2_textView1"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <CheckBox
-                    android:id="@+id/preingreso_checkBox7"
-                    android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#616161"
+                android:text="4.1.Correo personal para notificaciones o información de resultados de su evaluación *"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/preingreso2_correoN"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="7"
+                android:hint="Tu respuesta"
+                android:textSize="14sp"
+                android:inputType="textEmailAddress" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="15dp" />
+
+            <TextView
+                android:id="@+id/preingreso2_textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#616161"
+                android:text="@string/vinculo_universidad"
+                android:textSize="14sp" />
+
+            <TableLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <CheckBox
+                        android:id="@+id/preingreso2_checkBox1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Empleado Administrativo"
+                        android:textSize="12sp" />
+
+                    <CheckBox
+                        android:id="@+id/preingreso2_checkBox2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Trabajador Oficial"
+                        android:textSize="12sp" />
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <CheckBox
+                        android:id="@+id/preingreso2_checkBox3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Profesor Vinculado"
+                        android:textSize="12sp" />
+
+                    <CheckBox
+                        android:id="@+id/preingreso2_checkBox4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Docente de cátedra"
+                        android:textSize="12sp" />
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <CheckBox
+                        android:id="@+id/preingreso2_checkBox5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Contratista de servicios"
+                        android:textSize="12sp" />
+
+                    <CheckBox
+                        android:id="@+id/preingreso2_checkBox6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Estudiante de Pregrado"
+                        android:textSize="12sp" />
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <CheckBox
+                        android:id="@+id/preingreso2_checkBox7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Estudiante de Posgrado"
+                        android:textSize="12sp" />
+
+                    <CheckBox
+                        android:id="@+id/preingreso2_checkBox8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="CIS, FUA, Externo o Egresado"
+                        android:textSize="12sp" />
+                </TableRow>
+
+            </TableLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="15dp" />
+
+            <TextView
+                android:id="@+id/preingreso2_textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#616161"
+                android:text="5. 1. Detalle vínculo con la Universidad de Antioquia (Si requiere ampliar su respuesta anterior)"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/preingreso2_vinculo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Tu respuesta"
+                android:ems="7"
+                android:textSize="14sp" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="15dp" />
+
+            <TextView
+                android:id="@+id/preingreso2_textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#616161"
+                android:text="6. Cargo *"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/preingreso2_cargo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Tu respuesta"
+                android:ems="7"
+                android:textSize="14sp" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="15dp" />
+
+            <TextView
+                android:id="@+id/preingreso2_textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#616161"
+                android:text="ARL Administradora Riesgos Laborales a la cual está afiliado"
+                android:textSize="14sp" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="5dp" />
+
+            <RadioGroup
+                android:id="@+id/preingreso2_radioGroup"
+                android:layout_width="370dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/radioButton"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Estudiante de Posgrado"
-                    android:textSize="12sp" />
+                    android:layout_weight="1"
+                    android:text="POSITIVA Compañía De Seguros" />
 
-                <CheckBox
-                    android:id="@+id/preingreso_checkBox8"
-                    android:layout_width="wrap_content"
+                <RadioButton
+                    android:id="@+id/radioButton1"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="CIS, FUA, Externo o Egresado"
-                    android:textSize="12sp" />
-            </TableRow>
+                    android:layout_weight="1"
+                    android:text="SURA ARL" />
 
-        </TableLayout>
+                <RadioButton
+                    android:id="@+id/radioButton2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="COLMENA SA Compañía De Seguros De Vida" />
 
-        <EditText
-            android:id="@+id/preingreso_txt6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="7"
-            android:hint="Detalle vínculo con la Universidad de Antioquia"
-            android:textSize="14sp" />
-        <EditText
-            android:id="@+id/preingreso_txt7"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="7"
-            android:hint="Cargo"
-            android:textSize="14sp" />
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="5dp" />
-        <TextView
-            android:id="@+id/preingreso_textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/ARL"
-            android:textSize="14sp" />
+                <RadioButton
+                    android:id="@+id/radioButton3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="COLPATRIA Seguros De Vida Colpatria SA" />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="5dp" />
+                <RadioButton
+                    android:id="@+id/radioButton4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="BOLIVAR Compañía De Seguros Bolívar SA" />
 
-        <Spinner
-            android:id="@+id/preingreso_spinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:entries="@array/ARL_array" />
-        <EditText
-            android:id="@+id/preingreso_txt8"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="7"
-            android:hint="Teléfono de contacto"
-            android:textSize="14sp" />
+                <RadioButton
+                    android:id="@+id/radioButton5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="LIBERTY Seguros De Vida" />
 
-        <Button
-            android:id="@+id/preingresobtn_siguiente2"
-            style="@style/custom_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:text="Siguiente" />
+                <RadioButton
+                    android:id="@+id/radioButton6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="MAPFRE Colombia Vida Seguros SA" />
 
+                <RadioButton
+                    android:id="@+id/radioButton7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="LA EQUIDAD Seguros De Vida Organismo Cooperativo La Equidad Vida" />
 
-    </LinearLayout>
+                <RadioButton
+                    android:id="@+id/radioButton8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="ALFA Seguros De Vida Alfa SA" />
+
+                <RadioButton
+                    android:id="@+id/radioButton9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="AURORA Compañía De Seguros De Vida Aurora" />
+
+                <RadioButton
+                    android:id="@+id/radioButton10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="NO APLICA: Estudiante que no está en práctica" />
+
+                <RadioButton
+                    android:id="@+id/radioButton11"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Otro" />
+            </RadioGroup>
+
+            <EditText
+                android:id="@+id/preingreso2_otro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="7"
+                android:textSize="14sp"/>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="15dp" />
+
+            <TextView
+                android:id="@+id/preingreso2_textView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#616161"
+                android:text="7. Teléfono de contacto *"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/preingreso2_telefono"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Tu respuesta"
+                android:ems="7"
+                android:textSize="14sp"
+                android:inputType="number" />
+
+            <Button
+                android:id="@+id/preingresobtn_siguiente2"
+                style="@style/custom_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:text="Siguiente" />
+
+        </LinearLayout>
+    </ScrollView>
 </FrameLayout>
