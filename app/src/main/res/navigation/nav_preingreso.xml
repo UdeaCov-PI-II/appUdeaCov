@@ -55,4 +55,18 @@
         android:name="co.edu.udea.udeacov.preingreso6"
         android:label="fragment_preingreso6"
         tools:layout="@layout/fragment_preingreso6" />
+    <fragment
+        android:id="@+id/solicitudIngreso1"
+        android:name="co.edu.udea.udeacov.SolicitudIngreso1"
+        android:label="fragment_solicitud_ingreso1"
+        tools:layout="@layout/fragment_solicitud_ingreso1" >
+        <action
+            android:id="@+id/action_solicitudIngreso1_to_solicitudIngreso2"
+            app:destination="@id/solicitudIngreso2" />
+    </fragment>
+    <fragment
+        android:id="@+id/solicitudIngreso2"
+        android:name="co.edu.udea.udeacov.SolicitudIngreso2"
+        android:label="fragment_solicitud_ingreso2"
+        tools:layout="@layout/fragment_solicitud_ingreso2" />
 </navigation>

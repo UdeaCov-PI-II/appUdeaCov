@@ -760,6 +760,10 @@
                     android:text="No" />
             </RadioGroup>
 
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="15dp" />
+
             <Button
                 android:id="@+id/preingresobtn_siguiente4"
                 style="@style/custom_button"

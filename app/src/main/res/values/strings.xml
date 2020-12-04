@@ -112,7 +112,106 @@ Los datos proporcionados por el usuario deben ser veraces, completos, exactos, a
         <item>Vicerrectoría de Investigación</item>
     </string-array>
 
-    <string name="InstalarApp">Recuerda instalar el aplicativo CoronApp de Colombia. Si tu o alguien de tu familia llega a tener síntomas existen líneas de atención 24 horas En Medellín y Área metropolitana: 123. En el Departamento de Antioquia: #774. A nivel Nacional las líneas telefónicas 018000955590 (Línea nacional) y 192 (desde un celular)</string>
+    <string name="InstalarApp">Recuerda instalar el aplicativo CoronApp de Colombia. Si tu o alguien de tu familia llega a tener síntomas existen líneas de atención 24 horas En Medellín y
+        Área metropolitana: 123. En el Departamento de Antioquia: #774. A nivel Nacional las líneas telefónicas 018000955590 (Línea nacional) y 192 (desde un celular)</string>
+
+    <!-- Solicitud de ingreso  -->
+    <string-array name="Unidad_académica">
+        <item>Facultad de Artes</item>
+        <item>Facultad de Ciencias Agrarias</item>
+        <item>Facultad de Ciencias Económicas</item>
+        <item>Facultad de Ciencias Exactas y Naturales</item>
+        <item>Facultad de Ciencias Farmacéuticas y Alimentarias</item>
+        <item>Facultad de Ciencias Sociales y Humanas</item>
+        <item>Facultad de Comunicaciones</item>
+        <item>Facultad de Derecho y Ciencias Políticas</item>
+        <item>Facultad de Educación</item>
+        <item>Facultad de Enfermería</item>
+        <item>Facultad de Ingeniería</item>
+        <item>Facultad de Medicina</item>
+        <item>Facultad de Odontología</item>
+        <item>Facultad de Salud Pública</item>
+        <item>Escuela de Idiomas</item>
+        <item>Escuela Interamericana de Bibliotecología</item>
+        <item>Escuela de Microbiología</item>
+        <item>Escuela de Nutrición y Dietética</item>
+        <item>Corporación Ambiental</item>
+        <item>Corporación Ciencias Básicas Biomédicas</item>
+        <item>Corporación Patologías Tropicales</item>
+        <item>Sede de Investigación Universitaria SIU</item>
+        <item>Instituto de Educación Física</item>
+        <item>Instituto de Estudios Regionales</item>
+        <item>Oficina de Auditoria Institucional</item>
+        <item>Vicerrectoría Administrativa</item>
+        <item>Vicerrectoría de Investigación</item>
+        <item>Vicerrectoría de Docencia</item>
+        <item>Vicerrectoría de Extensión</item>
+        <item>Vicerrectoría General</item>
+        <item>Dirección de Bienestar Universitario</item>
+        <item>Dirección de Comunicaciones</item>
+        <item>Dirección Jurídica</item>
+        <item>Dirección de Planeación y Desarrollo Institucional</item>
+        <item>Dirección de Posgrado</item>
+        <item>Dirección de Regionalización</item>
+        <item>Dirección de Relaciones Internacionales</item>
+        <item>Secretaría General</item>
+    </string-array>
+
+    <string-array name="Sede">
+        <item>Sede</item>
+        <item>Ciudad Universitaria</item>
+        <item>Ciudadela Robledo</item>
+        <item>Facultad de Enfermería</item>
+        <item>Facultad de Odontolología</item>
+        <item>Facultad de Medicina</item>
+        <item>Facultad Nacional de Salud Pública</item>
+        <item>SIU</item>
+        <item>Ins. Patología (Predio HUSVP)</item>
+        <item>Casa GDCOM Aldeaña Neurociencias</item>
+        <item>Laboratorios Clinico (En IPS Univ)</item>
+        <item>Neurociencias</item>
+        <item>Progr_Est_Cont_Enferm_Tropic (PECET)</item>
+        <item>Casa Serpentario</item>
+        <item>Centro de Servi. Pedagogicos/Casa Olano</item>
+        <item>Laboratorio de Arqueología</item>
+        <item>Casa Bolivar</item>
+        <item>Edificio Bedout</item>
+        <item>Ant. Escuela de Derecho</item>
+        <item>Bachillerato Nocturno</item>
+        <item>Edificio San Ignacio</item>
+        <item>CLIC - Ed. Suramericana</item>
+        <item>Edificio de Extensión</item>
+        <item>Parque del Emprendimiento</item>
+        <item>Edificio Posgrados - Guayabal</item>
+        <item>Edificio Antioquia (La Naviera)</item>
+        <item>Parque de la Vida</item>
+        <item>Clínica León XIII - Bloque 2</item>
+        <item>Centro Cultural- Fac Artes</item>
+        <item>Hda. El Progreso - Mun. Barbosa - Correg. El Hatillo</item>
+        <item>Hda.Vegas de La Clara - Mun_GomezPlata</item>
+        <item>Hda. La Montaña - Mun_San Pedro de los Milagros</item>
+        <item>Hda. La Candelaria - Mun_Caucasia</item>
+        <item>Est_Piscicola Mun. San Roque Correg_San Jose del Nus</item>
+        <item>Planta piloto de Bioetanol</item>
+        <item>Sede Oriente - Carmen de Viboral</item>
+        <item>Sede Bajo Cauca - Caucasia</item>
+        <item>Sede Urabá - Turbo</item>
+        <item>Sede Urabá - Turbo (Ciencias del Mar)</item>
+        <item>Sede Urabá - Tulenapa (Carepa)</item>
+        <item>Sede Urabá - Apartadó</item>
+        <item>Sede Oriente - Sonson</item>
+        <item>Sede Suroeste - Andes</item>
+        <item>Sede Occidente - Santa Fe de Antioquia</item>
+        <item>Sede Magdalena Medio - Pto. Berrio</item>
+        <item>Sede Nordeste - Amalfi</item>
+        <item>Sede Nordeste - Segovia</item>
+        <item>Sede Norte - Yarumal</item>
+        <item>Casa Bogotá</item>
+
+    </string-array>
+
+
+
 
 
     <!-- Primer requisito -->
