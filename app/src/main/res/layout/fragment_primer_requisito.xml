@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_margin="10dp"
+    tools:context=".fragmentos.PrimerRequisitoFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:id="@+id/txt_titulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Paso 1:"
+        android:textSize="20sp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Link de CoronApp."
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/link_enlace_coroapp"
+            android:layout_width="59dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:text="@string/enlace_coronapp"
+            android:linksClickable="true"
+            android:textAllCaps="false"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+
+    <ImageView
+        android:id="@+id/img_coronapp"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:contentDescription="logo_coroapp"
+        android:src="@drawable/logocoronapp"
+        app:srcCompat="@drawable/logocoronapp" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:text="A continuación debe anexar pantallazo donde certifique su registro en la aplicación CoronaApp"
+        android:gravity="center"/>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+
+    <Button
+        android:id="@+id/btn_prueba_paso1"
+        style="@style/botones_barra_progreso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableEnd="@drawable/ic_adjuntar_archivo_24"
+        android:text="Subir Documento"
+        android:textAllCaps="false"
+        android:layout_gravity="center|center_vertical"
+         />
+
+
+
+
+</LinearLayout>

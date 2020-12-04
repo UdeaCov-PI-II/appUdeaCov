@@ -18,33 +18,11 @@
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent">
 
-      <com.shuhart.stepview.StepView
-          android:id="@+id/step_view"
-          android:layout_weight="1"
-          android:padding="3dp"
+      <fragment
+          android:id="@+id/fragment-solicitud"
+          android:name="co.edu.udea.udeacov.fragmentos.PrimerRequisitoFragment"
           android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          style="@style/steps_custom">
-
-      </com.shuhart.stepview.StepView>
-
-      <TextView
-          android:id="@+id/step_txtView"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_weight="1"
-          android:text="Paso 1"
-          android:textColor="@android:color/black"
-          android:textSize="25sp"/>
-
-      <TextView
-          android:id="@+id/descripcion_txtView"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_weight="1"
-          android:textSize="18sp"
-          android:textColor="@android:color/black"
-          android:text="Link de CoroApp"/>
+          android:layout_height="match_parent" />
   </LinearLayout>
 
 

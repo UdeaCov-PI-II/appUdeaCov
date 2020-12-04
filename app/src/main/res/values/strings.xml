@@ -115,8 +115,13 @@ Los datos proporcionados por el usuario deben ser veraces, completos, exactos, a
     <string name="InstalarApp">Recuerda instalar el aplicativo CoronApp de Colombia. Si tu o alguien de tu familia llega a tener síntomas existen líneas de atención 24 horas En Medellín y Área metropolitana: 123. En el Departamento de Antioquia: #774. A nivel Nacional las líneas telefónicas 018000955590 (Línea nacional) y 192 (desde un celular)</string>
 
 
-    <!-- TODO: Remove or change this placeholder text -->
+    <!-- Primer requisito -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="link_de_coronapp_enlace">Link de CoronApp. </string>
+    <string name="enlace_coronapp"> <a href= "https://coronaviruscolombia.gov.co/Covid19/aislamiento-saludable/coronapp.html"> Enlace</a> </string>
+    <string name="descripcion_medellin_mecuida">A continuación debe anexar pantallazo donde certifique su registro en la aplicación de Medellín Me Cuida</string>
+    <string name="subir_documento">Subir Documento</string>
+
     <!-- TODO: Remove or change this placeholder text -->
 
 

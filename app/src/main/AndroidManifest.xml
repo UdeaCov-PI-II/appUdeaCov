@@ -9,11 +9,21 @@
         android:theme="@style/AppTheme">
         <activity android:name=".SolicitudDeUnPermiso">
             <intent-filter>
+                <!-- Actividad que se lanza como main-->
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
+
+                <!-- Habilitar conexion a internet-->
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+
+
         </activity>
-        <activity android:name=".preingreso" />
+
+        <activity android:name=".preingreso">
+
+        </activity>
         <activity android:name=".MainActivity">
 
         </activity>
