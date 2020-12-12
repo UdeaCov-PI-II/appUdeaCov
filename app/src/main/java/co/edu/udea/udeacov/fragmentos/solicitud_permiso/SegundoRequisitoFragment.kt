@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import co.edu.udea.udeacov.R
+import com.kofigyan.stateprogressbar.StateProgressBar
 import kotlinx.android.synthetic.main.fragment_segundo_requisito.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -46,6 +47,12 @@ class SegundoRequisitoFragment : Fragment() {
         btn_enviarMedellinMeCuida.setOnClickListener {
             it.findNavController().navigate(R.id.action_segundoRequisitoFragment_to_solicitudIngreso1)
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        val stateProgressBar = activity?.findViewById<StateProgressBar>(R.id.your_state_progress_bar_id)
+        stateProgressBar?.setCurrentStateNumber(StateProgressBar.StateNumber.TWO)
     }
 
     companion object {

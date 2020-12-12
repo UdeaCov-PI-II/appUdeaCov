@@ -3,13 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/background_light"
+    android:padding="10dp"
+    android:layout_margin="10dp"
     tools:context=".fragmentos.solicitud_permiso.SolicitudIngreso2">
-
-    <!-- TODO: Update blank fragment layout -->
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp">
 
         <LinearLayout
             android:id="@+id/SolicitudIngreso2"
@@ -74,8 +77,10 @@
 
             <RadioGroup
                 android:id="@+id/SolicitudIngreso2_radioGroup1"
-                android:layout_width="370dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
                 android:orientation="vertical">
 
                 <RadioButton
@@ -188,6 +193,8 @@
                 android:id="@+id/SolicitudIngreso2_spinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
                 android:entries="@array/Sede" />
 
             <Space
@@ -384,8 +391,10 @@
 
             <RadioGroup
                 android:id="@+id/SolicitudIngreso2_radioGroup2"
-                android:layout_width="370dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
                 android:orientation="vertical">
 
                 <RadioButton
@@ -433,7 +442,8 @@
                 style="@style/custom_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
+                android:layout_gravity="start|bottom"
+                android:layout_marginBottom="20dp"
                 android:text="Enviar formulario" />
 
 

@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SolicitudDeUnPermiso"
-    android:padding="10dp">
+    tools:context=".SolicitudDeUnPermiso">
 
 
 
@@ -18,12 +17,25 @@
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent">
 
+      <com.kofigyan.stateprogressbar.StateProgressBar
+          android:id="@+id/your_state_progress_bar_id"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          app:spb_currentStateNumber="one"
+          app:spb_currentStateDescriptionColor="@color/colorPrimary"
+          app:spb_stateForegroundColor="@color/colorPrimary"
+          app:spb_stateDescriptionColor="@android:color/darker_gray"
+          app:spb_stateBackgroundColor="@android:color/darker_gray"
+          app:spb_stateDescriptionSize="16sp"
+          app:spb_checkStateCompleted="true"
+          app:spb_maxStateNumber="four"/>
+
       <fragment
           android:id="@+id/fragment_solicitud"
           android:name="androidx.navigation.fragment.NavHostFragment"
           android:layout_width="match_parent"
           android:layout_height="match_parent"
-          app:defaultNavHost="false"
+          app:defaultNavHost="true"
           app:navGraph="@navigation/nav_solicitud_ingreso"/>
   </LinearLayout>
 

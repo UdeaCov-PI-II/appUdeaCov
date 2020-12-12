@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.RadioButton
 import android.widget.RadioGroup
+import androidx.core.app.SharedElementCallback
 import co.edu.udea.udeacov.R
+import com.kofigyan.stateprogressbar.StateProgressBar
 import kotlinx.android.synthetic.main.fragment_solicitud_ingreso2.*
 
 class SolicitudIngreso2 : Fragment() {

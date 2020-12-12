@@ -1,15 +1,15 @@
 package co.edu.udea.udeacov.fragmentos.solicitud_permiso
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import androidx.navigation.Navigation
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import co.edu.udea.udeacov.R
+import com.kofigyan.stateprogressbar.StateProgressBar
 import kotlinx.android.synthetic.main.fragment_primer_requisito.*
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -54,9 +54,9 @@ class PrimerRequisitoFragment : Fragment() {
     }
 
 
-
-
-
-
-
+    override fun onStart() {
+        super.onStart()
+        val stateProgressBar = activity?.findViewById<StateProgressBar>(R.id.your_state_progress_bar_id)
+        stateProgressBar?.setCurrentStateNumber(StateProgressBar.StateNumber.ONE)
+    }
 }
