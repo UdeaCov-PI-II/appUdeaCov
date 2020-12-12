@@ -1,4 +1,4 @@
-package co.edu.udea.udeacov.fragmentos
+package co.edu.udea.udeacov.fragmentos.preingreso
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -14,10 +14,10 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [SegundoRequisitoFragment.newInstance] factory method to
+ * Use the [preingreso6.newInstance] factory method to
  * create an instance of this fragment.
  */
-class SegundoRequisitoFragment : Fragment() {
+class preingreso6 : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -35,7 +35,7 @@ class SegundoRequisitoFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_segundo_requisito, container, false)
+        return inflater.inflate(R.layout.fragment_preingreso6, container, false)
     }
 
     companion object {
@@ -45,12 +45,12 @@ class SegundoRequisitoFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment SegundoRequisitoFragment.
+         * @return A new instance of fragment preingreso6.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            SegundoRequisitoFragment().apply {
+            preingreso6().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)

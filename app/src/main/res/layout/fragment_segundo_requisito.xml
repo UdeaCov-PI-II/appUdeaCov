@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".fragmentos.SegundoRequisitoFragment"
+    tools:context=".fragmentos.solicitud_permiso.SegundoRequisitoFragment"
     android:layout_margin="10dp">
 
     <TextView
@@ -56,7 +56,7 @@
         android:layout_height="30dp" />
 
     <Button
-        android:id="@+id/btn_prueba_paso2"
+        android:id="@+id/btn_enviarMedellinMeCuida"
         style="@style/botones_barra_progreso"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

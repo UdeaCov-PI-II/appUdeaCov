@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_solicitud_ingreso"
+    app:startDestination="@id/primerRequisitoFragment">
+
+    <fragment
+        android:id="@+id/primerRequisitoFragment"
+        android:name="co.edu.udea.udeacov.fragmentos.solicitud_permiso.PrimerRequisitoFragment"
+        android:label="fragment_primer_requisito"
+        tools:layout="@layout/fragment_primer_requisito" >
+        <action
+            android:id="@+id/action_primerRequisitoFragment_to_segundoRequisitoFragment"
+            app:destination="@id/segundoRequisitoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/segundoRequisitoFragment"
+        android:name="co.edu.udea.udeacov.fragmentos.solicitud_permiso.SegundoRequisitoFragment"
+        android:label="fragment_segundo_requisito"
+        tools:layout="@layout/fragment_segundo_requisito" >
+        <action
+            android:id="@+id/action_segundoRequisitoFragment_to_solicitudIngreso1"
+            app:destination="@id/solicitudIngreso1" />
+    </fragment>
+    <fragment
+        android:id="@+id/solicitudIngreso1"
+        android:name="co.edu.udea.udeacov.fragmentos.solicitud_permiso.SolicitudIngreso1"
+        android:label="fragment_solicitud_ingreso1"
+        tools:layout="@layout/fragment_solicitud_ingreso1" >
+        <action
+            android:id="@+id/action_solicitudIngreso1_to_solicitudIngreso2"
+            app:destination="@id/solicitudIngreso2" />
+    </fragment>
+    <fragment
+        android:id="@+id/solicitudIngreso2"
+        android:name="co.edu.udea.udeacov.fragmentos.solicitud_permiso.SolicitudIngreso2"
+        android:label="fragment_solicitud_ingreso2"
+        tools:layout="@layout/fragment_solicitud_ingreso2" />
+</navigation>

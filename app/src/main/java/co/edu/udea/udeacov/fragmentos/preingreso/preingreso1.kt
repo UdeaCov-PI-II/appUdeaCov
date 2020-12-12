@@ -1,7 +1,7 @@
-package co.edu.udea.udeacov
+package co.edu.udea.udeacov.fragmentos.preingreso
+
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,9 +9,12 @@ import android.widget.EditText
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import co.edu.udea.udeacov.R
 import kotlinx.android.synthetic.main.fragment_preingreso1.*
-import kotlinx.android.synthetic.main.fragment_preingreso2.*
+import kotlinx.android.synthetic.main.fragment_preingreso1.view.*
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -20,17 +23,20 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [preingreso2.newInstance] factory method to
+ * Use the [preingreso1.newInstance] factory method to
  * create an instance of this fragment.
  */
-class preingreso2 : Fragment() {
+class preingreso1 : Fragment() {
+
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
     var bandera: Boolean? = null
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
@@ -38,21 +44,31 @@ class preingreso2 : Fragment() {
     }
 
     private fun validate() :Boolean{
-        if(preingreso2_correoN.text.toString().isEmpty()){
-            preingreso2_correoN.error = "campo vacío"
+        val radioGroup1 = preingreso1_radioGroup.checkedRadioButtonId
+
+        if(preingreso1_username.text.toString().isEmpty()){
+            preingreso1_username.error = "campo vacío"
             return false
-        }else if(preingreso2_checkBox1.isChecked == false && preingreso2_checkBox2.isChecked == false && preingreso2_checkBox3.isChecked == false && preingreso2_checkBox4.isChecked == false &&
-            preingreso2_checkBox5.isChecked == false && preingreso2_checkBox6.isChecked == false && preingreso2_checkBox7.isChecked == false && preingreso2_checkBox8.isChecked == false){
-            Toast.makeText(activity, "Ingresar vínculo con la universidad", Toast.LENGTH_SHORT).show();
+        }else if(preingreso1_password.text.toString().isEmpty()){
+            preingreso1_password.error = "campo vacío"
             return false
-        }else if(preingreso2_cargo.text.toString().isEmpty()){
-            preingreso2_cargo.error = "campo vacío"
+        }else if(preingreso1_correo.text.toString().isEmpty()){
+            preingreso1_correo.error = "campo vacío"
             return false
-        }else if(bandera==true && preingreso2_otro.text.toString().isEmpty()){
-            preingreso2_otro.error = "campo vacío"
+        }else if(radioGroup1 == -1){
+            Toast.makeText(activity, "Ingresar el tipo de documento", Toast.LENGTH_SHORT).show();
             return false
-        }else if(preingreso2_telefono.text.toString().isEmpty()){
-            preingreso2_telefono.error = "campo vacío"
+        }else if(bandera==true && preingreso1_otro.text.toString().isEmpty()){
+            preingreso1_otro.error = "campo vacío"
+            return false
+        }else if(preingreso1_doc.text.toString().isEmpty()){
+            preingreso1_doc.error = "campo vacío"
+            return false
+        }else if(preingreso1_nombre.text.toString().isEmpty()){
+            preingreso1_nombre.error = "campo vacío"
+            return false
+        }else if(preingreso1_autorizo.isChecked == false){
+            preingreso1_autorizo.error = "Es importante tu información para que la Institución pueda dar cumplimiento a la Resolución 0666 del 24 de abril de 2010 expedida por el Ministerio de Salud y poder orientar acciones preventivas frente al COVID-19."
             return false
         }
         return true
@@ -63,22 +79,22 @@ class preingreso2 : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_preingreso2, container, false)
+        return inflater.inflate(R.layout.fragment_preingreso1, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        var rg = view.findViewById<RadioGroup>(R.id.preingreso2_radioGroup)
+        
+        var rg = view.findViewById<RadioGroup>(R.id.preingreso1_radioGroup)
         var option = ""
         rg.setOnCheckedChangeListener { _, i ->
             if(i != -1){
-                var aux = preingreso2_radioGroup.checkedRadioButtonId
-                var radioButton: View = preingreso2_radioGroup.findViewById(aux)
-                var indice: Int = preingreso2_radioGroup.indexOfChild(radioButton)
-                var respuesta: RadioButton = preingreso2_radioGroup.getChildAt(indice) as RadioButton
+                var aux = preingreso1_radioGroup.checkedRadioButtonId
+                var radioButton: View = preingreso1_radioGroup.findViewById(aux)
+                var indice: Int = preingreso1_radioGroup.indexOfChild(radioButton)
+                var respuesta: RadioButton = preingreso1_radioGroup.getChildAt(indice) as RadioButton
                 option = respuesta.text.toString()
-                var editText1 = view.findViewById<EditText>(R.id.preingreso2_otro)
+                var editText1 = view.findViewById<EditText>(R.id.preingreso1_otro)
                 if(option == "Otro"){
                     bandera = true
                     editText1.visibility = View.VISIBLE
@@ -89,15 +105,13 @@ class preingreso2 : Fragment() {
             }
         }
 
-        preingresobtn_siguiente2.setOnClickListener{
+        preingresobtn_siguiente1.setOnClickListener{
             if(validate()){
                 Toast.makeText(activity, "Campos diligenciados", Toast.LENGTH_SHORT).show();
-                it.findNavController().navigate(R.id.action_preingreso2_to_preingreso3)
+                it.findNavController().navigate(R.id.action_preingreso1_to_preingreso2)
             }
         }
-
     }
-
     companion object {
         /**
          * Use this factory method to create a new instance of
@@ -105,12 +119,12 @@ class preingreso2 : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment preingreso2.
+         * @return A new instance of fragment preingreso1.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            preingreso2().apply {
+            preingreso1().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)

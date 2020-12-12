@@ -26,8 +26,8 @@ class SolicitudDeUnPermiso : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_solicitud_de_un_permiso)
 
-        link_coronapp = findViewById(R.id.link_enlace_coroapp)
-        link_coronapp.movementMethod = LinkMovementMethod.getInstance()
+       // link_coronapp = findViewById(R.id.link_enlace_coroapp)
+        // link_coronapp.movementMethod = LinkMovementMethod.getInstance()
 
     }
 

@@ -19,11 +19,14 @@
       app:layout_constraintTop_toTopOf="parent">
 
       <fragment
-          android:id="@+id/fragment-solicitud"
-          android:name="co.edu.udea.udeacov.fragmentos.PrimerRequisitoFragment"
+          android:id="@+id/fragment_solicitud"
+          android:name="androidx.navigation.fragment.NavHostFragment"
           android:layout_width="match_parent"
-          android:layout_height="match_parent" />
+          android:layout_height="match_parent"
+          app:defaultNavHost="false"
+          app:navGraph="@navigation/nav_solicitud_ingreso"/>
   </LinearLayout>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

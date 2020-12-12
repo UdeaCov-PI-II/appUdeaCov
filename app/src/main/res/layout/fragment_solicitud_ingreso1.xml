@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SolicitudIngreso1">
+    tools:context=".fragmentos.solicitud_permiso.SolicitudIngreso1">
 
     <!-- TODO: Update blank fragment layout -->
     <ScrollView
