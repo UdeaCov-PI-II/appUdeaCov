@@ -11,8 +11,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        btn_ingresar.setOnClickListener {
+            val intent= Intent(this, SolicitudDeUnPermiso::class.java)
+            startActivity(intent)
+        }
+
         btn_registrarse.setOnClickListener {
-            val intent: Intent = Intent(this, preingreso::class.java)
+            val intent= Intent(this, preingreso::class.java)
             startActivity(intent)
         }
     }

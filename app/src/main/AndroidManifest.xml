@@ -16,7 +16,7 @@
         <activity android:name=".preingreso">
         </activity>
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity" android:theme="@style/Theme.MaterialComponents.Light.NoActionBar.Bridge">
             <intent-filter>
                 <!-- Actividad que se lanza como main-->
                 <action android:name="android.intent.action.MAIN" />
