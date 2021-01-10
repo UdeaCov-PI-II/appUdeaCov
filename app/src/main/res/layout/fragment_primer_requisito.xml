@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_margin="5dp"
-    android:padding="10dp"
-    android:background="@android:color/background_light"
+    style="@style/style_solicitud_ingreso"
     tools:context=".fragmentos.solicitud_permiso.PrimerRequisitoFragment">
 
     <LinearLayout
@@ -44,8 +43,7 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:contentDescription="logo_coroapp"
-        android:src="@drawable/logocoronapp"
-        app:srcCompat="@drawable/logocoronapp" />
+        android:src="@drawable/logocoronapp" />
 
     <Space
         android:layout_width="match_parent"
@@ -71,8 +69,5 @@
         android:textAllCaps="false"
         android:layout_gravity="center|center_vertical"
          />
-
-
-
 
 </LinearLayout>

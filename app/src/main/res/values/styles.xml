@@ -25,14 +25,17 @@
         <item name="android:textColor">#E0E0E0</item>
     </style>
 
-
-
     <style name="botones_barra_progreso">
         <item name="android:background">@color/colorAccent</item>
         <item name="android:textColor">#FFFFFF</item>
         <item name="android:paddingStart">10dp</item>
         <item name="android:paddingEnd">10dp</item>
         <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="style_solicitud_ingreso">
+        <item name="android:padding">5dp</item>
+        <item name="android:layout_margin">5dp</item>
     </style>
 
 </resources>

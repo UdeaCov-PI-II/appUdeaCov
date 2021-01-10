@@ -9,6 +9,7 @@ import android.widget.EditText
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import androidx.core.app.SharedElementCallback
+import androidx.navigation.findNavController
 import co.edu.udea.udeacov.R
 import com.kofigyan.stateprogressbar.StateProgressBar
 import kotlinx.android.synthetic.main.fragment_solicitud_ingreso2.*
@@ -55,7 +56,17 @@ class SolicitudIngreso2 : Fragment() {
             }
         }
 
+        SolicitudIngreso2_siguiente2.setOnClickListener {
+            it.findNavController().navigate(R.id.action_solicitudIngreso2_to_declaracion_de_responsabilidad)
+        }
 
+
+    }
+
+    override fun onStart() {
+        super.onStart()
+        val stateProgressBar = activity?.findViewById<StateProgressBar>(R.id.your_state_progress_bar_id)
+        stateProgressBar?.setCurrentStateNumber(StateProgressBar.StateNumber.FOUR)
     }
 
 
