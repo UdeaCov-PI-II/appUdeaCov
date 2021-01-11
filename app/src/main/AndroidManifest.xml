@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="co.edu.udea.udeacov">
-    <uses-permission android:name="android.permission.INTERNET"/>
 
     <!--  Permisos para descargar un archivo y acceder a internet -->
     <uses-permission android:name="android.permission.INTERNET" />

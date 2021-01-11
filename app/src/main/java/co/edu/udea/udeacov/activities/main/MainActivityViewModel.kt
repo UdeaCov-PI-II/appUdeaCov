@@ -3,7 +3,8 @@ package co.edu.udea.udeacov.activities.main
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import co.edu.udea.udeacov.network.error.ErrorHandler
+import co.edu.udea.udeacov.network.error.ApiErrorHandler
+import co.edu.udea.udeacov.network.error.ErrorConstants
 import co.edu.udea.udeacov.network.request.AuthRequestDto
 import co.edu.udea.udeacov.network.response.AuthResponseDto
 import co.edu.udea.udeacov.network.udeaCovApiService
@@ -32,7 +33,7 @@ class MainActivityViewModel : ViewModel() {
                 val authRequest = AuthRequestDto(username, password)
                 _authResponse.value = udeaCovApiService.authService.authenticate(true,authRequest).await()
             }catch (e : Exception) {
-                _responseError.value = ErrorHandler.getErrorMessage(e, "No funcina el auth")
+                _responseError.value = ApiErrorHandler.getErrorMessage(e, ErrorConstants.DEFAULT_ERROR_MESSAGE_AUTH)
             }
         }
     }

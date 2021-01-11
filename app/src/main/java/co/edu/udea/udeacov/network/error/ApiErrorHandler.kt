@@ -6,7 +6,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.HttpException
 
-class ErrorHandler{
+class ApiErrorHandler{
     companion object{
         suspend fun getErrorMessage(e : Exception, defaultErrorMessage : String) : String {
             var responseError : ResponseErrorDto? = null
