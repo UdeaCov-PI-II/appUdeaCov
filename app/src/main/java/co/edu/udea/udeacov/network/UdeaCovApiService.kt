@@ -13,7 +13,7 @@ import retrofit2.http.POST
 import retrofit2.http.Query
 
 
-private const val BASE_URL = "http://192.168.1.1:8080/"
+private const val BASE_URL = "https://rocky-forest-36799.herokuapp.com/"
 
 private val moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
 

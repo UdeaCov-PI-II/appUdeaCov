@@ -43,7 +43,7 @@
     </fragment>
     <fragment
         android:id="@+id/declaracion_de_responsabilidad"
-        android:name="co.edu.udea.udeacov.fragmentos.solicitud_permiso.declaracion_de_responsabilidad"
+        android:name="co.edu.udea.udeacov.fragmentos.solicitud_permiso.DeclaracionResponsabilidadFragment"
         android:label="fragment_declaracion_de_responsabilidad"
         tools:layout="@layout/fragment_declaracion_de_responsabilidad" />
 </navigation>

@@ -1,60 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    style="@style/style_solicitud_ingreso"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragmentos.solicitud_permiso.declaracion_de_responsabilidad">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageView
-        android:id="@+id/img_udeaBiosegura"
+    <RelativeLayout
+        style="@style/style_solicitud_ingreso"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:src="@drawable/udea_biosegura" />
+        android:layout_height="match_parent"
+        tools:context=".fragmentos.solicitud_permiso.DeclaracionResponsabilidadFragment">
 
-    <TextView
-        android:id="@+id/txt_instructivo_titulo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/img_udeaBiosegura"
-        android:text="INSTRUCTIVO PARA LAS ACCIONES Y BIOSEGURIDAD ALREDEDOR DEL INGRESO, PERMANENCIA Y SALIDA DE PERSONAS A SEDES DE LA UNIVERSIDAD DE ANTIOQUIA DURANTE LA EMERGENCIA SANITARIA COVID-19" />
+        <ImageView
+            android:id="@+id/img_udeaBiosegura"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/udea_biosegura" />
 
-    <Space
-        android:id="@+id/space"
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:layout_below="@+id/txt_instructivo_titulo" />
+        <TextView
+            android:id="@+id/txt_instructivo_titulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/img_udeaBiosegura"
+            android:text="INSTRUCTIVO PARA LAS ACCIONES Y BIOSEGURIDAD ALREDEDOR DEL INGRESO, PERMANENCIA Y SALIDA DE PERSONAS A SEDES DE LA UNIVERSIDAD DE ANTIOQUIA DURANTE LA EMERGENCIA SANITARIA COVID-19" />
+
+        <Space
+            android:id="@+id/space"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_below="@+id/txt_instructivo_titulo" />
 
 
-    <Button
-        android:id="@+id/btn_descargar"
-        style="@style/botones_barra_progreso"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/space"
-        android:layout_centerInParent="true"
-        android:drawableStart="@drawable/ic_download"
-        android:text=" Descargar aquí" />
+        <Button
+            android:id="@+id/btn_descargar"
+            style="@style/botones_barra_progreso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/space"
+            android:layout_centerInParent="true"
+            android:drawableStart="@drawable/ic_download"
+            android:text=" Descargar aquí" />
 
-    <TextView
-        android:id="@+id/txt_instrucciones"
-        android:layout_width="234dp"
-        android:layout_height="55dp"
-        android:layout_below="@+id/btn_descargar"
-        android:layout_marginTop="19dp"
-        android:layout_marginEnd="18dp"
-        android:text="Por favor leer el anterior instructivo y diligenciar la siguiente Declaración de Responsabilidad" />
+        <TextView
+            android:id="@+id/txt_instrucciones"
+            android:layout_width="234dp"
+            android:layout_height="55dp"
+            android:layout_below="@+id/btn_descargar"
+            android:layout_marginTop="19dp"
+            android:layout_marginEnd="18dp"
+            android:text="Por favor leer el anterior instructivo y diligenciar la siguiente Declaración de Responsabilidad" />
 
-    <Button
-        android:id="@+id/btn_ver_declaracion_de_compromiso"
-        style="@style/botones_barra_progreso"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/btn_descargar"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="23dp"
-        android:layout_marginEnd="41dp"
-        android:drawableStart="@drawable/ic_declaracion"
-        android:text="ver" />
+        <Button
+            android:id="@+id/btn_ver_declaracion_de_compromiso"
+            style="@style/botones_barra_progreso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btn_descargar"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="23dp"
+            android:layout_marginEnd="41dp"
+            android:drawableStart="@drawable/ic_declaracion"
+            android:text="ver" />
 
-</RelativeLayout>
+    </RelativeLayout>
+</layout>

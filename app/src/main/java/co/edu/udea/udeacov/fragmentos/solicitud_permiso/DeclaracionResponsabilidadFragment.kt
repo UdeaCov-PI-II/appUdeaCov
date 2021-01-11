@@ -16,14 +16,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.Toast
 import androidx.core.content.ContextCompat
-import androidx.core.content.ContextCompat.getSystemService
-import androidx.navigation.findNavController
+import androidx.databinding.DataBindingUtil
 import co.edu.udea.udeacov.R
-import kotlinx.android.synthetic.main.fragment_declaracion_de_responsabilidad.*
-import kotlinx.android.synthetic.main.fragment_solicitud_ingreso1.*
+import co.edu.udea.udeacov.databinding.FragmentDeclaracionDeResponsabilidadBinding
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -33,12 +30,12 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [declaracion_de_responsabilidad.newInstance] factory method to
+ * Use the [DeclaracionResponsabilidadFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class declaracion_de_responsabilidad : Fragment() {
+class DeclaracionResponsabilidadFragment : Fragment() {
     private val STORAGE_PERMISSION_CODE: Int = 1000
-
+    private lateinit var binding : FragmentDeclaracionDeResponsabilidadBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -50,14 +47,13 @@ class declaracion_de_responsabilidad : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_declaracion_de_responsabilidad, container, false)
+        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_declaracion_de_responsabilidad, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val btnVerDeclaracion : Button = requireActivity().findViewById(R.id.btn_ver_declaracion_de_compromiso)
-        btnVerDeclaracion.setOnClickListener {
+        binding.btnVerDeclaracionDeCompromiso.setOnClickListener {
             //mostrar el Dialog
             val mAlertDialog = AlertDialog.Builder(this.view?.context)
                 .setView(R.layout.layout_declaracion_compromiso)
@@ -70,8 +66,7 @@ class declaracion_de_responsabilidad : Fragment() {
             // Create the AlertDialog object and return it
             mAlertDialog.show()
         }
-        val btnDescargar : Button = requireActivity().findViewById(R.id.btn_descargar)
-        btnDescargar.setOnClickListener {
+        binding.btnDescargar.setOnClickListener {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 if (ContextCompat.checkSelfPermission(this.requireContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE)==
                     PackageManager.PERMISSION_DENIED) {
