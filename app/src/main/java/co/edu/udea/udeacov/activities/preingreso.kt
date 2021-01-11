@@ -1,10 +1,8 @@
-package co.edu.udea.udeacov
+package co.edu.udea.udeacov.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.Toast
-import kotlinx.android.synthetic.main.fragment_preingreso1.*
+import co.edu.udea.udeacov.R
 
 class preingreso : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

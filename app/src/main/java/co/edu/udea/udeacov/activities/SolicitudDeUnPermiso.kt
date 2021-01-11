@@ -1,8 +1,9 @@
-package co.edu.udea.udeacov
+package co.edu.udea.udeacov.activities
 
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import co.edu.udea.udeacov.R
 import com.kofigyan.stateprogressbar.StateProgressBar
 
 
