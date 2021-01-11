@@ -28,7 +28,7 @@
           app:spb_stateBackgroundColor="@android:color/darker_gray"
           app:spb_stateDescriptionSize="16sp"
           app:spb_checkStateCompleted="true"
-          app:spb_maxStateNumber="four"/>
+          app:spb_maxStateNumber="five"/>
 
       <fragment
           android:id="@+id/fragment_solicitud"

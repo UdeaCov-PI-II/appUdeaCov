@@ -211,13 +211,10 @@ Los datos proporcionados por el usuario deben ser veraces, completos, exactos, a
     </string-array>
 
 
-
-
-
     <!-- Primer requisito -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="link_de_coronapp_enlace">Link de CoronApp. </string>
-    <string name="enlace_coronapp"> <a href= "https://coronaviruscolombia.gov.co/Covid19/aislamiento-saludable/coronapp.html"> Enlace</a> </string>
+    <string name="enlace_coronapp"> <a href="https://coronaviruscolombia.gov.co/Covid19/aislamiento-saludable/coronapp.html"> Enlace</a> </string>
     <string name="descripcion_medellin_mecuida">A continuación debe anexar pantallazo donde certifique su registro en la aplicación de Medellín Me Cuida</string>
     <string name="subir_documento">Subir Documento</string>
 

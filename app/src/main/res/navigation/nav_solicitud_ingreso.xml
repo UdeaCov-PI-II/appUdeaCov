@@ -36,5 +36,14 @@
         android:id="@+id/solicitudIngreso2"
         android:name="co.edu.udea.udeacov.fragmentos.solicitud_permiso.SolicitudIngreso2"
         android:label="fragment_solicitud_ingreso2"
-        tools:layout="@layout/fragment_solicitud_ingreso2" />
+        tools:layout="@layout/fragment_solicitud_ingreso2" >
+        <action
+            android:id="@+id/action_solicitudIngreso2_to_declaracion_de_responsabilidad"
+            app:destination="@id/declaracion_de_responsabilidad" />
+    </fragment>
+    <fragment
+        android:id="@+id/declaracion_de_responsabilidad"
+        android:name="co.edu.udea.udeacov.fragmentos.solicitud_permiso.declaracion_de_responsabilidad"
+        android:label="fragment_declaracion_de_responsabilidad"
+        tools:layout="@layout/fragment_declaracion_de_responsabilidad" />
 </navigation>
