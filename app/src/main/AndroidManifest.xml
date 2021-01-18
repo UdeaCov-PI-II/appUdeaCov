@@ -11,17 +11,18 @@
         android:allowBackup="true"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
 
-        <activity android:name=".SolicitudDeUnPermiso">
+        <activity android:name=".activities.SolicitudDeUnPermiso">
 
 
         </activity>
 
-        <activity android:name=".preingreso">
+        <activity android:name=".activities.preingreso">
         </activity>
 
-        <activity android:name=".MainActivity" android:theme="@style/Theme.MaterialComponents.Light.NoActionBar.Bridge">
+        <activity android:name=".activities.main.MainActivity" android:theme="@style/Theme.MaterialComponents.Light.NoActionBar.Bridge">
             <intent-filter>
                 <!-- Actividad que se lanza como main-->
                 <action android:name="android.intent.action.MAIN" />

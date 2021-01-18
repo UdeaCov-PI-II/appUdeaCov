@@ -1,129 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-
-    <LinearLayout
-        android:id="@+id/login_view"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="16dp"
-        android:gravity="center|top"
-        android:orientation="vertical">
+        tools:context=".activities.main.MainActivity">
+
 
         <LinearLayout
-            android:id="@+id/titulo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/login_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"
+            android:gravity="center|top"
+            android:orientation="vertical">
 
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/text_udeacov"
+            <LinearLayout
+                android:id="@+id/titulo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:gravity="center"
-                android:text="@string/app_title"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="36sp" />
+
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/text_udeacov"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:text="@string/app_title"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="36sp" />
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="80dp"
+                    android:layout_height="88dp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/logocovid" />
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="30dp" />
 
             <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="80dp"
-                android:layout_height="88dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/logocovid" />
-        </LinearLayout>
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="186dp"
+                android:contentDescription="@string/app_title"
+                app:srcCompat="@drawable/logo_verde_udea" />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="30dp" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="30dp" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="match_parent"
-            android:layout_height="186dp"
-            android:contentDescription="@string/app_title"
-            app:srcCompat="@drawable/logo_verde_udea" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="30dp" />
-
-        <EditText
-            android:id="@+id/emailEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:gravity="center"
-            android:hint="Ingrese su usuario"
-            android:importantForAutofill="no"
-            android:inputType="textEmailAddress" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="20dp" />
-
-        <EditText
-            android:id="@+id/passwordEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:gravity="center"
-            android:hint="Ingrese su contraseña"
-            android:importantForAutofill="no"
-            android:inputType="textPassword" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="30dp" />
-
-        <Button
-            android:id="@+id/btn_ingresar"
-            style="@style/custom_button"
-            android:layout_width="99dp"
-            android:layout_height="33dp"
-            android:text="INGRESAR" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:layout_marginTop="80dp"
-
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView2"
+            <EditText
+                android:id="@+id/emailEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/no_tienes_cuenta"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="13sp" />
+                android:ems="10"
+                android:gravity="center"
+                android:hint="Ingrese su usuario"
+                android:importantForAutofill="no"
+                android:inputType="textEmailAddress" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+
+            <EditText
+                android:id="@+id/passwordEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="center"
+                android:hint="Ingrese su contraseña"
+                android:importantForAutofill="no"
+                android:inputType="textPassword" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="30dp" />
 
             <Button
-                android:id="@+id/btn_registrarse"
-                style="?android:attr/borderlessButtonStyle"
-                android:layout_width="match_parent"
+                android:id="@+id/btn_ingresar"
+                style="@style/custom_button"
+                android:layout_width="99dp"
+                android:layout_height="33dp"
+                android:text="INGRESAR" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/registrarse"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="14sp"
-                android:textStyle="bold" />
+
+                android:layout_marginTop="60dp"
+
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/no_tienes_cuenta"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="13sp" />
+
+                <Button
+                    android:id="@+id/btn_registrarse"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/registrarse"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
 
         </LinearLayout>
-
-
-
-    </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
