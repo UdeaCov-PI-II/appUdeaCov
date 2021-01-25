@@ -6,19 +6,7 @@
     <string name="no_tienes_cuenta">¿No tienes cuenta?</string>
     <string name="registrarse"><u>Registrarse</u></string>
 
-    <!-- formulario de preingreso -->
-    <string name="text_preingreso">Encuesta-Preingreso de condiciones de salud y convivencia COVID-19.</string>
-    <string name="documento">1. Tipo de documento</string>
-    <string name="textView">Autorización de tratamiento de datos</string>
-    <string name="textView1">Toda la información se recoge con fines estrictamente de interés público ante la situación decretada por las Autoridades Públicas, para proteger y salvaguardar un interés esencial para la vida de las personas, en consecuencia, autorizo a la Universidad de Antioquia y a mi empleador / contratante, para el manejo de la información aportada en esta autoevaluación de condiciones de salud con el propósito de desarrollar acciones de promoción y prevención frente al riesgo de contagio acorde con lo normado por el Ministerio de Salud y las demás autoridades competentes.
 
-De conformidad con lo establecido en la Ley 1581 de 2012 de protección de datos personales, se podrá suministrar información a las entidades públicas o administrativas que en el ejercicio de sus funciones legales así lo requieran, o a las personas establecidas en el artículo 13 de la ley.
-
-Los datos proporcionados por el usuario deben ser veraces, completos, exactos, actualizados, comprobables y comprensibles y en consecuencia el usuario asume toda la responsabilidad sobre la falta de veracidad o exactitud de éstos. </string>
-    <string name="correo_notificaciones"> Correo para notificaciones de resultados de su evaluación</string>
-    <string name="vinculo_universidad">5. Vínculo con la Universidad de Antioquia (si tienes varios vínculos puede elegir varios) *</string>
-
-    <string name="ARL"> ARL Administradora Riesgos Laborales a la cual está afiliado</string>
     <string name="SedesEdificio">8. Ubicación de las Sedes /Edificio donde realizas tu actividad y permaneces con mayor frecuencia *</string>
     <string-array name="sedes">
         <item>Bodega 2, Transporte Sierra</item>
@@ -218,7 +206,69 @@ Los datos proporcionados por el usuario deben ser veraces, completos, exactos, a
     <string name="descripcion_medellin_mecuida">A continuación debe anexar pantallazo donde certifique su registro en la aplicación de Medellín Me Cuida</string>
     <string name="subir_documento">Subir Documento</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
+
+    <!-- formulario de preingreso 1 -->
+    <string name="text_preingreso">Encuesta-Preingreso de condiciones de salud y convivencia COVID-19.</string>
+    <string name="ingresa_tu_nombre_de_usuario">Ingresa tu nombre de usuario</string>
+    <string name="tu_respuesta">Tu respuesta</string>
+    <string name="ingresa_tu_contrase_a">Ingresa tu contraseña</string>
+    <string name="direccion_de_correo">Dirección de correo electrónico</string>
+    <string name="tu_direccion_de_correo_electronico">Tu dirección de correo electrónico</string>
+    <string name="documento">1. Tipo de documento</string>
+    <string name="tu_respuesta_numeroDocumento">Tu respuesta</string>
+    <string name="cedula_de_ciudadania">Cédula de ciudadanía</string>
+    <string name="cedula_de_extranjeria">Cédula de extranjería</string>
+    <string name="tarjeta_de_identidad">Tarjeta de Identidad</string>
+    <string name="pasaporte">Pasaporte</string>
+    <string name="otro">Otro</string>
+    <string name="numero_de_documento">2. Número de documento</string>
+    <string name="_3_nombres_y_apellidos_completos">3. Nombres y Apellidos Completos</string>
+    <string name="tu_respuesta_nombre_completo">Tu respuesta</string>
+    <string name="titulo_tratamiento_datos">Autorización de tratamiento de datos</string>
+    <string name="txt_autorizacion">Toda la información se recoge con fines estrictamente de interés público ante la situación decretada por las Autoridades Públicas, para proteger y salvaguardar un interés esencial para la vida de las personas, en consecuencia, autorizo a la Universidad de Antioquia y a mi empleador / contratante, para el manejo de la información aportada en esta autoevaluación de condiciones de salud con el propósito de desarrollar acciones de promoción y prevención frente al riesgo de contagio acorde con lo normado por el Ministerio de Salud y las demás autoridades competentes.
+
+De conformidad con lo establecido en la Ley 1581 de 2012 de protección de datos personales, se podrá suministrar información a las entidades públicas o administrativas que en el ejercicio de sus funciones legales así lo requieran, o a las personas establecidas en el artículo 13 de la ley.
+
+Los datos proporcionados por el usuario deben ser veraces, completos, exactos, actualizados, comprobables y comprensibles y en consecuencia el usuario asume toda la responsabilidad sobre la falta de veracidad o exactitud de éstos. </string>
+    <string name="autorizo_checklist">Autorizo</string>
+    <string name="siguiente_btn">Siguiente</string>
+
+    <string name="correo_notificaciones"> Correo para notificaciones de resultados de su evaluación</string>
+
+    <!-- formulario de preingreso 2 -->
+    <string name="fecha_de_nacimiento">4. Fecha de nacimiento *</string>
+    <string name="mm_dd_yyyy">mm/dd/yyyy</string>
+    <string name="correo_personal_para_notificaciones_o_informaci_n_de_resultados_de_su_evaluaci_n">4.1.Correo personal para notificaciones o información de resultados de su evaluación *</string>
+    <string name="tu_respuesta_correoPersonal">Tu respuesta</string>
+    <string name="vinculo_universidad">5. Vínculo con la Universidad de Antioquia (si tienes varios vínculos puede elegir varios) *</string>
+    <string name="empleado_administrativo">Empleado Administrativo</string>
+    <string name="trabajador_oficial">Trabajador Oficial</string>
+    <string name="profesor_vinculado">Profesor Vinculado</string>
+    <string name="docente_de_catedra">Docente de cátedra</string>
+    <string name="contratista_de_servicios">Contratista de servicios</string>
+    <string name="estudiante_de_pregrado">Estudiante de Pregrado</string>
+    <string name="estudiante_de_posgrado">Estudiante de Posgrado</string>
+    <string name="cis_fua_externo_o_egresado">CIS, FUA, Externo o Egresado</string>
+    <string name="detalle_vinculo_con_la_universidad_de_antioquia">5. 1. Detalle vínculo con la Universidad de Antioquia (Si requiere ampliar su respuesta anterior)</string>
+    <string name="tu_respuesta_detalleVinculo">Tu respuesta</string>
+    <string name="cargo">6. Cargo *</string>
+    <string name="tu_respuesta_cargo">Tu respuesta</string>
+    <string name="arl_administradora_riesgos_laborales">ARL Administradora Riesgos Laborales a la cual está afiliado</string>
+    <string name="positiva_compania_de_seguros">POSITIVA Compañía De Seguros</string>
+    <string name="sura_arl">SURA ARL</string>
+    <string name="colmena_sa">COLMENA SA Compañía De Seguros De Vida</string>
+    <string name="colpatria_seguros_de_vida">COLPATRIA Seguros De Vida Colpatria SA</string>
+    <string name="bolivar_compania_de_seguros">BOLIVAR Compañía De Seguros Bolívar SA</string>
+    <string name="liberty_seguros_de_vida">LIBERTY Seguros De Vida</string>
+    <string name="mapfre_colombia_vida_seguros_sa">MAPFRE Colombia Vida Seguros SA</string>
+    <string name="la_equidad_seguros_de_vida">LA EQUIDAD Seguros De Vida Organismo Cooperativo La Equidad Vida</string>
+    <string name="alfa_seguros_de_vida_alfa_sa">ALFA Seguros De Vida Alfa SA</string>
+    <string name="aurora_compa_a_de_seguros_de_vida">AURORA Compañía De Seguros De Vida Aurora</string>
+    <string name="no_aplica_estudiante_que_no_esta_en_practica">NO APLICA: Estudiante que no está en práctica</string>
+    <string name="otro_seguro">Otro</string>
+    <string name="telefono_de_contacto">7. Teléfono de contacto *</string>
+    <string name="tu_respuesta_tel_contacto">Tu respuesta</string>
+    <string name="siguiente_to_preingreso3">Siguiente</string>
 
 
 </resources>
