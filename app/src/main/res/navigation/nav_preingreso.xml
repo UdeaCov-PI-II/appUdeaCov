@@ -7,33 +7,44 @@
 
     <fragment
         android:id="@+id/preingreso1"
-        android:name="co.edu.udea.udeacov.fragmentos.preingreso.preingreso1"
+        android:name="co.edu.udea.udeacov.fragmentos.preingreso.Preingreso1"
         android:label="fragment_preingreso1"
         tools:layout="@layout/fragment_preingreso1" >
         <action
             android:id="@+id/action_preingreso1_to_preingreso2"
             app:destination="@id/preingreso2" />
     </fragment>
+
     <fragment
         android:id="@+id/preingreso2"
-        android:name="co.edu.udea.udeacov.fragmentos.preingreso.preingreso2"
+        android:name="co.edu.udea.udeacov.fragmentos.preingreso.Preingreso2"
         android:label="fragment_preingreso2"
         tools:layout="@layout/fragment_preingreso2" >
         <action
             android:id="@+id/action_preingreso2_to_preingreso3"
             app:destination="@id/preingreso3" />
+        <argument
+            android:name="signUpRequest"
+            app:argType="co.edu.udea.udeacov.network.request.SignUpRequestDto"
+            app:nullable="false"/>
     </fragment>
+
     <fragment
         android:id="@+id/preingreso3"
-        android:name="co.edu.udea.udeacov.fragmentos.preingreso.preingreso3"
+        android:name="co.edu.udea.udeacov.fragmentos.preingreso.Preingreso3"
         android:label="preingreso3" >
         <action
             android:id="@+id/action_preingreso3_to_preingreso4"
             app:destination="@id/preingreso4" />
+        <argument
+            android:name="signUpRequest"
+            app:argType="co.edu.udea.udeacov.network.request.SignUpRequestDto"
+            app:nullable="false"/>
     </fragment>
+
     <fragment
         android:id="@+id/preingreso4"
-        android:name="co.edu.udea.udeacov.fragmentos.preingreso.preingreso4"
+        android:name="co.edu.udea.udeacov.fragmentos.preingreso.Preingreso4"
         android:label="preingreso4" >
         <action
             android:id="@+id/action_preingreso4_to_preingreso5"
@@ -41,18 +52,30 @@
         <action
             android:id="@+id/action_preingreso4_to_preingreso62"
             app:destination="@id/preingreso62" />
+        <argument
+            android:name="signUpRequest"
+            app:argType="co.edu.udea.udeacov.network.request.SignUpRequestDto"
+            app:nullable="false"/>
     </fragment>
     <fragment
         android:id="@+id/preingreso5"
-        android:name="co.edu.udea.udeacov.fragmentos.preingreso.preingreso5"
+        android:name="co.edu.udea.udeacov.fragmentos.preingreso.Preingreso5"
         android:label="preingreso5" >
         <action
             android:id="@+id/action_preingreso5_to_preingreso62"
             app:destination="@id/preingreso62" />
+        <argument
+            android:name="signUpRequest"
+            app:argType="co.edu.udea.udeacov.network.request.SignUpRequestDto"
+            app:nullable="false"/>
     </fragment>
     <fragment
         android:id="@+id/preingreso62"
-        android:name="co.edu.udea.udeacov.fragmentos.preingreso.preingreso6"
+        android:name="co.edu.udea.udeacov.fragmentos.preingreso.Preingreso6"
         android:label="fragment_preingreso6"
         tools:layout="@layout/fragment_preingreso6" />
+    <argument
+        android:name="signUpRequest"
+        app:argType="co.edu.udea.udeacov.network.request.SignUpRequestDto"
+        app:nullable="false"/>
 </navigation>

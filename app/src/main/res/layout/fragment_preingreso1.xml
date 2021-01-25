@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragmentos.preingreso.preingreso1">
+    tools:context=".fragmentos.preingreso.Preingreso1">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -12,7 +12,7 @@
         <LinearLayout
             android:id="@+id/preingreso1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:gravity="center|top"
             android:orientation="vertical">
@@ -22,7 +22,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#616161"
-                android:text="Ingresa tu nombre de usuario"
+                android:text="@string/ingresa_tu_nombre_de_usuario"
                 android:textSize="14sp" />
 
             <EditText
@@ -30,7 +30,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="7"
-                android:hint="Tu respuesta"
+                android:hint="@string/tu_respuesta"
                 android:textSize="14sp" />
 
             <Space
@@ -42,7 +42,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#616161"
-                android:text="Ingresa tu contraseña"
+                android:text="@string/ingresa_tu_contrase_a"
                 android:textSize="14sp" />
 
             <EditText
@@ -62,7 +62,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#616161"
-                android:text="Dirección de correo electrónico"
+                android:text="@string/direccion_de_correo"
                 android:textSize="14sp" />
 
             <EditText
@@ -70,7 +70,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="7"
-                android:hint="Tu dirección de correo electrónico"
+                android:hint="@string/tu_direccion_de_correo_electronico"
                 android:textSize="14sp"
                 android:inputType="textEmailAddress" />
 
@@ -101,35 +101,35 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Cédula de ciudadanía" />
+                    android:text="@string/cedula_de_ciudadania" />
 
                 <RadioButton
                     android:id="@+id/radioButton1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Cédula de extranjería" />
+                    android:text="@string/cedula_de_extranjeria" />
 
                 <RadioButton
                     android:id="@+id/radioButton2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Tarjeta de Identidad" />
+                    android:text="@string/tarjeta_de_identidad" />
 
                 <RadioButton
                     android:id="@+id/radioButton3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Pasaporte" />
+                    android:text="@string/pasaporte" />
 
                 <RadioButton
                     android:id="@+id/radioButton4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Otro" />
+                    android:text="@string/otro" />
             </RadioGroup>
 
             <EditText
@@ -148,14 +148,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#616161"
-                android:text="2. Número de documento"
+                android:text="@string/numero_de_documento"
                 android:textSize="14sp" />
 
             <EditText
                 android:id="@+id/preingreso1_doc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Tu respuesta"
+                android:hint="@string/tu_respuesta_numeroDocumento"
                 android:ems="7"
                 android:textSize="14sp"
                 android:inputType="number" />
@@ -169,7 +169,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#616161"
-                android:text="3. Nombres y Apellidos Completos"
+                android:text="@string/_3_nombres_y_apellidos_completos"
                 android:textSize="14sp" />
 
             <EditText
@@ -177,7 +177,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="7"
-                android:hint="Tu respuesta"
+                android:hint="@string/tu_respuesta_nombre_completo"
                 android:textSize="14sp" />
 
             <Space
@@ -188,7 +188,7 @@
                 android:id="@+id/preingreso1_textView6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/textView"
+                android:text="@string/titulo_tratamiento_datos"
                 android:textColor="#DD000000"
                 android:textSize="14sp" />
 
@@ -200,7 +200,7 @@
                 android:id="@+id/preingreso1_textView7"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/textView1"
+                android:text="@string/txt_autorizacion"
                 android:textSize="12sp" />
 
             <CheckBox
@@ -209,7 +209,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
                 android:layout_marginBottom="5dp"
-                android:text="Autorizo" />
+                android:text="@string/autorizo_checklist" />
 
             <Button
                 android:id="@+id/preingresobtn_siguiente1"
@@ -217,7 +217,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
-                android:text="Siguiente" />
+                android:text="@string/siguiente_btn" />
 
         </LinearLayout>
     </ScrollView>

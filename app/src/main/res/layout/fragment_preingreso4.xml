@@ -1,779 +1,770 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragmentos.preingreso.preingreso4">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- TODO: Update blank fragment layout -->
+    <data>
+        <variable
+            name="fragmentPreingreso4"
+            type="co.edu.udea.udeacov.fragmentos.preingreso.Preingreso4" />
+    </data>
 
-
-    <ScrollView
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <LinearLayout
-            android:id="@+id/preingreso4"
+        android:layout_height="match_parent"
+        tools:context=".fragmentos.preingreso.Preingreso4">
+
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="8dp"
-            android:gravity="center|top"
-            android:orientation="vertical">
+            android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/preingreso4_textView"
+            <LinearLayout
+                android:id="@+id/preingreso4"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Información de condiciones de salud"
-                android:textColor="#DD000000"
-                android:textSize="20sp" />
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="15dp" />
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:gravity="center|top"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/preingreso4_textView1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#616161"
-                android:text="¿Cuál es tu peso en kilos? puede ser aproximado *"
-                android:textSize="14sp" />
-
-            <EditText
-                android:id="@+id/preingreso4_peso"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Tu respuesta"
-                android:ems="7"
-                android:textSize="14sp"
-                android:inputType="number" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="15dp" />
-
-            <TextView
-                android:id="@+id/preingreso4_textView2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#616161"
-                android:text="¿Cuál es tu estatura en centímetros? puede ser aproximado *"
-                android:textSize="14sp" />
-
-            <EditText
-                android:id="@+id/preingreso4_altura"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Tu respuesta"
-                android:ems="7"
-                android:textSize="14sp"
-                android:inputType="number" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="15dp" />
-
-            <TextView
-                android:id="@+id/preingreso4_textView3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#616161"
-                android:text="12. Por favor responde si tienes alguna de las siguientes condiciones: *"
-                android:textSize="14sp" />
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="5dp" />
-
-            <TableLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/border">
-
-                    <TextView
-                        android:id="@+id/textView7"
-                        android:layout_width="274dp"
-                        android:layout_height="wrap_content"
-                        android:textSize="13sp"
-                        android:text="Hipertensión arterial (Presión alta)." />
-
-                    <RadioGroup
-                        android:id="@+id/preingreso4_radioGroup1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <RadioButton
-                            android:id="@+id/radio_si"
-                            android:layout_width="50dp"
-                            android:layout_height="wrap_content"
-                            android:text="Si" />
-
-                        <RadioButton
-                            android:id="@+id/radio_no"
-                            android:layout_width="60dp"
-                            android:layout_height="match_parent"
-                            android:text="No" />
-
-                    </RadioGroup>
-
-                </TableRow>
-
-                <TableRow
+                <TextView
+                    android:id="@+id/preingreso4_textView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border">
+                    android:text="Información de condiciones de salud"
+                    android:textColor="#DD000000"
+                    android:textSize="20sp" />
 
-                    <TextView
-                        android:id="@+id/textView10"
-                        android:layout_width="274dp"
-                        android:layout_height="wrap_content"
-                        android:textSize="13sp"
-                        android:text="Enfermedades del corazón (insuficiencia cardíaca o cardiopatía congénita)." />
-
-                    <RadioGroup
-                        android:id="@+id/preingreso4_radioGroup2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <RadioButton
-                            android:id="@+id/radio_si2"
-                            android:layout_width="50dp"
-                            android:layout_height="wrap_content"
-                            android:text="Si" />
-
-                        <RadioButton
-                            android:id="@+id/radio_no2"
-                            android:layout_width="60dp"
-                            android:layout_height="wrap_content"
-                            android:text="No" />
-
-                    </RadioGroup>
-
-
-                </TableRow>
-
-
-                <TableRow
+                <Space
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/border">
+                    android:layout_height="15dp" />
 
-                    <TextView
-                        android:id="@+id/textView11"
-                        android:layout_width="274dp"
-                        android:layout_height="wrap_content"
-                        android:textSize="13sp"
-                        android:text="Colesterol alto." />
-
-                    <RadioGroup
-                        android:id="@+id/preingreso4_radioGroup3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <RadioButton
-                            android:id="@+id/radio_si3"
-                            android:layout_width="50dp"
-                            android:layout_height="wrap_content"
-                            android:text="Si" />
-
-                        <RadioButton
-                            android:id="@+id/radio_no3"
-                            android:layout_width="60dp"
-                            android:layout_height="wrap_content"
-                            android:text="No" />
-
-                    </RadioGroup>
-
-
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/border">
-
-                    <TextView
-                        android:id="@+id/textView12"
-                        android:layout_width="274dp"
-                        android:layout_height="wrap_content"
-                        android:textSize="13sp"
-                        android:text="Enfermedad renal crónica o en Diálisis." />
-
-                    <RadioGroup
-                        android:id="@+id/preingreso4_radioGroup4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <RadioButton
-                            android:id="@+id/radio_si4"
-                            android:layout_width="50dp"
-                            android:layout_height="wrap_content"
-                            android:text="Si" />
-
-                        <RadioButton
-                            android:id="@+id/radio_no4"
-                            android:layout_width="60dp"
-                            android:layout_height="wrap_content"
-                            android:text="No" />
-
-                    </RadioGroup>
-
-
-                </TableRow>
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/border">
-
-                    <TextView
-                        android:id="@+id/textView13"
-                        android:layout_width="274dp"
-                        android:layout_height="wrap_content"
-                        android:textSize="13sp"
-                        android:text="Diabetes (Azúcar en la sangre)." />
-
-                    <RadioGroup
-                        android:id="@+id/preingreso4_radioGroup5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <RadioButton
-                            android:id="@+id/radio_si5"
-                            android:layout_width="50dp"
-                            android:layout_height="wrap_content"
-                            android:text="Si" />
-
-                        <RadioButton
-                            android:id="@+id/radio_no5"
-                            android:layout_width="60dp"
-                            android:layout_height="wrap_content"
-                            android:text="No" />
-
-                    </RadioGroup>
-
-
-                </TableRow>
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/border">
-
-                    <TextView
-                        android:id="@+id/textView14"
-                        android:layout_width="274dp"
-                        android:layout_height="wrap_content"
-                        android:textSize="13sp"
-                        android:text="Enfermedad pulmonar crónica (EPOC), Enfisema o Fibrososis pulmonar." />
-
-                    <RadioGroup
-                        android:id="@+id/preingreso4_radioGroup6"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <RadioButton
-                            android:id="@+id/radio_si6"
-                            android:layout_width="50dp"
-                            android:layout_height="wrap_content"
-                            android:text="Si" />
-
-                        <RadioButton
-                            android:id="@+id/radio_no6"
-                            android:layout_width="60dp"
-                            android:layout_height="wrap_content"
-                            android:text="No" />
-
-                    </RadioGroup>
-
-
-                </TableRow>
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/border">
-
-                    <TextView
-                        android:id="@+id/textView15"
-                        android:layout_width="274dp"
-                        android:layout_height="wrap_content"
-                        android:textSize="13sp"
-                        android:text="Asma (Asfixia)." />
-
-                    <RadioGroup
-                        android:id="@+id/preingreso4_radioGroup7"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <RadioButton
-                            android:id="@+id/radio_si7"
-                            android:layout_width="50dp"
-                            android:layout_height="wrap_content"
-                            android:text="Si" />
-
-                        <RadioButton
-                            android:id="@+id/radio_no7"
-                            android:layout_width="60dp"
-                            android:layout_height="wrap_content"
-                            android:text="No" />
-
-                    </RadioGroup>
-
-
-                </TableRow>
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/border">
-
-                    <TextView
-                        android:id="@+id/textView16"
-                        android:layout_width="274dp"
-                        android:layout_height="wrap_content"
-                        android:textSize="13sp"
-                        android:text="Algún tipo de enfermedad con alteración de la inmunidad como Inmunosupresión, Trasplantes de órganos, VIH-SIDA, o Lupus?." />
-
-                    <RadioGroup
-                        android:id="@+id/preingreso4_radioGroup8"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <RadioButton
-                            android:id="@+id/radio_si8"
-                            android:layout_width="50dp"
-                            android:layout_height="wrap_content"
-                            android:text="Si" />
-
-                        <RadioButton
-                            android:id="@+id/radio_no8"
-                            android:layout_width="60dp"
-                            android:layout_height="wrap_content"
-                            android:text="No" />
-
-                    </RadioGroup>
-
-
-                </TableRow>
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/border">
-
-                    <TextView
-                        android:id="@+id/textView17"
-                        android:layout_width="264dp"
-                        android:layout_height="wrap_content"
-                        android:text="Cáncer en tratamiento actual o en los últimos 5 años." />
-
-                    <RadioGroup
-                        android:id="@+id/preingreso4_radioGroup9"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <RadioButton
-                            android:id="@+id/radio_si9"
-                            android:layout_width="50dp"
-                            android:layout_height="wrap_content"
-                            android:text="Si" />
-
-                        <RadioButton
-                            android:id="@+id/radio_no9"
-                            android:layout_width="60dp"
-                            android:layout_height="wrap_content"
-                            android:text="No" />
-
-                    </RadioGroup>
-
-
-                </TableRow>
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/border">
-
-                    <TextView
-                        android:id="@+id/textView18"
-                        android:layout_width="264dp"
-                        android:layout_height="wrap_content"
-                        android:text="Medicación con esteroides orales (como prednisona) por alguna enfermedad." />
-
-                    <RadioGroup
-                        android:id="@+id/preingreso4_radioGroup10"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <RadioButton
-                            android:id="@+id/radio_si10"
-                            android:layout_width="50dp"
-                            android:layout_height="wrap_content"
-                            android:text="Si" />
-
-                        <RadioButton
-                            android:id="@+id/radio_no10"
-                            android:layout_width="60dp"
-                            android:layout_height="wrap_content"
-                            android:text="No" />
-
-                    </RadioGroup>
-
-
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/border">
-
-                    <TextView
-                        android:id="@+id/textView19"
-                        android:layout_width="264dp"
-                        android:layout_height="wrap_content"
-                        android:text="Enfermedad hepática crónica en tratamiento." />
-
-                    <RadioGroup
-                        android:id="@+id/preingreso4_radioGroup11"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <RadioButton
-                            android:id="@+id/radio_si11"
-                            android:layout_width="50dp"
-                            android:layout_height="wrap_content"
-                            android:text="Si" />
-
-                        <RadioButton
-                            android:id="@+id/radio_no11"
-                            android:layout_width="60dp"
-                            android:layout_height="wrap_content"
-                            android:text="No" />
-
-                    </RadioGroup>
-
-
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/border">
-
-                    <TextView
-                        android:id="@+id/textView20"
-                        android:layout_width="264dp"
-                        android:layout_height="wrap_content"
-                        android:text="Obesidad o sobrepeso." />
-
-                    <RadioGroup
-                        android:id="@+id/preingreso4_radioGroup12"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <RadioButton
-                            android:id="@+id/radio_si12"
-                            android:layout_width="50dp"
-                            android:layout_height="wrap_content"
-                            android:text="Si" />
-
-                        <RadioButton
-                            android:id="@+id/radio_no12"
-                            android:layout_width="60dp"
-                            android:layout_height="wrap_content"
-                            android:text="No" />
-
-                    </RadioGroup>
-
-
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/border">
-
-                    <TextView
-                        android:id="@+id/textView21"
-                        android:layout_width="264dp"
-                        android:layout_height="wrap_content"
-                        android:text="Fuma o ha sido fumador en los últimos 5 años." />
-
-                    <RadioGroup
-                        android:id="@+id/preingreso4_radioGroup13"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <RadioButton
-                            android:id="@+id/radio_si13"
-                            android:layout_width="50dp"
-                            android:layout_height="wrap_content"
-                            android:text="Si" />
-
-                        <RadioButton
-                            android:id="@+id/radio_no13"
-                            android:layout_width="60dp"
-                            android:layout_height="wrap_content"
-                            android:text="No" />
-
-                    </RadioGroup>
-
-
-                </TableRow>
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/border">
-
-                    <TextView
-                        android:id="@+id/textView22"
-                        android:layout_width="264dp"
-                        android:layout_height="wrap_content"
-                        android:text="Enfermedad rara o huérfana diagnosticada." />
-
-                    <RadioGroup
-                        android:id="@+id/preingreso4_radioGroup14"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <RadioButton
-                            android:id="@+id/radio_si14"
-                            android:layout_width="50dp"
-                            android:layout_height="wrap_content"
-                            android:text="Si" />
-
-                        <RadioButton
-                            android:id="@+id/radio_no14"
-                            android:layout_width="60dp"
-                            android:layout_height="wrap_content"
-                            android:text="No" />
-
-                    </RadioGroup>
-
-
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/border">
-
-                    <TextView
-                        android:id="@+id/textView23"
-                        android:layout_width="264dp"
-                        android:layout_height="wrap_content"
-                        android:text="Embarazo." />
-
-                    <RadioGroup
-                        android:id="@+id/preingreso4_radioGroup15"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <RadioButton
-                            android:id="@+id/radio_si15"
-                            android:layout_width="50dp"
-                            android:layout_height="wrap_content"
-                            android:text="Si" />
-
-                        <RadioButton
-                            android:id="@+id/radio_no15"
-                            android:layout_width="60dp"
-                            android:layout_height="wrap_content"
-                            android:text="No" />
-
-                    </RadioGroup>
-
-
-                </TableRow>
-
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/border">
-
-                    <TextView
-                        android:id="@+id/textView24"
-                        android:layout_width="264dp"
-                        android:layout_height="wrap_content"
-                        android:text="Tuvo un parto en las 6 semanas anteriores." />
-
-                    <RadioGroup
-                        android:id="@+id/preingreso4_radioGroup16"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <RadioButton
-                            android:id="@+id/radio_si16"
-                            android:layout_width="50dp"
-                            android:layout_height="wrap_content"
-                            android:text="Si" />
-
-                        <RadioButton
-                            android:id="@+id/radio_no16"
-                            android:layout_width="60dp"
-                            android:layout_height="wrap_content"
-                            android:text="No" />
-
-                    </RadioGroup>
-
-                </TableRow>
-            </TableLayout>
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="15dp" />
-
-            <TextView
-                android:id="@+id/preingreso4_textView4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#616161"
-                android:text="13. ¿Tienes algún tipo de discapacidad permanente? *"
-                android:textSize="14sp" />
-
-            <CheckBox
-                android:id="@+id/preingreso4_checkBox1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Ninguna" />
-
-            <CheckBox
-                android:id="@+id/preingreso4_checkBox2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Visual permanente, como la ceguera, y que NO pueda corregirse con cirugía, lentes u otros medios de ayuda visual" />
-
-            <CheckBox
-                android:id="@+id/preingreso4_checkBox3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Motriz permanente, que requiera el uso de silla de ruedas o muletas en forma permanente" />
-
-            <CheckBox
-                android:id="@+id/preingreso4_checkBox4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Auditiva permanente, como sordera que NO sea posible de corregir con cirugía, audífonos u otros medios de ayuda auditiva" />
-
-            <CheckBox
-                android:id="@+id/preingreso4_checkBox5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Otro" />
-
-            <EditText
-                android:id="@+id/preingreso4_otro"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="7"
-                android:textSize="14sp"/>
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="15dp" />
-
-            <TextView
-                android:id="@+id/preingreso4_textView5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#616161"
-                android:text="14.¿Cuál es el grupo sanguíneo que aparece en tu cédula o identificación? *"
-                android:textSize="14sp" />
-
-            <RadioGroup
-                android:id="@+id/preingreso4_radioGroup17"
-                android:layout_width="390dp"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <RadioButton
-                    android:id="@+id/radioButton"
+                <TextView
+                    android:id="@+id/preingreso4_textView1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="A (+ o -)" />
+                    android:textColor="#616161"
+                    android:text="¿Cuál es tu peso en kilos? puede ser aproximado *"
+                    android:textSize="14sp" />
 
-                <RadioButton
-                    android:id="@+id/radioButton1"
+                <EditText
+                    android:id="@+id/preingreso4_peso"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="B (+ o -)" />
-                <RadioButton
-                    android:id="@+id/radioButton2"
+                    android:hint="Tu respuesta"
+                    android:ems="7"
+                    android:textSize="14sp"
+                    android:inputType="number" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp" />
+
+                <TextView
+                    android:id="@+id/preingreso4_textView2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="AB (+ o -)" />
-                <RadioButton
-                    android:id="@+id/radioButton3"
+                    android:textColor="#616161"
+                    android:text="¿Cuál es tu estatura en centímetros? puede ser aproximado *"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/preingreso4_altura"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="O (+ o -)" />
-            </RadioGroup>
+                    android:hint="Tu respuesta"
+                    android:ems="7"
+                    android:textSize="14sp"
+                    android:inputType="number" />
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="15dp" />
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp" />
 
-            <TextView
-                android:id="@+id/preingreso4_textView6"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#616161"
-                android:text="15. ¿Convives actualmente con otras personas? *"
-                android:textSize="14sp" />
-
-            <RadioGroup
-                android:id="@+id/preingreso4_radioGroup18"
-                android:layout_width="370dp"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <RadioButton
-                    android:id="@+id/radioButton5"
+                <TextView
+                    android:id="@+id/preingreso4_textView3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Si" />
+                    android:textColor="#616161"
+                    android:text="12. Por favor responde si tienes alguna de las siguientes condiciones: *"
+                    android:textSize="14sp" />
 
-                <RadioButton
-                    android:id="@+id/radioButton6"
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp" />
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/border">
+
+                        <TextView
+                            android:id="@+id/textView7"
+                            android:layout_width="274dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="13sp"
+                            android:text="Hipertensión arterial (Presión alta)." />
+
+                        <RadioGroup
+                            android:id="@+id/rg_presion_arterial"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/rb_si_presionArterial"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:text="Si" />
+
+                            <RadioButton
+                                android:id="@+id/rb_no_presionArterial"
+                                android:layout_width="60dp"
+                                android:layout_height="match_parent"
+                                android:text="No" />
+
+                        </RadioGroup>
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/border">
+
+                        <TextView
+                            android:id="@+id/textView10"
+                            android:layout_width="274dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="13sp"
+                            android:text="Enfermedades del corazón (insuficiencia cardíaca o cardiopatía congénita)." />
+
+                        <RadioGroup
+                            android:id="@+id/rg_enferm_corazon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/rb_si_enfermedadCorazon"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:text="Si" />
+
+                            <RadioButton
+                                android:id="@+id/rb_no_enfermedadCorazon"
+                                android:layout_width="60dp"
+                                android:layout_height="wrap_content"
+                                android:text="No" />
+
+                        </RadioGroup>
+                    </TableRow>
+
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/border">
+
+                        <TextView
+                            android:id="@+id/textView11"
+                            android:layout_width="274dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="13sp"
+                            android:text="Colesterol alto." />
+
+                        <RadioGroup
+                            android:id="@+id/rg_colesterol"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/rb_si_colesterol"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:text="Si" />
+
+                            <RadioButton
+                                android:id="@+id/rb_no_colesterol"
+                                android:layout_width="60dp"
+                                android:layout_height="wrap_content"
+                                android:text="No" />
+
+                        </RadioGroup>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/border">
+
+                        <TextView
+                            android:id="@+id/textView12"
+                            android:layout_width="274dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="13sp"
+                            android:text="Enfermedad renal crónica o en Diálisis." />
+
+                        <RadioGroup
+                            android:id="@+id/rg_enfermedadRenal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/rb_si_enfermedadRenal"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:text="Si" />
+
+                            <RadioButton
+                                android:id="@+id/rb_no_enfermedadRenal"
+                                android:layout_width="60dp"
+                                android:layout_height="wrap_content"
+                                android:text="No" />
+
+                        </RadioGroup>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/border">
+
+                        <TextView
+                            android:id="@+id/textView13"
+                            android:layout_width="274dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="13sp"
+                            android:text="Diabetes (Azúcar en la sangre)." />
+
+                        <RadioGroup
+                            android:id="@+id/rg_diabetes"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/rb_si_diabetes"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:text="Si" />
+
+                            <RadioButton
+                                android:id="@+id/rb_no_diabetes"
+                                android:layout_width="60dp"
+                                android:layout_height="wrap_content"
+                                android:text="No" />
+
+                        </RadioGroup>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/border">
+
+                        <TextView
+                            android:id="@+id/textView14"
+                            android:layout_width="274dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="13sp"
+                            android:text="Enfermedad pulmonar crónica (EPOC), Enfisema o Fibrososis pulmonar." />
+
+                        <RadioGroup
+                            android:id="@+id/rg_enfermedadPulmonar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/rb_si_enfermedadPulmonar"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:text="Si" />
+
+                            <RadioButton
+                                android:id="@+id/rb_no_enfermedadPulmonar"
+                                android:layout_width="60dp"
+                                android:layout_height="wrap_content"
+                                android:text="No" />
+
+                        </RadioGroup>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/border">
+
+                        <TextView
+                            android:id="@+id/textView15"
+                            android:layout_width="274dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="13sp"
+                            android:text="Asma (Asfixia)." />
+
+                        <RadioGroup
+                            android:id="@+id/rg_asma"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/rb_si_asma"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:text="Si" />
+
+                            <RadioButton
+                                android:id="@+id/rb_no_asma"
+                                android:layout_width="60dp"
+                                android:layout_height="wrap_content"
+                                android:text="No" />
+
+                        </RadioGroup>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/border">
+
+                        <TextView
+                            android:id="@+id/textView16"
+                            android:layout_width="274dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="13sp"
+                            android:text="Algún tipo de enfermedad con alteración de la inmunidad como Inmunosupresión, Trasplantes de órganos, VIH-SIDA, o Lupus?." />
+
+                        <RadioGroup
+                            android:id="@+id/rg_alteracionInmunidad"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/rb_si_alteracionInmunidad"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:text="Si" />
+
+                            <RadioButton
+                                android:id="@+id/rb_no_alteracionInmunidad"
+                                android:layout_width="60dp"
+                                android:layout_height="wrap_content"
+                                android:text="No" />
+
+                        </RadioGroup>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/border">
+
+                        <TextView
+                            android:id="@+id/textView17"
+                            android:layout_width="264dp"
+                            android:layout_height="wrap_content"
+                            android:text="Cáncer en tratamiento actual o en los últimos 5 años." />
+
+                        <RadioGroup
+                            android:id="@+id/rg_cancer"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/rb_si_cancer"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:text="Si" />
+
+                            <RadioButton
+                                android:id="@+id/rb_no_cancer"
+                                android:layout_width="60dp"
+                                android:layout_height="wrap_content"
+                                android:text="No" />
+
+                        </RadioGroup>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/border">
+
+                        <TextView
+                            android:id="@+id/textView18"
+                            android:layout_width="264dp"
+                            android:layout_height="wrap_content"
+                            android:text="Medicación con esteroides orales (como prednisona) por alguna enfermedad." />
+
+                        <RadioGroup
+                            android:id="@+id/rg_esteroides"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/rb_si_esteroides"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:text="Si" />
+
+                            <RadioButton
+                                android:id="@+id/rb_no_esteroides"
+                                android:layout_width="60dp"
+                                android:layout_height="wrap_content"
+                                android:text="No" />
+
+                        </RadioGroup>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/border">
+
+                        <TextView
+                            android:id="@+id/textView19"
+                            android:layout_width="264dp"
+                            android:layout_height="wrap_content"
+                            android:text="Enfermedad hepática crónica en tratamiento." />
+
+                        <RadioGroup
+                            android:id="@+id/rg_enfermadadHepatica"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/rb_si_enfermadadHepatica"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:text="Si" />
+
+                            <RadioButton
+                                android:id="@+id/rb_no_enfermadadHepatica"
+                                android:layout_width="60dp"
+                                android:layout_height="wrap_content"
+                                android:text="No" />
+
+                        </RadioGroup>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/border">
+
+                        <TextView
+                            android:id="@+id/textView20"
+                            android:layout_width="264dp"
+                            android:layout_height="wrap_content"
+                            android:text="Obesidad o sobrepeso." />
+
+                        <RadioGroup
+                            android:id="@+id/rg_obesidad"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/rb_si_obesidad"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:text="Si" />
+
+                            <RadioButton
+                                android:id="@+id/rb_no_obesidad"
+                                android:layout_width="60dp"
+                                android:layout_height="wrap_content"
+                                android:text="No" />
+
+                        </RadioGroup>
+
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/border">
+
+                        <TextView
+                            android:id="@+id/textView21"
+                            android:layout_width="264dp"
+                            android:layout_height="wrap_content"
+                            android:text="Fuma o ha sido fumador en los últimos 5 años." />
+
+                        <RadioGroup
+                            android:id="@+id/rg_fumador"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/rb_si_fumador"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:text="Si" />
+
+                            <RadioButton
+                                android:id="@+id/rb_no_fumador"
+                                android:layout_width="60dp"
+                                android:layout_height="wrap_content"
+                                android:text="No" />
+
+                        </RadioGroup>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/border">
+
+                        <TextView
+                            android:id="@+id/textView22"
+                            android:layout_width="264dp"
+                            android:layout_height="wrap_content"
+                            android:text="Enfermedad rara o huérfana diagnosticada." />
+
+                        <RadioGroup
+                            android:id="@+id/rg_enfermedadRara"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/rb_si_enfermRara"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:text="Si" />
+
+                            <RadioButton
+                                android:id="@+id/rb_no_enfermRara"
+                                android:layout_width="60dp"
+                                android:layout_height="wrap_content"
+                                android:text="No" />
+
+                        </RadioGroup>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/border">
+
+                        <TextView
+                            android:id="@+id/textView23"
+                            android:layout_width="264dp"
+                            android:layout_height="wrap_content"
+                            android:text="Embarazo." />
+
+                        <RadioGroup
+                            android:id="@+id/rg_embarazo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/rb_si_embarazo"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:text="Si" />
+
+                            <RadioButton
+                                android:id="@+id/rb_no_embarazo"
+                                android:layout_width="60dp"
+                                android:layout_height="wrap_content"
+                                android:text="No" />
+
+                        </RadioGroup>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/border">
+
+                        <TextView
+                            android:id="@+id/textView24"
+                            android:layout_width="264dp"
+                            android:layout_height="wrap_content"
+                            android:text="Tuvo un parto en las 6 semanas anteriores." />
+
+                        <RadioGroup
+                            android:id="@+id/rg_parto"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/rb_si_parto"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:text="Si" />
+
+                            <RadioButton
+                                android:id="@+id/rb_no_parto"
+                                android:layout_width="60dp"
+                                android:layout_height="wrap_content"
+                                android:text="No" />
+
+                        </RadioGroup>
+                    </TableRow>
+
+                </TableLayout>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp" />
+
+                <TextView
+                    android:id="@+id/preingreso4_textView4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="No" />
-            </RadioGroup>
+                    android:textColor="#616161"
+                    android:text="13. ¿Tienes algún tipo de discapacidad permanente? *"
+                    android:textSize="14sp" />
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="15dp" />
+                <CheckBox
+                    android:id="@+id/cb_ningunaDiscapacidad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{(view) -> fragmentPreingreso4.seleccionarDiscapacidadPermanente(view)}"
+                    android:text="Ninguna" />
 
-            <Button
-                android:id="@+id/preingresobtn_siguiente4"
-                style="@style/custom_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:text="Siguiente" />
+                <CheckBox
+                    android:id="@+id/cb_visualPermanente"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Visual permanente, como la ceguera, y que NO pueda corregirse con cirugía, lentes u otros medios de ayuda visual" />
 
-        </LinearLayout>
-    </ScrollView>
+                <CheckBox
+                    android:id="@+id/cb_motrizPermanente"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Motriz permanente, que requiera el uso de silla de ruedas o muletas en forma permanente" />
 
+                <CheckBox
+                    android:id="@+id/cb_auditivaPermanente"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Auditiva permanente, como sordera que NO sea posible de corregir con cirugía, audífonos u otros medios de ayuda auditiva" />
 
-</FrameLayout>
+                <CheckBox
+                    android:id="@+id/cb_otra_discapacidad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Otro" />
+
+                <EditText
+                    android:id="@+id/input_otraDiscapacidad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="7"
+                    android:textSize="14sp" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp" />
+
+                <TextView
+                    android:id="@+id/preingreso4_textView5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#616161"
+                    android:text="14.¿Cuál es el grupo sanguíneo que aparece en tu cédula o identificación? *"
+                    android:textSize="14sp" />
+
+                <RadioGroup
+                    android:id="@+id/rg_grupo_sanguineo"
+                    android:layout_width="390dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/rb_grupoSanguineoA"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="A (+ o -)" />
+
+                    <RadioButton
+                        android:id="@+id/rb_grupoSanguineoB"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="B (+ o -)" />
+
+                    <RadioButton
+                        android:id="@+id/rb_grupoSanguineoAB"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="AB (+ o -)" />
+
+                    <RadioButton
+                        android:id="@+id/rb_grupoSanguineoO"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="O (+ o -)" />
+                </RadioGroup>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp" />
+
+                <TextView
+                    android:id="@+id/preingreso4_textView6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#616161"
+                    android:text="15. ¿Convives actualmente con otras personas? *"
+                    android:textSize="14sp" />
+
+                <RadioGroup
+                    android:id="@+id/rg_convivesConOtros"
+                    android:layout_width="370dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/rb_si_convives"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Si" />
+
+                    <RadioButton
+                        android:id="@+id/rb_no_convives"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="No" />
+                </RadioGroup>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp" />
+
+                <Button
+                    android:id="@+id/preingresobtn_siguiente4"
+                    style="@style/custom_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:text="Siguiente" />
+            </LinearLayout>
+
+        </ScrollView>
+    </FrameLayout>
+</layout>

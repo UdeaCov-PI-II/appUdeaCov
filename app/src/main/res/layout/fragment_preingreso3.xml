@@ -1,246 +1,253 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragmentos.preingreso.preingreso3">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- TODO: Update blank fragment layout -->
+    <data>
+        <variable
+            name="viewModel"
+            type="co.edu.udea.udeacov.fragmentos.preingreso.viewmodels.preingreso3.Preingreso3ViewModel" />
+    </data>
 
-    <ScrollView
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        tools:context=".fragmentos.preingreso.Preingreso3">
 
-
-        <LinearLayout
-            android:id="@+id/preingreso3"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="8dp"
-            android:gravity="center|top"
-            android:orientation="vertical">
+            android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/preingreso3_textView"
+
+            <LinearLayout
+                android:id="@+id/preingreso3"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#616161"
-                android:text="@string/SedesEdificio"
-                android:textSize="14sp" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="10dp" />
-
-            <Spinner
-                android:id="@+id/preingreso3_spinner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:entries="@array/sedes" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="15dp" />
-
-            <TextView
-                android:id="@+id/preingreso3_textView1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#616161"
-                android:text="@string/bloques"
-                android:textSize="14sp" />
-
-            <EditText
-                android:id="@+id/preingreso3_bloques"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Tu respuesta"
-                android:ems="7"
-                android:textSize="14sp" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="15dp" />
-
-            <TextView
-                android:id="@+id/preingreso3_textView2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#616161"
-                android:text="@string/unidad"
-                android:textSize="14sp" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="10dp" />
-
-            <Spinner
-                android:id="@+id/preingreso3_spinner1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:entries="@array/unidad" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="15dp" />
-
-            <TextView
-                android:id="@+id/preingreso3_textView3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#616161"
-                android:text="10.1. ¿Perteneces a algún proyecto de extensión? *"
-                android:textSize="14sp"  />
-
-            <RadioGroup
-                android:id="@+id/preingreso3_radioGroup"
-                android:layout_width="370dp"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <RadioButton
-                    android:id="@+id/radioButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Si" />
-
-                <RadioButton
-                    android:id="@+id/radioButton1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="No" />
-            </RadioGroup>
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="15dp" />
-
-            <TextView
-                android:id="@+id/preingreso3_textView4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#616161"
-                android:text="10.2. Si respondiste SI, ¿Cómo se llama el proyecto?"
-                android:textSize="14sp" />
-
-            <EditText
-                android:id="@+id/preingreso3_proyecto"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Tu respuesta"
-                android:ems="7"
-                android:textSize="14sp" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="15dp" />
-
-            <TextView
-                android:id="@+id/preingreso3_textView5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#616161"
-                android:text="11. ¿Cual es tu municipio de residencia? *"
-                android:textSize="14sp" />
-
-            <EditText
-                android:id="@+id/preingreso3_municipio"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Tu respuesta"
-                android:ems="7"
-                android:textSize="14sp" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="15dp" />
-
-            <TextView
-                android:id="@+id/preingreso3_textView6"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#616161"
-                android:text="12. Para ir a trabajar la mayor parte del tiempo te transportas en: *"
-                android:textSize="14sp" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="5dp" />
-
-            <RadioGroup
-                android:id="@+id/preingreso3_radioGroup1"
-                android:layout_width="370dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:gravity="center|top"
                 android:orientation="vertical">
 
-                <RadioButton
-                    android:id="@+id/radioButton3"
+                <TextView
+                    android:id="@+id/preingreso3_textView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Caminando" />
+                    android:textColor="#616161"
+                    android:text="@string/SedesEdificio"
+                    android:textSize="14sp" />
 
-                <RadioButton
-                    android:id="@+id/radioButton4"
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+                <Spinner
+                    android:id="@+id/preingreso3_spinner"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Bicicleta" />
+                    android:entries="@{viewModel.locationsResponse}" />
 
-                <RadioButton
-                    android:id="@+id/radioButton5"
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp" />
+
+                <TextView
+                    android:id="@+id/preingreso3_textView1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Moto" />
+                    android:textColor="#616161"
+                    android:text="@string/bloques"
+                    android:textSize="14sp" />
 
-                <RadioButton
-                    android:id="@+id/radioButton6"
+                <EditText
+                    android:id="@+id/preingreso3_bloques"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Carro" />
+                    android:hint="Tu respuesta"
+                    android:ems="7"
+                    android:textSize="14sp" />
 
-                <RadioButton
-                    android:id="@+id/radioButton7"
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp" />
+
+                <TextView
+                    android:id="@+id/preingreso3_textView2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Bus" />
+                    android:textColor="#616161"
+                    android:text="@string/unidad"
+                    android:textSize="14sp" />
 
-                <RadioButton
-                    android:id="@+id/radioButton8"
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+                <Spinner
+                    android:id="@+id/preingreso3_spinner1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Metro" />
+                    android:entries="@array/unidad" />
 
-                <RadioButton
-                    android:id="@+id/radioButton9"
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp" />
+
+                <TextView
+                    android:id="@+id/preingreso3_textView3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Otro" />
-            </RadioGroup>
+                    android:textColor="#616161"
+                    android:text="10.1. ¿Perteneces a algún proyecto de extensión? *"
+                    android:textSize="14sp" />
 
-            <EditText
-                android:id="@+id/preingreso3_otro"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="7"
-                android:textSize="14sp"/>
+                <RadioGroup
+                    android:id="@+id/preingreso3_radioGroup"
+                    android:layout_width="370dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/preingresobtn_siguiente3"
-                style="@style/custom_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:text="Siguiente" />
+                    <RadioButton
+                        android:id="@+id/radioButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Si" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="No" />
+                </RadioGroup>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp" />
+
+                <TextView
+                    android:id="@+id/preingreso3_textView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#616161"
+                    android:text="10.2. Si respondiste SI, ¿Cómo se llama el proyecto?"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/preingreso3_proyecto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Tu respuesta"
+                    android:ems="7"
+                    android:textSize="14sp" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp" />
+
+                <TextView
+                    android:id="@+id/preingreso3_textView5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#616161"
+                    android:text="11. ¿Cual es tu municipio de residencia? *"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/preingreso3_municipio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Tu respuesta"
+                    android:ems="7"
+                    android:textSize="14sp" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp" />
+
+                <TextView
+                    android:id="@+id/preingreso3_textView6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#616161"
+                    android:text="12. Para ir a trabajar la mayor parte del tiempo te transportas en: *"
+                    android:textSize="14sp" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp" />
+
+                <RadioGroup
+                    android:id="@+id/preingreso3_radioGroup1"
+                    android:layout_width="370dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:id="@+id/radioButton3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Caminando" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Bicicleta" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Moto" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Carro" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Bus" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Metro" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton9"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Otro" />
+                </RadioGroup>
+
+                <EditText
+                    android:id="@+id/preingreso3_otro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="7"
+                    android:textSize="14sp" />
+
+                <Button
+                    android:id="@+id/preingresobtn_siguiente3"
+                    style="@style/custom_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:text="Siguiente" />
 
 
-        </LinearLayout>
-    </ScrollView>
-</FrameLayout>
+            </LinearLayout>
+        </ScrollView>
+    </FrameLayout>
+</layout>

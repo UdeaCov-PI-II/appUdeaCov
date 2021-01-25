@@ -5,12 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
-import android.widget.RadioButton
-import android.widget.RadioGroup
-import android.widget.Toast
+import android.widget.*
+import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import co.edu.udea.udeacov.R
+import co.edu.udea.udeacov.databinding.FragmentPreingreso2Binding
+import co.edu.udea.udeacov.network.request.SignUpRequestDto
 import kotlinx.android.synthetic.main.fragment_preingreso2.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -20,14 +20,16 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [preingreso2.newInstance] factory method to
+ * Use the [Preingreso2.newInstance] factory method to
  * create an instance of this fragment.
  */
-class preingreso2 : Fragment() {
+class Preingreso2 : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
     var bandera: Boolean? = null
+    private lateinit var signUpRequestDto: SignUpRequestDto
+    lateinit var binding : FragmentPreingreso2Binding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,8 +43,7 @@ class preingreso2 : Fragment() {
         if(preingreso2_correoN.text.toString().isEmpty()){
             preingreso2_correoN.error = "campo vacío"
             return false
-        }else if(preingreso2_checkBox1.isChecked == false && preingreso2_checkBox2.isChecked == false && preingreso2_checkBox3.isChecked == false && preingreso2_checkBox4.isChecked == false &&
-            preingreso2_checkBox5.isChecked == false && preingreso2_checkBox6.isChecked == false && preingreso2_checkBox7.isChecked == false && preingreso2_checkBox8.isChecked == false){
+        }else if(!preingreso2_checkBox1.isChecked && !preingreso2_checkBox2.isChecked && !preingreso2_checkBox3.isChecked && !preingreso2_checkBox4.isChecked && !preingreso2_checkBox5.isChecked && !preingreso2_checkBox6.isChecked && !preingreso2_checkBox7.isChecked && !preingreso2_checkBox8.isChecked){
             Toast.makeText(activity, "Ingresar vínculo con la universidad", Toast.LENGTH_SHORT).show();
             return false
         }else if(preingreso2_cargo.text.toString().isEmpty()){
@@ -62,40 +63,62 @@ class preingreso2 : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        //Recuperar argumentos anteriores
+        val args = arguments?.let { Preingreso2Args.fromBundle(it) }
+        signUpRequestDto = args!!.signUpRequest
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_preingreso2, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_preingreso2, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        var rg = view.findViewById<RadioGroup>(R.id.preingreso2_radioGroup)
+        var rg = view.findViewById<RadioGroup>(R.id.rgRiesgosLaborales)
         var option = ""
         rg.setOnCheckedChangeListener { _, i ->
             if(i != -1){
-                var aux = preingreso2_radioGroup.checkedRadioButtonId
-                var radioButton: View = preingreso2_radioGroup.findViewById(aux)
-                var indice: Int = preingreso2_radioGroup.indexOfChild(radioButton)
-                var respuesta: RadioButton = preingreso2_radioGroup.getChildAt(indice) as RadioButton
+                var aux = rgRiesgosLaborales.checkedRadioButtonId
+                var radioButton: View = rgRiesgosLaborales.findViewById(aux)
+                var indice: Int = rgRiesgosLaborales.indexOfChild(radioButton)
+                var respuesta: RadioButton = rgRiesgosLaborales.getChildAt(indice) as RadioButton
                 option = respuesta.text.toString()
+                signUpRequestDto.arlName = option
                 var editText1 = view.findViewById<EditText>(R.id.preingreso2_otro)
                 if(option == "Otro"){
                     bandera = true
                     editText1.visibility = View.VISIBLE
+                    signUpRequestDto.arlName = preingreso2_otro.text.toString()
                 } else{
                     bandera = false
-                    editText1.visibility = View.INVISIBLE
+                    editText1.visibility = View.GONE
                 }
             }
         }
 
         preingresobtn_siguiente2.setOnClickListener{
             if(validate()){
+                signUpRequestDto.birthday = preingreso2_fecha.text.toString()
+                signUpRequestDto.personalEmail = preingreso2_correoN.text.toString()
+                signUpRequestDto.birthday = preingreso2_fecha.text.toString()
+                signUpRequestDto.universityInfo.detailUniversityRelation = preingreso2_vinculo.text.toString()
+                signUpRequestDto.universityInfo.occupation = preingreso2_cargo.text.toString()
+                signUpRequestDto.phoneContact = preingreso2_telefono.text.toString()
                 Toast.makeText(activity, "Campos diligenciados", Toast.LENGTH_SHORT).show();
-                it.findNavController().navigate(R.id.action_preingreso2_to_preingreso3)
+                it.findNavController().navigate(Preingreso2Directions.actionPreingreso2ToPreingreso3(signUpRequestDto))
             }
         }
 
+    }
+
+    fun onCheckboxClicked(view: View) {
+        var checked = view as CheckBox
+        if (checked.isChecked) {
+            signUpRequestDto.universityInfo.universityRelation.add(checked.text.toString())
+        } else {
+            signUpRequestDto.universityInfo.universityRelation.remove(checked.text.toString())
+        }
     }
 
     companion object {
@@ -110,7 +133,7 @@ class preingreso2 : Fragment() {
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            preingreso2().apply {
+            Preingreso2().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)

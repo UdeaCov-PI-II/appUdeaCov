@@ -12,8 +12,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import co.edu.udea.udeacov.R
+import co.edu.udea.udeacov.network.request.SignUpRequestDto
 import kotlinx.android.synthetic.main.fragment_preingreso1.*
-import kotlinx.android.synthetic.main.fragment_preingreso1.view.*
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -23,15 +23,16 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [preingreso1.newInstance] factory method to
+ * Use the [Preingreso1.newInstance] factory method to
  * create an instance of this fragment.
  */
-class preingreso1 : Fragment() {
+class Preingreso1 : Fragment() {
 
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
     var bandera: Boolean? = null
+    private lateinit var signUpRequestDto: SignUpRequestDto
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -84,7 +85,9 @@ class preingreso1 : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        
+        signUpRequestDto = SignUpRequestDto()
+
+        //Tipo de Documento
         var rg = view.findViewById<RadioGroup>(R.id.preingreso1_radioGroup)
         var option = ""
         rg.setOnCheckedChangeListener { _, i ->
@@ -94,21 +97,28 @@ class preingreso1 : Fragment() {
                 var indice: Int = preingreso1_radioGroup.indexOfChild(radioButton)
                 var respuesta: RadioButton = preingreso1_radioGroup.getChildAt(indice) as RadioButton
                 option = respuesta.text.toString()
+                signUpRequestDto.documentType = option
                 var editText1 = view.findViewById<EditText>(R.id.preingreso1_otro)
                 if(option == "Otro"){
                     bandera = true
                     editText1.visibility = View.VISIBLE
+                    signUpRequestDto.documentType = preingreso1_otro.text.toString()
                 } else{
                     bandera = false
-                    editText1.visibility = View.INVISIBLE
+                    editText1.visibility = View.GONE
                 }
             }
         }
 
         preingresobtn_siguiente1.setOnClickListener{
             if(validate()){
+                signUpRequestDto.username = preingreso1_username.text.toString()
+                signUpRequestDto.password = preingreso1_password.text.toString()
+                signUpRequestDto.email = preingreso1_correo.text.toString()
+                signUpRequestDto.documentNumber = preingreso1_doc.text.toString()
+                signUpRequestDto.fullName = preingreso1_nombre.text.toString()
                 Toast.makeText(activity, "Campos diligenciados", Toast.LENGTH_SHORT).show();
-                it.findNavController().navigate(R.id.action_preingreso1_to_preingreso2)
+                it.findNavController().navigate(Preingreso1Directions.actionPreingreso1ToPreingreso2(signUpRequestDto))
             }
         }
     }
@@ -124,7 +134,7 @@ class preingreso1 : Fragment() {
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            preingreso1().apply {
+            Preingreso1().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)

@@ -1,151 +1,169 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragmentos.preingreso.preingreso5">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- TODO: Update blank fragment layout -->
+    <data>
+        <variable
+            name="fragmentPreingreso5"
+            type="co.edu.udea.udeacov.fragmentos.preingreso.Preingreso5" />
 
+    </data>
 
-    <ScrollView
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <LinearLayout
-            android:id="@+id/preingreso5"
+        android:layout_height="match_parent"
+        tools:context=".fragmentos.preingreso.Preingreso5">
+
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="8dp"
-            android:gravity="center|top"
-            android:orientation="vertical">>
+            android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/preingreso5_textView"
+            <LinearLayout
+                android:id="@+id/preingreso5"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Condiciones de los convivientes"
-                android:textColor="#DD000000"
-                android:textSize="20sp" />
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:gravity="center|top"
+                android:orientation="vertical">>
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="15dp" />
+                <TextView
+                    android:id="@+id/preingreso5_textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Condiciones de los convivientes"
+                    android:textColor="#DD000000"
+                    android:textSize="20sp" />
 
-            <TextView
-                android:id="@+id/preingreso5_textView1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="E. Información de convivientes"
-                android:textColor="#DD000000"
-                android:textSize="15sp" />
-            <TextView
-                android:id="@+id/preingreso5_textView2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Personas (adultas, adolescentes o niños) que viven en la misma residencia en la cual usted permanece sean o no familiares"
-                android:textColor="#616161"
-                android:textSize="15sp" />
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp" />
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="15dp" />
+                <TextView
+                    android:id="@+id/preingreso5_textView1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="E. Información de convivientes"
+                    android:textColor="#DD000000"
+                    android:textSize="15sp" />
 
-            <TextView
-                android:id="@+id/preingreso5_textView3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="¿Las personas con las que convives tienen alguna de las siguientes características? "
-                android:textColor="#616161"
-                android:textSize="14sp"/>
+                <TextView
+                    android:id="@+id/preingreso5_textView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Personas (adultas, adolescentes o niños) que viven en la misma residencia en la cual usted permanece sean o no familiares"
+                    android:textColor="#616161"
+                    android:textSize="15sp" />
 
-            <CheckBox
-                android:id="@+id/preingreso5_checkBox1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Son mayores de 60 años pero menores de 70 años." />
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp" />
 
-            <CheckBox
-                android:id="@+id/preingreso5_checkBox2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Son mayores de 70 años." />
+                <TextView
+                    android:id="@+id/preingreso5_textView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="¿Las personas con las que convives tienen alguna de las siguientes características? "
+                    android:textColor="#616161"
+                    android:textSize="14sp" />
 
-            <CheckBox
-                android:id="@+id/preingreso5_checkBox3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Son personas con preexistencias como Diabetes, Enfermedad cardiovascular, Hipertensión arterial, Accidente Cerebrovascular , VIH, Cáncer, Uso de corticoides o inmunosupresores, EPOC , obesidad , desnutrición, fumadores." />
+                <CheckBox
+                    android:id="@+id/preingreso5_checkBox1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{(view) -> fragmentPreingreso5.seleccionarCondicionesConvivencia(view)}"
+                    android:text="Son mayores de 60 años pero menores de 70 años." />
 
-            <CheckBox
-                android:id="@+id/preingreso5_checkBox4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Son personas que trabajan en el sector salud (clínicas u hospitales)" />
+                <CheckBox
+                    android:id="@+id/preingreso5_checkBox2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{(view) -> fragmentPreingreso5.seleccionarCondicionesConvivencia(view)}"
+                    android:text="Son mayores de 70 años." />
 
-            <CheckBox
-                android:id="@+id/preingreso5_checkBox5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Son niños a mi cuidado exclusivo (niños de 0 a 12 años)" />
+                <CheckBox
+                    android:id="@+id/preingreso5_checkBox3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{(view) -> fragmentPreingreso5.seleccionarCondicionesConvivencia(view)}"
+                    android:text="Son personas con preexistencias como Diabetes, Enfermedad cardiovascular, Hipertensión arterial, Accidente Cerebrovascular , VIH, Cáncer, Uso de corticoides o inmunosupresores, EPOC , obesidad , desnutrición, fumadores." />
 
-            <CheckBox
-                android:id="@+id/preingreso5_checkBox6"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Son adolescentes a mi cuidado exclusivo (de 12 a 18 años)" />
+                <CheckBox
+                    android:id="@+id/preingreso5_checkBox4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{(view) -> fragmentPreingreso5.seleccionarCondicionesConvivencia(view)}"
+                    android:text="Son personas que trabajan en el sector salud (clínicas u hospitales)" />
 
-            <CheckBox
-                android:id="@+id/preingreso5_checkBox7"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Son otras personas a mi cuidado exclusivo que no pueden valerse por sí mismas." />
+                <CheckBox
+                    android:id="@+id/preingreso5_checkBox5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{(view) -> fragmentPreingreso5.seleccionarCondicionesConvivencia(view)}"
+                    android:text="Son niños a mi cuidado exclusivo (niños de 0 a 12 años)" />
 
-            <CheckBox
-                android:id="@+id/preingreso5_checkBox8"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Son mujeres en embarazo." />
+                <CheckBox
+                    android:id="@+id/preingreso5_checkBox6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{(view) -> fragmentPreingreso5.seleccionarCondicionesConvivencia(view)}"
+                    android:text="Son adolescentes a mi cuidado exclusivo (de 12 a 18 años)" />
 
-            <CheckBox
-                android:id="@+id/preingreso5_checkBox9"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Son mujeres que tuvieron su hijo hace 6 semanas o menos." />
+                <CheckBox
+                    android:id="@+id/preingreso5_checkBox7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{(view) -> fragmentPreingreso5.seleccionarCondicionesConvivencia(view)}"
+                    android:text="Son otras personas a mi cuidado exclusivo que no pueden valerse por sí mismas." />
 
-            <CheckBox
-                android:id="@+id/preingreso5_checkBox10"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Ninguna de las anteriores" />
+                <CheckBox
+                    android:id="@+id/preingreso5_checkBox8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{(view) -> fragmentPreingreso5.seleccionarCondicionesConvivencia(view)}"
+                    android:text="Son mujeres en embarazo." />
 
-            <CheckBox
-                android:id="@+id/preingreso5_checkBox11"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Otro" />
+                <CheckBox
+                    android:id="@+id/preingreso5_checkBox9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{(view) -> fragmentPreingreso5.seleccionarCondicionesConvivencia(view)}"
+                    android:text="Son mujeres que tuvieron su hijo hace 6 semanas o menos." />
 
-            <EditText
-                android:id="@+id/preingreso5_otro"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="7"
-                android:textSize="14sp"/>
+                <CheckBox
+                    android:id="@+id/preingreso5_checkBox10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{(view) -> fragmentPreingreso5.seleccionarCondicionesConvivencia(view)}"
+                    android:text="Ninguna de las anteriores" />
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="15dp" />
+                <CheckBox
+                    android:id="@+id/preingreso5_checkBox11"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{(view) -> fragmentPreingreso5.seleccionarCondicionesConvivencia(view)}"
+                    android:text="Otro" />
 
-            <Button
-                android:id="@+id/preingresobtn_siguiente5"
-                style="@style/custom_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:text="Siguiente" />
+                <EditText
+                    android:id="@+id/preingreso5_otro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="7"
+                    android:textSize="14sp" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp" />
+
+                <Button
+                    android:id="@+id/preingresobtn_siguiente5"
+                    style="@style/custom_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:text="Siguiente" />
+            </LinearLayout>
+        </ScrollView>
 
 
-        </LinearLayout>
-    </ScrollView>
-
-
-</FrameLayout>
+    </FrameLayout>
+</layout>
