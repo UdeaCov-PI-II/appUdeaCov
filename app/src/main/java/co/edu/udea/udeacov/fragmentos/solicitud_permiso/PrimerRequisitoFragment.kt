@@ -15,7 +15,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import co.edu.udea.udeacov.R
-import co.edu.udea.udeacov.SolicitudDeUnPermiso
+import co.edu.udea.udeacov.activities.SolicitudDeUnPermiso
 import com.kofigyan.stateprogressbar.StateProgressBar
 import kotlinx.android.synthetic.main.fragment_primer_requisito.*
 

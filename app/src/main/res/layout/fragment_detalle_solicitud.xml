@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragmentos.lista_solicitudes.DetalleSolicitud">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/layout_nombre"
+                style="@style/card_layout">
+
+                <TextView
+                    android:id="@+id/txt_nombre_key"
+                    style="@style/card_txt_key"
+                    android:text="Nombre:" />
+
+                <TextView
+                    android:id="@+id/txt_nombre1"
+                    style="@style/card_txt_value"
+                    android:text="Paula Andrea Maldonado" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_cedula"
+                style="@style/card_layout">
+
+                <TextView
+                    android:id="@+id/txt_cedula_key"
+                    style="@style/card_txt_key"
+                    android:text="Cédula:" />
+
+                <TextView
+                    android:id="@+id/txt_cc1"
+                    style="@style/card_txt_value"
+                    android:text="123456"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_fechaI"
+                style="@style/card_layout">
+
+                <TextView
+                    android:id="@+id/txt_fechaI_key"
+                    style="@style/card_txt_key"
+                    android:text="Fecha de inicio del permiso:" />
+
+                <TextView
+                    android:id="@+id/txt_fechaini1"
+                    style="@style/card_txt_value"
+                    android:text="01/10/2021"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_fechaF"
+                style="@style/card_layout">
+
+                <TextView
+                    android:id="@+id/txt_fechaF_key"
+                    style="@style/card_txt_key"
+                    android:text="Fecha de finalización del permiso:"
+                    />
+
+                <TextView
+                    android:id="@+id/txt_fechafin1"
+                    style="@style/card_txt_value"
+                    android:text="01/22/2021"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_lugar_permanencia"
+                style="@style/card_layout">
+
+                <TextView
+                    android:id="@+id/txt_lugar_permanencia_key"
+                    style="@style/card_txt_key"
+                    android:text="Lugar donde permanecerá:" />
+
+                <TextView
+                    android:id="@+id/txt_lugar_permanencia"
+                    style="@style/card_txt_value"
+                    android:text="Bloque 19"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_motivo"
+                style="@style/card_layout">
+
+                <TextView
+                    android:id="@+id/txt_motivo_key"
+                    style="@style/card_txt_key"
+                    android:text="Motivo de ingreso:" />
+
+                <TextView
+                    android:id="@+id/txt_motivo"
+                    style="@style/card_txt_value"
+                    android:text="Revisión del equipo de computo del laboratorio integrado de sistemas"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_estado"
+                style="@style/card_layout">
+
+                <TextView
+                    android:id="@+id/txt_estado_key"
+                    style="@style/card_txt_key"
+                    android:text="Estado de la solicitud:" />
+
+                <TextView
+                    android:id="@+id/txt_estado"
+                    style="@style/card_txt_value"
+                    android:text="Pendiente"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_archivo"
+                style="@style/card_layout">
+
+                <TextView
+                    android:id="@+id/txt_archivo_key"
+                    style="@style/card_txt_key"
+                    android:text="Archivos adjuntos:" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <com.github.chrisbanes.photoview.PhotoView
+                    android:id="@+id/photo_view"
+                    android:layout_width="205dp"
+                    android:layout_height="250dp" />
+
+                <com.github.chrisbanes.photoview.PhotoView
+                    android:id="@+id/photo_view1"
+                    android:layout_width="205dp"
+                    android:layout_height="250dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/card_layout"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+
+                <CheckBox
+                    android:id="@+id/checkBox1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Aprobación del decano" />
+
+                <CheckBox
+                    android:id="@+id/checkBox2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Aprobación de Salud ocupacional" />
+
+                <CheckBox
+                    android:id="@+id/checkBox3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Aprobación del talento humano" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_registra_ingreso"
+                style="@style/custom_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:text="Registrar ingreso" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</FrameLayout>

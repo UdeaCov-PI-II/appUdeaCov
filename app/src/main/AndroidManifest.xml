@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="co.edu.udea.udeacov">
-
-    <!--  Permisos para descargar un archivo y acceder a internet -->
+    <!-- Permisos para descargar un archivo y acceder a internet -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -13,26 +12,25 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-
-        <activity android:name=".activities.SolicitudDeUnPermiso">
-
-
-        </activity>
-
-        <activity android:name=".activities.preingreso">
-        </activity>
-
-        <activity android:name=".activities.main.MainActivity" android:theme="@style/Theme.MaterialComponents.Light.NoActionBar.Bridge">
+        <activity android:name=".activities.TablaDinamica"></activity>
+        <activity android:name=".activities.ListaSolicitudes" />
+        <activity android:name=".activities.SolicitudDeUnPermiso" />
+        <activity android:name=".activities.preingreso" />
+        <activity
+            android:name=".activities.main.MainActivity"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar.Bridge">
             <intent-filter>
-                <!-- Actividad que se lanza como main-->
+
+                <!-- Actividad que se lanza como main -->
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
-                <!-- Habilitar conexion a internet-->
+                <!-- Habilitar conexion a internet -->
                 <action android:name="android.intent.action.SEND" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

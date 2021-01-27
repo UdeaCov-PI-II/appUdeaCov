@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import co.edu.udea.udeacov.R
+import co.edu.udea.udeacov.activities.ListaSolicitudes
 import co.edu.udea.udeacov.activities.SolicitudDeUnPermiso
 import co.edu.udea.udeacov.activities.preingreso
 import co.edu.udea.udeacov.databinding.ActivityMainBinding
@@ -29,6 +30,11 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnRegistrarse.setOnClickListener {
             val intent= Intent(this, preingreso::class.java)
+            startActivity(intent)
+        }
+
+        binding.buttonBorrarDespues.setOnClickListener {
+            val intent= Intent(this, ListaSolicitudes::class.java)
             startActivity(intent)
         }
 
