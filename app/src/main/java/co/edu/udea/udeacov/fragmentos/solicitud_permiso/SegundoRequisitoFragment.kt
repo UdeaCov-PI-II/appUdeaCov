@@ -1,13 +1,18 @@
 package co.edu.udea.udeacov.fragmentos.solicitud_permiso
 
+import android.content.Intent
 import android.os.Bundle
+import android.provider.MediaStore
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.findNavController
 import co.edu.udea.udeacov.R
+import co.edu.udea.udeacov.SolicitudDeUnPermiso
 import com.kofigyan.stateprogressbar.StateProgressBar
+import kotlinx.android.synthetic.main.fragment_primer_requisito.*
 import kotlinx.android.synthetic.main.fragment_segundo_requisito.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -33,6 +38,16 @@ class SegundoRequisitoFragment : Fragment() {
         }
     }
 
+    private fun loadImage(){
+        val intent = Intent(
+            Intent.ACTION_PICK,
+            MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+        );
+        intent.setType("image/");
+
+        startActivityForResult(Intent.createChooser(intent, "Seleccionar imagen"), 10);
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -45,7 +60,14 @@ class SegundoRequisitoFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         btn_enviarMedellinMeCuida.setOnClickListener {
-            it.findNavController().navigate(R.id.action_segundoRequisitoFragment_to_solicitudIngreso1)
+            loadImage();
+        }
+        segReqbtn.setOnClickListener{
+            if(SolicitudDeUnPermiso.StaticData.bandera2==true){
+                it.findNavController().navigate(R.id.action_segundoRequisitoFragment_to_solicitudIngreso1)
+            }else{
+                Toast.makeText(activity, "Ingresar imagen", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 

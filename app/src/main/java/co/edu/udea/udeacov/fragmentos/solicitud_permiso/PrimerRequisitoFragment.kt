@@ -1,12 +1,21 @@
 package co.edu.udea.udeacov.fragmentos.solicitud_permiso
 
+import android.R.attr
+import android.app.Activity
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.text.SpannableStringBuilder
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import android.widget.Spinner
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import co.edu.udea.udeacov.R
+import co.edu.udea.udeacov.SolicitudDeUnPermiso
 import com.kofigyan.stateprogressbar.StateProgressBar
 import kotlinx.android.synthetic.main.fragment_primer_requisito.*
 
@@ -25,6 +34,7 @@ class PrimerRequisitoFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    var bandera: Boolean? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +43,16 @@ class PrimerRequisitoFragment : Fragment() {
             param2 = it.getString(ARG_PARAM2)
         }
 
+    }
+
+    private fun loadImage(){
+        val intent = Intent(
+            Intent.ACTION_PICK,
+            android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+        );
+        intent.setType("image/");
+
+        startActivityForResult(Intent.createChooser(intent, "Seleccionar imagen"), 10);
     }
 
     override fun onCreateView(
@@ -48,7 +68,14 @@ class PrimerRequisitoFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         btn_enviarCoronapp.setOnClickListener {
-            it.findNavController().navigate(R.id.action_primerRequisitoFragment_to_segundoRequisitoFragment)
+            loadImage();
+        }
+        primerReqbtn.setOnClickListener{
+            if(SolicitudDeUnPermiso.StaticData.bandera1==true){
+                it.findNavController().navigate(R.id.action_primerRequisitoFragment_to_segundoRequisitoFragment)
+            }else{
+                Toast.makeText(activity, "Ingresar imagen", Toast.LENGTH_SHORT).show();
+            }
         }
 
     }

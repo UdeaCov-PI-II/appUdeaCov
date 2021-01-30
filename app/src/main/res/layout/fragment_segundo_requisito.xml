@@ -59,5 +59,14 @@
         android:textAllCaps="false"
         android:layout_gravity="center|center_vertical" />
 
+    <Button
+        android:id="@+id/segReqbtn"
+        style="@style/custom_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="100dp"
+        android:text="Siguiente" />
+
 
 </LinearLayout>
