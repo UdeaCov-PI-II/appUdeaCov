@@ -7,9 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import co.edu.udea.udeacov.R
 import co.edu.udea.udeacov.databinding.FragmentPreingreso4Binding
+import co.edu.udea.udeacov.fragmentos.preingreso.viewmodels.preingreso4.Preingreso4ViewModel
+import co.edu.udea.udeacov.fragmentos.preingreso.viewmodels.preingreso5.Preingreso5ViewModel
 import co.edu.udea.udeacov.network.request.SignUpRequestDto
 import kotlinx.android.synthetic.main.fragment_preingreso2.*
 import kotlinx.android.synthetic.main.fragment_preingreso4.*
@@ -29,8 +33,10 @@ class Preingreso4 : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
     var bandera: Boolean? = null
+    private lateinit var viewModel: Preingreso4ViewModel
     private lateinit var signUpRequestDto: SignUpRequestDto
     lateinit var binding : FragmentPreingreso4Binding
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,20 +74,20 @@ class Preingreso4 : Fragment() {
             return false
         }else if(rgPresionArterial == -1 || rgEnfermCorazon == -1 || rgColesterol == -1 || rgEnfermRenal == -1 || rgDiabetes == -1 || rgEnfermPulmonar == -1 || rgAsma == -1 || rgAlteracionInmunidad == -1 ||
             rgCancer == -1 || rgEsteroides == -1 || rgEnfermHepatica == -1 || rgObesidad == -1 || rgFumador == -1 || rgEnfermedadRara == -1 || rgEmbarazo == -1 || rgParto == -1 ){
-            Toast.makeText(activity, "Debes introducir una respuesta por fila", Toast.LENGTH_SHORT).show();
+            Toast.makeText(activity, "Debes introducir una respuesta por fila", Toast.LENGTH_SHORT).show()
             return false
         }else if(!cb_ningunaDiscapacidad.isChecked && !cb_visualPermanente.isChecked && !cb_motrizPermanente.isChecked && !cb_auditivaPermanente.isChecked && !cb_otra_discapacidad.isChecked){
-            Toast.makeText(activity, "Registrar si tiene algún tipo de incapacidad", Toast.LENGTH_SHORT).show();
+            Toast.makeText(activity, "Registrar si tiene algún tipo de incapacidad", Toast.LENGTH_SHORT).show()
             return false
         }else if(bandera==true && input_otraDiscapacidad.text.toString().isEmpty()){
             input_otraDiscapacidad.error = "campo vacío"
             return false
         }
         else if(rgGrupoSanguineo == -1){
-            Toast.makeText(activity, "Ingresar grupo sanguíneo", Toast.LENGTH_SHORT).show();
+            Toast.makeText(activity, "Ingresar grupo sanguíneo", Toast.LENGTH_SHORT).show()
             return false
         }else if(rgConvivencia == -1){
-            Toast.makeText(activity, "Ingresar si convives actualmente con otras personas", Toast.LENGTH_SHORT).show();
+            Toast.makeText(activity, "Ingresar si convives actualmente con otras personas", Toast.LENGTH_SHORT).show()
             return false
         }
         return true
@@ -97,36 +103,61 @@ class Preingreso4 : Fragment() {
 
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_preingreso4, container, false )
+
+        //Instanciamos la variable del fragment
+        binding.fragmentPreingreso4 = this
+
+        //instanciamos el ViewModel
+        viewModel = ViewModelProvider(this).get(Preingreso4ViewModel::class.java)
+
+        //conectamos el binding con el viewModel
+        binding.lifecycleOwner = viewLifecycleOwner
+        binding.viewModel= viewModel
+
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        viewModel.responseError.observe(viewLifecycleOwner, Observer {
+            it?.let {
+                Toast.makeText(requireContext(), it, Toast.LENGTH_LONG).show()
+                viewModel.showErrorIsCompleted()
+            }
+        })
+
+        viewModel.signUpResponse.observe(viewLifecycleOwner, Observer {
+            it?.let {
+                view.findNavController().navigate(R.id.action_preingreso4_to_mainActivity)
+                viewModel.navigationIsCompleted()
+            }
+        })
+
         leerCondicionesDeSalud()
 
-        var rgGrupoSanguineo = view.findViewById<RadioGroup>(R.id.rg_grupo_sanguineo)
+        val rgGrupoSanguineo = view.findViewById<RadioGroup>(R.id.rg_grupo_sanguineo)
         var rtaGrupoSanguineo = ""
         rgGrupoSanguineo.setOnCheckedChangeListener { _, i ->
             if(i != -1){
-                var aux = rg_grupo_sanguineo.checkedRadioButtonId
-                var radioButton: View = rg_grupo_sanguineo.findViewById(aux)
-                var indice: Int = rg_grupo_sanguineo.indexOfChild(radioButton)
-                var respuesta: RadioButton = rg_grupo_sanguineo.getChildAt(indice) as RadioButton
+                val aux = rg_grupo_sanguineo.checkedRadioButtonId
+                val radioButton: View = rg_grupo_sanguineo.findViewById(aux)
+                val indice: Int = rg_grupo_sanguineo.indexOfChild(radioButton)
+                val respuesta: RadioButton = rg_grupo_sanguineo.getChildAt(indice) as RadioButton
                 rtaGrupoSanguineo = respuesta.text.toString()
                 signUpRequestDto.healthInfo.bloodType = rtaGrupoSanguineo
             }
         }
 
 
-        var rg = view.findViewById<RadioGroup>(R.id.rg_convivesConOtros)
+        val rg = view.findViewById<RadioGroup>(R.id.rg_convivesConOtros)
         var option = ""
         rg.setOnCheckedChangeListener { _, i ->
             if(i != -1){
-                var aux = rg_convivesConOtros.checkedRadioButtonId
-                var radioButton: View = rg_convivesConOtros.findViewById(aux)
-                var indice: Int = rg_convivesConOtros.indexOfChild(radioButton)
-                var respuesta: RadioButton = rg_convivesConOtros.getChildAt(indice) as RadioButton
+                val aux = rg_convivesConOtros.checkedRadioButtonId
+                val radioButton: View = rg_convivesConOtros.findViewById(aux)
+                val indice: Int = rg_convivesConOtros.indexOfChild(radioButton)
+                val respuesta: RadioButton = rg_convivesConOtros.getChildAt(indice) as RadioButton
                 option = respuesta.text.toString()
             }
         }
@@ -144,16 +175,19 @@ class Preingreso4 : Fragment() {
 
         preingresobtn_siguiente4.setOnClickListener{
             if(validate()){
+                if (input_otraDiscapacidad.text.toString().isNotEmpty()){
+                    signUpRequestDto.healthInfo.hasPermanentDisability = input_otraDiscapacidad.text.toString()
+                }
                 signUpRequestDto.healthInfo.weight = preingreso4_peso.text.toString().toFloat()
                 signUpRequestDto.healthInfo.height = preingreso4_altura.text.toString().toFloat()
                 if(option == "Si"){
                     signUpRequestDto.healthInfo.hasRoomates = true
-                    Toast.makeText(activity, "Campos diligenciados", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(activity, "Campos diligenciados", Toast.LENGTH_SHORT).show()
                     it.findNavController().navigate(Preingreso4Directions.actionPreingreso4ToPreingreso5(signUpRequestDto))
                 } else{
                     signUpRequestDto.healthInfo.hasRoomates = false
-                    Toast.makeText(activity, "Campos diligenciados", Toast.LENGTH_SHORT).show();
-                    it.findNavController().navigate(R.id.action_preingreso4_to_preingreso62)
+                    Toast.makeText(activity, "Formulario enviado exitosamente", Toast.LENGTH_SHORT).show()
+                    viewModel.signup(signUpRequestDto)
                 }
             }
         }
@@ -161,7 +195,7 @@ class Preingreso4 : Fragment() {
     }
 
     fun seleccionarDiscapacidadPermanente (view: View) {
-        var checked = view as CheckBox
+        val checked = view as CheckBox
         if (checked.isChecked) {
             signUpRequestDto.healthInfo.hasPermanentDisability = checked.text.toString()
         }
@@ -169,211 +203,211 @@ class Preingreso4 : Fragment() {
 
     fun leerCondicionesDeSalud(){
 
-        var rg_presionArterial = requireActivity().findViewById<RadioGroup>(R.id.rg_presion_arterial)
+        val rg_presionArterial = requireActivity().findViewById<RadioGroup>(R.id.rg_presion_arterial)
         var rta_presionArterial = ""
         rg_presionArterial.setOnCheckedChangeListener { _, i ->
             if(i != -1){
-                var aux = rg_presionArterial.checkedRadioButtonId
-                var radioButton: View = rg_presionArterial.findViewById(aux)
-                var indice: Int = rg_presionArterial.indexOfChild(radioButton)
-                var respuesta: RadioButton = rg_presionArterial.getChildAt(indice) as RadioButton
+                val aux = rg_presionArterial.checkedRadioButtonId
+                val radioButton: View = rg_presionArterial.findViewById(aux)
+                val indice: Int = rg_presionArterial.indexOfChild(radioButton)
+                val respuesta: RadioButton = rg_presionArterial.getChildAt(indice) as RadioButton
                 rta_presionArterial = respuesta.text.toString()
                 signUpRequestDto.healthInfo.hasHighBloodPressure = rta_presionArterial=="Si"
             }
         }
 
 
-        var rgEnfermCorazon = requireActivity().findViewById<RadioGroup>(R.id.rg_enferm_corazon)
+        val rgEnfermCorazon = requireActivity().findViewById<RadioGroup>(R.id.rg_enferm_corazon)
         var rtaEnfermCorazon = ""
         rgEnfermCorazon.setOnCheckedChangeListener { _, i ->
             if(i != -1){
-                var aux = rgEnfermCorazon.checkedRadioButtonId
-                var radioButton: View = rgEnfermCorazon.findViewById(aux)
-                var indice: Int = rgEnfermCorazon.indexOfChild(radioButton)
-                var respuesta: RadioButton = rgEnfermCorazon.getChildAt(indice) as RadioButton
+                val aux = rgEnfermCorazon.checkedRadioButtonId
+                val radioButton: View = rgEnfermCorazon.findViewById(aux)
+                val indice: Int = rgEnfermCorazon.indexOfChild(radioButton)
+                val respuesta: RadioButton = rgEnfermCorazon.getChildAt(indice) as RadioButton
                 rtaEnfermCorazon = respuesta.text.toString()
                 signUpRequestDto.healthInfo.hasHeartDisease = rtaEnfermCorazon=="Si"
 
             }
         }
 
-        var rgColesterol = requireActivity().findViewById<RadioGroup>(R.id.rg_colesterol)
+        val rgColesterol = requireActivity().findViewById<RadioGroup>(R.id.rg_colesterol)
         var rtaColesterol = ""
         rgColesterol.setOnCheckedChangeListener { _, i ->
             if(i != -1){
-                var aux = rgColesterol.checkedRadioButtonId
-                var radioButton: View = rgColesterol.findViewById(aux)
-                var indice: Int = rgColesterol.indexOfChild(radioButton)
-                var respuesta: RadioButton = rgColesterol.getChildAt(indice) as RadioButton
+                val aux = rgColesterol.checkedRadioButtonId
+                val radioButton: View = rgColesterol.findViewById(aux)
+                val indice: Int = rgColesterol.indexOfChild(radioButton)
+                val respuesta: RadioButton = rgColesterol.getChildAt(indice) as RadioButton
                 rtaColesterol = respuesta.text.toString()
                 signUpRequestDto.healthInfo.hasHighCholesterol = rtaColesterol=="Si"
             }
         }
 
-        var rgEnfermRenal = requireActivity().findViewById<RadioGroup>(R.id.rg_enfermedadRenal)
+        val rgEnfermRenal = requireActivity().findViewById<RadioGroup>(R.id.rg_enfermedadRenal)
         var rtaEnfermRenal = ""
         rgEnfermRenal.setOnCheckedChangeListener { _, i ->
             if(i != -1){
-                var aux = rgEnfermRenal.checkedRadioButtonId
-                var radioButton: View = rgEnfermRenal.findViewById(aux)
-                var indice: Int = rgEnfermRenal.indexOfChild(radioButton)
-                var respuesta: RadioButton = rgEnfermRenal.getChildAt(indice) as RadioButton
+                val aux = rgEnfermRenal.checkedRadioButtonId
+                val radioButton: View = rgEnfermRenal.findViewById(aux)
+                val indice: Int = rgEnfermRenal.indexOfChild(radioButton)
+                val respuesta: RadioButton = rgEnfermRenal.getChildAt(indice) as RadioButton
                 rtaEnfermRenal = respuesta.text.toString()
                 signUpRequestDto.healthInfo.haskidneyDisease = rtaEnfermRenal=="Si"
             }
         }
 
-        var rgDiabetes = requireActivity().findViewById<RadioGroup>(R.id.rg_diabetes)
+        val rgDiabetes = requireActivity().findViewById<RadioGroup>(R.id.rg_diabetes)
         var rtaDiabetes = ""
         rgDiabetes.setOnCheckedChangeListener { _, i ->
             if(i != -1){
-                var aux = rgDiabetes.checkedRadioButtonId
-                var radioButton: View = rgDiabetes.findViewById(aux)
-                var indice: Int = rgDiabetes.indexOfChild(radioButton)
-                var respuesta: RadioButton = rgDiabetes.getChildAt(indice) as RadioButton
+                val aux = rgDiabetes.checkedRadioButtonId
+                val radioButton: View = rgDiabetes.findViewById(aux)
+                val indice: Int = rgDiabetes.indexOfChild(radioButton)
+                val respuesta: RadioButton = rgDiabetes.getChildAt(indice) as RadioButton
                 rtaDiabetes = respuesta.text.toString()
                 signUpRequestDto.healthInfo.hasDiabetes = rtaDiabetes=="Si"
             }
         }
 
-        var rgEnfermPulmonar = requireActivity().findViewById<RadioGroup>(R.id.rg_enfermedadPulmonar)
+        val rgEnfermPulmonar = requireActivity().findViewById<RadioGroup>(R.id.rg_enfermedadPulmonar)
         var rtaEnfermPulmonar = ""
         rgEnfermPulmonar.setOnCheckedChangeListener { _, i ->
             if(i != -1){
-                var aux = rgEnfermPulmonar.checkedRadioButtonId
-                var radioButton: View = rgEnfermPulmonar.findViewById(aux)
-                var indice: Int = rgEnfermPulmonar.indexOfChild(radioButton)
-                var respuesta: RadioButton = rgEnfermPulmonar.getChildAt(indice) as RadioButton
+                val aux = rgEnfermPulmonar.checkedRadioButtonId
+                val radioButton: View = rgEnfermPulmonar.findViewById(aux)
+                val indice: Int = rgEnfermPulmonar.indexOfChild(radioButton)
+                val respuesta: RadioButton = rgEnfermPulmonar.getChildAt(indice) as RadioButton
                 rtaEnfermPulmonar = respuesta.text.toString()
                 signUpRequestDto.healthInfo.hasEPOC = rtaEnfermPulmonar=="Si"
             }
         }
 
-        var rgAsma = requireActivity().findViewById<RadioGroup>(R.id.rg_asma)
+        val rgAsma = requireActivity().findViewById<RadioGroup>(R.id.rg_asma)
         var rtaAsma = ""
         rgAsma.setOnCheckedChangeListener { _, i ->
             if(i != -1){
-                var aux = rgAsma.checkedRadioButtonId
-                var radioButton: View = rgAsma.findViewById(aux)
-                var indice: Int = rgAsma.indexOfChild(radioButton)
-                var respuesta: RadioButton = rgAsma.getChildAt(indice) as RadioButton
+                val aux = rgAsma.checkedRadioButtonId
+                val radioButton: View = rgAsma.findViewById(aux)
+                val indice: Int = rgAsma.indexOfChild(radioButton)
+                val respuesta: RadioButton = rgAsma.getChildAt(indice) as RadioButton
                 rtaAsma = respuesta.text.toString()
                 signUpRequestDto.healthInfo.hasAsthma = rtaAsma=="Si"
             }
         }
 
-        var rgEnfermAlteracionInmunidad = requireActivity().findViewById<RadioGroup>(R.id.rg_alteracionInmunidad)
+        val rgEnfermAlteracionInmunidad = requireActivity().findViewById<RadioGroup>(R.id.rg_alteracionInmunidad)
         var rtaAlteracionInmunidad = ""
         rgEnfermAlteracionInmunidad.setOnCheckedChangeListener { _, i ->
             if(i != -1){
-                var aux = rgEnfermAlteracionInmunidad.checkedRadioButtonId
-                var radioButton: View = rgEnfermAlteracionInmunidad.findViewById(aux)
-                var indice: Int = rgEnfermAlteracionInmunidad.indexOfChild(radioButton)
-                var respuesta: RadioButton = rgEnfermAlteracionInmunidad.getChildAt(indice) as RadioButton
+                val aux = rgEnfermAlteracionInmunidad.checkedRadioButtonId
+                val radioButton: View = rgEnfermAlteracionInmunidad.findViewById(aux)
+                val indice: Int = rgEnfermAlteracionInmunidad.indexOfChild(radioButton)
+                val respuesta: RadioButton = rgEnfermAlteracionInmunidad.getChildAt(indice) as RadioButton
                 rtaAlteracionInmunidad = respuesta.text.toString()
                 signUpRequestDto.healthInfo.hasAlterationImmunityDisease = rtaAlteracionInmunidad=="Si"
             }
         }
 
-        var rgCancer = requireActivity().findViewById<RadioGroup>(R.id.rg_cancer)
+        val rgCancer = requireActivity().findViewById<RadioGroup>(R.id.rg_cancer)
         var rtaCancer = ""
         rgCancer.setOnCheckedChangeListener { _, i ->
             if(i != -1){
-                var aux = rgCancer.checkedRadioButtonId
-                var radioButton: View = rgCancer.findViewById(aux)
-                var indice: Int = rgCancer.indexOfChild(radioButton)
-                var respuesta: RadioButton = rgCancer.getChildAt(indice) as RadioButton
+                val aux = rgCancer.checkedRadioButtonId
+                val radioButton: View = rgCancer.findViewById(aux)
+                val indice: Int = rgCancer.indexOfChild(radioButton)
+                val respuesta: RadioButton = rgCancer.getChildAt(indice) as RadioButton
                 rtaCancer = respuesta.text.toString()
                 signUpRequestDto.healthInfo.hasCancer = rtaCancer=="Si"
             }
         }
 
-        var rgMedicacionEsteroides = requireActivity().findViewById<RadioGroup>(R.id.rg_esteroides)
+        val rgMedicacionEsteroides = requireActivity().findViewById<RadioGroup>(R.id.rg_esteroides)
         var rtaMedicacionEsteroides = ""
         rgMedicacionEsteroides.setOnCheckedChangeListener { _, i ->
             if(i != -1){
-                var aux = rgMedicacionEsteroides.checkedRadioButtonId
-                var radioButton: View = rgMedicacionEsteroides.findViewById(aux)
-                var indice: Int = rgMedicacionEsteroides.indexOfChild(radioButton)
-                var respuesta: RadioButton = rgMedicacionEsteroides.getChildAt(indice) as RadioButton
+                val aux = rgMedicacionEsteroides.checkedRadioButtonId
+                val radioButton: View = rgMedicacionEsteroides.findViewById(aux)
+                val indice: Int = rgMedicacionEsteroides.indexOfChild(radioButton)
+                val respuesta: RadioButton = rgMedicacionEsteroides.getChildAt(indice) as RadioButton
                 rtaMedicacionEsteroides = respuesta.text.toString()
                 signUpRequestDto.healthInfo.useOralSteroids = rtaMedicacionEsteroides=="Si"
             }
         }
 
-        var rgEnfermHepatica = requireActivity().findViewById<RadioGroup>(R.id.rg_enfermadadHepatica)
+        val rgEnfermHepatica = requireActivity().findViewById<RadioGroup>(R.id.rg_enfermadadHepatica)
         var rtaEnfermHepatica = ""
         rgEnfermHepatica.setOnCheckedChangeListener { _, i ->
             if(i != -1){
-                var aux = rgEnfermHepatica.checkedRadioButtonId
-                var radioButton: View = rgEnfermHepatica.findViewById(aux)
-                var indice: Int = rgEnfermHepatica.indexOfChild(radioButton)
-                var respuesta: RadioButton = rgEnfermHepatica.getChildAt(indice) as RadioButton
+                val aux = rgEnfermHepatica.checkedRadioButtonId
+                val radioButton: View = rgEnfermHepatica.findViewById(aux)
+                val indice: Int = rgEnfermHepatica.indexOfChild(radioButton)
+                val respuesta: RadioButton = rgEnfermHepatica.getChildAt(indice) as RadioButton
                 rtaEnfermHepatica = respuesta.text.toString()
                 signUpRequestDto.healthInfo.hasHepaticDisease = rtaEnfermHepatica=="Si"
             }
         }
 
-        var rgObesidad = requireActivity().findViewById<RadioGroup>(R.id.rg_obesidad)
+        val rgObesidad = requireActivity().findViewById<RadioGroup>(R.id.rg_obesidad)
         var rtaObesidad = ""
         rgObesidad.setOnCheckedChangeListener { _, i ->
             if(i != -1){
-                var aux = rgObesidad.checkedRadioButtonId
-                var radioButton: View = rgObesidad.findViewById(aux)
-                var indice: Int = rgObesidad.indexOfChild(radioButton)
-                var respuesta: RadioButton = rgObesidad.getChildAt(indice) as RadioButton
+                val aux = rgObesidad.checkedRadioButtonId
+                val radioButton: View = rgObesidad.findViewById(aux)
+                val indice: Int = rgObesidad.indexOfChild(radioButton)
+                val respuesta: RadioButton = rgObesidad.getChildAt(indice) as RadioButton
                 rtaObesidad = respuesta.text.toString()
                 signUpRequestDto.healthInfo.hasObesity = rtaObesidad=="Si"
             }
         }
 
-        var rgFumador = requireActivity().findViewById<RadioGroup>(R.id.rg_fumador)
+        val rgFumador = requireActivity().findViewById<RadioGroup>(R.id.rg_fumador)
         var rtaFumador = ""
         rgFumador.setOnCheckedChangeListener { _, i ->
             if(i != -1){
-                var aux = rgFumador.checkedRadioButtonId
-                var radioButton: View = rgFumador.findViewById(aux)
-                var indice: Int = rgFumador.indexOfChild(radioButton)
-                var respuesta: RadioButton = rgFumador.getChildAt(indice) as RadioButton
+                val aux = rgFumador.checkedRadioButtonId
+                val radioButton: View = rgFumador.findViewById(aux)
+                val indice: Int = rgFumador.indexOfChild(radioButton)
+                val respuesta: RadioButton = rgFumador.getChildAt(indice) as RadioButton
                 rtaFumador = respuesta.text.toString()
                 signUpRequestDto.healthInfo.isSmoker = rtaFumador=="Si"
             }
         }
 
-        var rgEnfermRara = requireActivity().findViewById<RadioGroup>(R.id.rg_enfermedadRara)
+        val rgEnfermRara = requireActivity().findViewById<RadioGroup>(R.id.rg_enfermedadRara)
         var rtaEnfermRara = ""
         rgEnfermRara.setOnCheckedChangeListener { _, i ->
             if(i != -1){
-                var aux = rgEnfermRara.checkedRadioButtonId
-                var radioButton: View = rgEnfermRara.findViewById(aux)
-                var indice: Int = rgEnfermRara.indexOfChild(radioButton)
-                var respuesta: RadioButton = rgEnfermRara.getChildAt(indice) as RadioButton
+                val aux = rgEnfermRara.checkedRadioButtonId
+                val radioButton: View = rgEnfermRara.findViewById(aux)
+                val indice: Int = rgEnfermRara.indexOfChild(radioButton)
+                val respuesta: RadioButton = rgEnfermRara.getChildAt(indice) as RadioButton
                 rtaEnfermRara = respuesta.text.toString()
                 signUpRequestDto.healthInfo.hasStrangeDisease = rtaEnfermRara=="Si"
             }
         }
 
-        var rgEmbarazo = requireActivity().findViewById<RadioGroup>(R.id.rg_embarazo)
+        val rgEmbarazo = requireActivity().findViewById<RadioGroup>(R.id.rg_embarazo)
         var rtaEmbarazo = ""
         rgEmbarazo.setOnCheckedChangeListener { _, i ->
             if(i != -1){
-                var aux = rgEmbarazo.checkedRadioButtonId
-                var radioButton: View = rgEmbarazo.findViewById(aux)
-                var indice: Int = rgEmbarazo.indexOfChild(radioButton)
-                var respuesta: RadioButton = rgEmbarazo.getChildAt(indice) as RadioButton
+                val aux = rgEmbarazo.checkedRadioButtonId
+                val radioButton: View = rgEmbarazo.findViewById(aux)
+                val indice: Int = rgEmbarazo.indexOfChild(radioButton)
+                val respuesta: RadioButton = rgEmbarazo.getChildAt(indice) as RadioButton
                 rtaEmbarazo = respuesta.text.toString()
                 signUpRequestDto.healthInfo.isPregnant = rtaEmbarazo=="Si"
             }
         }
 
-        var rgPartoReciente = requireActivity().findViewById<RadioGroup>(R.id.rg_parto)
+        val rgPartoReciente = requireActivity().findViewById<RadioGroup>(R.id.rg_parto)
         var rtaPartoReciente = ""
         rgPartoReciente.setOnCheckedChangeListener { _, i ->
             if(i != -1){
-                var aux = rgPartoReciente.checkedRadioButtonId
-                var radioButton: View = rgPartoReciente.findViewById(aux)
-                var indice: Int = rgPartoReciente.indexOfChild(radioButton)
-                var respuesta: RadioButton = rgPartoReciente.getChildAt(indice) as RadioButton
+                val aux = rgPartoReciente.checkedRadioButtonId
+                val radioButton: View = rgPartoReciente.findViewById(aux)
+                val indice: Int = rgPartoReciente.indexOfChild(radioButton)
+                val respuesta: RadioButton = rgPartoReciente.getChildAt(indice) as RadioButton
                 rtaPartoReciente = respuesta.text.toString()
                 signUpRequestDto.healthInfo.hasChildBirthRecently = rtaPartoReciente=="Si"
             }

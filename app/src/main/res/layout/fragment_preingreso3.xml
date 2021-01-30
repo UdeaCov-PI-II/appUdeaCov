@@ -21,7 +21,7 @@
             <LinearLayout
                 android:id="@+id/preingreso3"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:gravity="center|top"
                 android:orientation="vertical">
@@ -61,6 +61,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Tu respuesta"
+                    android:inputType="text"
                     android:ems="7"
                     android:textSize="14sp" />
 
@@ -84,7 +85,7 @@
                     android:id="@+id/preingreso3_spinner1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:entries="@array/unidad" />
+                    android:entries="@{viewModel.unitsResponse}" />
 
                 <Space
                     android:layout_width="match_parent"
@@ -136,6 +137,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Tu respuesta"
+                    android:inputType="text"
                     android:ems="7"
                     android:textSize="14sp" />
 
@@ -156,6 +158,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Tu respuesta"
+                    android:inputType="text"
                     android:ems="7"
                     android:textSize="14sp" />
 
@@ -229,6 +232,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Otro" />
+
+
                 </RadioGroup>
 
                 <EditText
@@ -236,7 +241,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="7"
+                    android:inputType="text"
                     android:textSize="14sp" />
+
+
 
                 <Button
                     android:id="@+id/preingresobtn_siguiente3"

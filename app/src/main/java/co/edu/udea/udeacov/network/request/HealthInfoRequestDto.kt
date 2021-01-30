@@ -26,5 +26,5 @@ data class HealthInfoRequestDto (
     var hasPermanentDisability: String = "",
     var bloodType: String = "",
     var hasRoomates: Boolean = false,
-    var roomatesConditions: ArrayList<String> = ArrayList()
+    var roomatesConditions: MutableList<String> = mutableListOf()
 ): Parcelable

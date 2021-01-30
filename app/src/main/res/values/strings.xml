@@ -271,4 +271,16 @@ Los datos proporcionados por el usuario deben ser veraces, completos, exactos, a
     <string name="siguiente_to_preingreso3">Siguiente</string>
 
 
+    <!-- Declaración de Responsabilidad -->
+    <string name="universidad_de_antioquia">UNIVERSIDAD DE ANTIOQUIA</string>
+    <string name="declaracion_de_responsabilidad_titulo">DECLARACION DE RESPONSABILIDAD DE CUMPLIMIENTO DE MEDIDAS DE PREVENCIÓN ANTE EMERGENCIA SANITARIA DEL COVID 19</string>
+    <string name="fecha">Fecha:</string>
+    <string name="yo">Yo,</string>
+    <string name="identificada_con_cedula">Identificada con cédula</string>
+    <string name="parrafo_de_declaracion_de_compromiso">Declaro que recibí la debida información respecto a las medidas de prevención que debo llevar a cabo para prevenir el contagio con el virus causante del sindrome respiratorio agudo, en el ingreso autorizado, es así que asumo el compromiso con el cumplimiento de las medidas preventivas que me fueron enviadas en relación con protocolos de desinfección, autocuidado, uso de elementos de protección personal.</string>
+    <string name="declaro_que_he_leido_y_entendido_el_protocolo">Declaro que he leído y entendido el protocolo que me fué enviado.</string>
+    <string name="aprobacion_colaborador">Aprobación Colaborador</string>
+    <string name="aprobacion_jefe_inmediato">Aprobación Jefe inmediato</string>
+
+
 </resources>

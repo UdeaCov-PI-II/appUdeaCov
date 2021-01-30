@@ -22,7 +22,6 @@ class MainActivityViewModel : ViewModel() {
 
 
     private val _responseError = MutableLiveData<String?>()
-
     val responseError: LiveData<String?>
         get() = _responseError
 

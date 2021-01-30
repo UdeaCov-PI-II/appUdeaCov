@@ -49,33 +49,32 @@
         <action
             android:id="@+id/action_preingreso4_to_preingreso5"
             app:destination="@id/preingreso5" />
-        <action
-            android:id="@+id/action_preingreso4_to_preingreso62"
-            app:destination="@id/preingreso62" />
         <argument
             android:name="signUpRequest"
             app:argType="co.edu.udea.udeacov.network.request.SignUpRequestDto"
             app:nullable="false"/>
+        <action
+            android:id="@+id/action_preingreso4_to_mainActivity"
+            app:destination="@id/mainActivity" />
     </fragment>
     <fragment
         android:id="@+id/preingreso5"
         android:name="co.edu.udea.udeacov.fragmentos.preingreso.Preingreso5"
         android:label="preingreso5" >
-        <action
-            android:id="@+id/action_preingreso5_to_preingreso62"
-            app:destination="@id/preingreso62" />
         <argument
             android:name="signUpRequest"
             app:argType="co.edu.udea.udeacov.network.request.SignUpRequestDto"
             app:nullable="false"/>
+        <action
+            android:id="@+id/action_preingreso5_to_mainActivity"
+            app:destination="@id/mainActivity" />
     </fragment>
-    <fragment
-        android:id="@+id/preingreso62"
-        android:name="co.edu.udea.udeacov.fragmentos.preingreso.Preingreso6"
-        android:label="fragment_preingreso6"
-        tools:layout="@layout/fragment_preingreso6" />
     <argument
         android:name="signUpRequest"
         app:argType="co.edu.udea.udeacov.network.request.SignUpRequestDto"
         app:nullable="false"/>
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="co.edu.udea.udeacov.activities.main.MainActivity"
+        android:label="MainActivity" />
 </navigation>

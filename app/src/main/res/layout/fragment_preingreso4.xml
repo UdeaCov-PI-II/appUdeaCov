@@ -6,6 +6,10 @@
         <variable
             name="fragmentPreingreso4"
             type="co.edu.udea.udeacov.fragmentos.preingreso.Preingreso4" />
+
+        <variable
+            name="viewModel"
+            type="co.edu.udea.udeacov.fragmentos.preingreso.viewmodels.preingreso4.Preingreso4ViewModel" />
     </data>
 
     <FrameLayout
@@ -20,7 +24,7 @@
             <LinearLayout
                 android:id="@+id/preingreso4"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:gravity="center|top"
                 android:orientation="vertical">
@@ -670,6 +674,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="7"
+                    android:inputType="text"
                     android:textSize="14sp" />
 
                 <Space

@@ -14,6 +14,7 @@ import androidx.navigation.findNavController
 import co.edu.udea.udeacov.R
 import co.edu.udea.udeacov.network.request.SignUpRequestDto
 import kotlinx.android.synthetic.main.fragment_preingreso1.*
+import kotlinx.android.synthetic.main.fragment_preingreso5.*
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -57,7 +58,7 @@ class Preingreso1 : Fragment() {
             preingreso1_correo.error = "campo vacío"
             return false
         }else if(radioGroup1 == -1){
-            Toast.makeText(activity, "Ingresar el tipo de documento", Toast.LENGTH_SHORT).show();
+            Toast.makeText(activity, "Ingresar el tipo de documento", Toast.LENGTH_SHORT).show()
             return false
         }else if(bandera==true && preingreso1_otro.text.toString().isEmpty()){
             preingreso1_otro.error = "campo vacío"
@@ -68,7 +69,7 @@ class Preingreso1 : Fragment() {
         }else if(preingreso1_nombre.text.toString().isEmpty()){
             preingreso1_nombre.error = "campo vacío"
             return false
-        }else if(preingreso1_autorizo.isChecked == false){
+        }else if(!preingreso1_autorizo.isChecked){
             preingreso1_autorizo.error = "Es importante tu información para que la Institución pueda dar cumplimiento a la Resolución 0666 del 24 de abril de 2010 expedida por el Ministerio de Salud y poder orientar acciones preventivas frente al COVID-19."
             return false
         }
@@ -88,21 +89,20 @@ class Preingreso1 : Fragment() {
         signUpRequestDto = SignUpRequestDto()
 
         //Tipo de Documento
-        var rg = view.findViewById<RadioGroup>(R.id.preingreso1_radioGroup)
+        val rg = view.findViewById<RadioGroup>(R.id.preingreso1_radioGroup)
         var option = ""
         rg.setOnCheckedChangeListener { _, i ->
             if(i != -1){
-                var aux = preingreso1_radioGroup.checkedRadioButtonId
-                var radioButton: View = preingreso1_radioGroup.findViewById(aux)
-                var indice: Int = preingreso1_radioGroup.indexOfChild(radioButton)
-                var respuesta: RadioButton = preingreso1_radioGroup.getChildAt(indice) as RadioButton
+                val aux = preingreso1_radioGroup.checkedRadioButtonId
+                val radioButton: View = preingreso1_radioGroup.findViewById(aux)
+                val indice: Int = preingreso1_radioGroup.indexOfChild(radioButton)
+                val respuesta: RadioButton = preingreso1_radioGroup.getChildAt(indice) as RadioButton
                 option = respuesta.text.toString()
                 signUpRequestDto.documentType = option
-                var editText1 = view.findViewById<EditText>(R.id.preingreso1_otro)
+                val editText1 = view.findViewById<EditText>(R.id.preingreso1_otro)
                 if(option == "Otro"){
                     bandera = true
                     editText1.visibility = View.VISIBLE
-                    signUpRequestDto.documentType = preingreso1_otro.text.toString()
                 } else{
                     bandera = false
                     editText1.visibility = View.GONE
@@ -112,12 +112,16 @@ class Preingreso1 : Fragment() {
 
         preingresobtn_siguiente1.setOnClickListener{
             if(validate()){
+                if (preingreso1_otro.text.toString().isNotEmpty()){
+                    signUpRequestDto.documentType = preingreso1_otro.text.toString()
+                }
+                signUpRequestDto.roleId = "ROLE_USER"
                 signUpRequestDto.username = preingreso1_username.text.toString()
                 signUpRequestDto.password = preingreso1_password.text.toString()
                 signUpRequestDto.email = preingreso1_correo.text.toString()
                 signUpRequestDto.documentNumber = preingreso1_doc.text.toString()
                 signUpRequestDto.fullName = preingreso1_nombre.text.toString()
-                Toast.makeText(activity, "Campos diligenciados", Toast.LENGTH_SHORT).show();
+                Toast.makeText(activity, "Campos diligenciados", Toast.LENGTH_SHORT).show()
                 it.findNavController().navigate(Preingreso1Directions.actionPreingreso1ToPreingreso2(signUpRequestDto))
             }
         }

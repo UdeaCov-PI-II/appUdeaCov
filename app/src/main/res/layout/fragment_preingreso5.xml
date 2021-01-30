@@ -6,6 +6,9 @@
         <variable
             name="fragmentPreingreso5"
             type="co.edu.udea.udeacov.fragmentos.preingreso.Preingreso5" />
+        <variable
+            name="viewModel"
+            type="co.edu.udea.udeacov.fragmentos.preingreso.viewmodels.preingreso5.Preingreso5ViewModel" />
 
     </data>
 
@@ -21,10 +24,10 @@
             <LinearLayout
                 android:id="@+id/preingreso5"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:gravity="center|top"
-                android:orientation="vertical">>
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/preingreso5_textView"
@@ -148,6 +151,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="7"
+                    android:inputType="text"
                     android:textSize="14sp" />
 
                 <Space
@@ -155,12 +159,13 @@
                     android:layout_height="15dp" />
 
                 <Button
-                    android:id="@+id/preingresobtn_siguiente5"
+                    android:id="@+id/btn_enviarFormulario"
                     style="@style/custom_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:text="Siguiente" />
+                    android:layout_marginBottom="20dp"
+                    android:layout_gravity="center|bottom"
+                    android:text="Enviar Formulario" />
             </LinearLayout>
         </ScrollView>
 

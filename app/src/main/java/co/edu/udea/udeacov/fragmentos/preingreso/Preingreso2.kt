@@ -1,17 +1,21 @@
 package co.edu.udea.udeacov.fragmentos.preingreso
 
+import android.app.DatePickerDialog
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import co.edu.udea.udeacov.R
 import co.edu.udea.udeacov.databinding.FragmentPreingreso2Binding
 import co.edu.udea.udeacov.network.request.SignUpRequestDto
+import co.edu.udea.udeacov.ui.DatePickerFragment
+import kotlinx.android.synthetic.main.fragment_preingreso1.*
 import kotlinx.android.synthetic.main.fragment_preingreso2.*
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -44,7 +48,7 @@ class Preingreso2 : Fragment() {
             preingreso2_correoN.error = "campo vacío"
             return false
         }else if(!preingreso2_checkBox1.isChecked && !preingreso2_checkBox2.isChecked && !preingreso2_checkBox3.isChecked && !preingreso2_checkBox4.isChecked && !preingreso2_checkBox5.isChecked && !preingreso2_checkBox6.isChecked && !preingreso2_checkBox7.isChecked && !preingreso2_checkBox8.isChecked){
-            Toast.makeText(activity, "Ingresar vínculo con la universidad", Toast.LENGTH_SHORT).show();
+            Toast.makeText(activity, "Ingresar vínculo con la universidad", Toast.LENGTH_SHORT).show()
             return false
         }else if(preingreso2_cargo.text.toString().isEmpty()){
             preingreso2_cargo.error = "campo vacío"
@@ -69,27 +73,36 @@ class Preingreso2 : Fragment() {
 
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_preingreso2, container, false)
+        binding.fragmentPreingreso2 = this
+
+
+
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        var rg = view.findViewById<RadioGroup>(R.id.rgRiesgosLaborales)
+        preingreso2_fecha.setOnClickListener {
+            showDatePickerDialog()
+        }
+
+
+
+        val rg = view.findViewById<RadioGroup>(R.id.rgRiesgosLaborales)
         var option = ""
         rg.setOnCheckedChangeListener { _, i ->
             if(i != -1){
-                var aux = rgRiesgosLaborales.checkedRadioButtonId
-                var radioButton: View = rgRiesgosLaborales.findViewById(aux)
-                var indice: Int = rgRiesgosLaborales.indexOfChild(radioButton)
-                var respuesta: RadioButton = rgRiesgosLaborales.getChildAt(indice) as RadioButton
+                val aux = rgRiesgosLaborales.checkedRadioButtonId
+                val radioButton: View = rgRiesgosLaborales.findViewById(aux)
+                val indice: Int = rgRiesgosLaborales.indexOfChild(radioButton)
+                val respuesta: RadioButton = rgRiesgosLaborales.getChildAt(indice) as RadioButton
                 option = respuesta.text.toString()
                 signUpRequestDto.arlName = option
-                var editText1 = view.findViewById<EditText>(R.id.preingreso2_otro)
+                val editText1 = view.findViewById<EditText>(R.id.preingreso2_otro)
                 if(option == "Otro"){
                     bandera = true
                     editText1.visibility = View.VISIBLE
-                    signUpRequestDto.arlName = preingreso2_otro.text.toString()
                 } else{
                     bandera = false
                     editText1.visibility = View.GONE
@@ -99,27 +112,41 @@ class Preingreso2 : Fragment() {
 
         preingresobtn_siguiente2.setOnClickListener{
             if(validate()){
-                signUpRequestDto.birthday = preingreso2_fecha.text.toString()
+                if (preingreso2_otro.text.toString().isNotEmpty()){
+                    signUpRequestDto.arlName = preingreso2_otro.text.toString()
+                }
+                signUpRequestDto.birthday = preingreso2_fecha.text.toString().plus(" 00:00")
                 signUpRequestDto.personalEmail = preingreso2_correoN.text.toString()
-                signUpRequestDto.birthday = preingreso2_fecha.text.toString()
                 signUpRequestDto.universityInfo.detailUniversityRelation = preingreso2_vinculo.text.toString()
                 signUpRequestDto.universityInfo.occupation = preingreso2_cargo.text.toString()
                 signUpRequestDto.phoneContact = preingreso2_telefono.text.toString()
-                Toast.makeText(activity, "Campos diligenciados", Toast.LENGTH_SHORT).show();
+                Toast.makeText(activity, "Campos diligenciados", Toast.LENGTH_SHORT).show()
                 it.findNavController().navigate(Preingreso2Directions.actionPreingreso2ToPreingreso3(signUpRequestDto))
             }
         }
 
     }
 
-    fun onCheckboxClicked(view: View) {
-        var checked = view as CheckBox
+    private fun showDatePickerDialog() {
+        val newFragment = DatePickerFragment.newInstance(DatePickerDialog.OnDateSetListener { _, year, month, day ->
+            // +1 because January is zero
+            val selectedDate = day.toString() + "-" + (month + 1) + "-" + year
+            preingreso2_fecha.setText(selectedDate)
+        })
+
+        newFragment.show(requireActivity().supportFragmentManager, "datePicker")
+    }
+
+     fun onCheckboxClicked(view: View) {
+         val checked = view as CheckBox
         if (checked.isChecked) {
             signUpRequestDto.universityInfo.universityRelation.add(checked.text.toString())
         } else {
             signUpRequestDto.universityInfo.universityRelation.remove(checked.text.toString())
         }
     }
+
+
 
     companion object {
         /**

@@ -45,5 +45,13 @@
         android:id="@+id/declaracion_de_responsabilidad"
         android:name="co.edu.udea.udeacov.fragmentos.solicitud_permiso.DeclaracionResponsabilidadFragment"
         android:label="fragment_declaracion_de_responsabilidad"
-        tools:layout="@layout/fragment_declaracion_de_responsabilidad" />
+        tools:layout="@layout/fragment_declaracion_de_responsabilidad" >
+        <action
+            android:id="@+id/action_declaracion_de_responsabilidad_to_aprobacionesDeclaracionDeResponsabilidad"
+            app:destination="@id/aprobacionesDeclaracionDeResponsabilidad" />
+    </fragment>
+    <fragment
+        android:id="@+id/aprobacionesDeclaracionDeResponsabilidad"
+        android:name="co.edu.udea.udeacov.fragmentos.solicitud_permiso.AprobacionesDeclaracionDeResponsabilidad"
+        android:label="AprobacionesDeclaracionDeResponsabilidad" />
 </navigation>

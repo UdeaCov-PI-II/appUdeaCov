@@ -5,7 +5,7 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class UniversityInfoRequestDto (
-    var universityRelation: ArrayList<String> = ArrayList(),
+    var universityRelation: MutableList<String> = mutableListOf(),
     var detailUniversityRelation: String = "",
     var occupation: String= "",
     var buildingAndOffice: String = "",

@@ -20,7 +20,7 @@
             <LinearLayout
                 android:id="@+id/preingreso2"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:gravity="center|top"
                 android:orientation="vertical">
@@ -38,12 +38,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="7"
+                    android:inputType="date"
+                    android:focusable="false"
+                    android:clickable="true"
+                    android:maxLines="1"
                     android:hint="@string/mm_dd_yyyy"
                     android:textSize="14sp" />
-
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="15dp" />
 
                 <TextView
                     android:id="@+id/preingreso2_textView1"
@@ -181,6 +181,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/tu_respuesta_detalleVinculo"
+                    android:inputType="text"
                     android:ems="7"
                     android:textSize="14sp" />
 
@@ -202,6 +203,7 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/tu_respuesta_cargo"
                     android:ems="7"
+                    android:inputType="text"
                     android:textSize="14sp" />
 
                 <Space
@@ -316,6 +318,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="7"
+                    android:inputType="text"
                     android:textSize="14sp" />
 
                 <Space

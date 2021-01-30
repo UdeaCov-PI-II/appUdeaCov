@@ -1,8 +1,11 @@
 package co.edu.udea.udeacov.network
 
 import co.edu.udea.udeacov.network.request.AuthRequestDto
+import co.edu.udea.udeacov.network.request.SignUpRequestDto
 import co.edu.udea.udeacov.network.response.AuthResponseDto
 import co.edu.udea.udeacov.network.response.LocationResponseDTO
+import co.edu.udea.udeacov.network.response.SignUpResponseDto
+import co.edu.udea.udeacov.network.response.UnitResponseDto
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -28,11 +31,19 @@ private val retrofit = Retrofit.Builder()
 interface UdeaCovAuthService{
     @POST("auth/signin")
     fun authenticate(@Query("message") showErrorMessage : Boolean ,@Body authRequest : AuthRequestDto) : Deferred<AuthResponseDto>
+
+    @POST("auth/signup")
+    fun signup(@Query("message") showErrorMessage: Boolean, @Body signUpRequest : SignUpRequestDto) : Deferred<SignUpResponseDto>
 }
 
 interface LocationService{
     @GET("locations")
     fun getLocations() : Deferred<List<LocationResponseDTO>>
+}
+
+interface UnitService {
+    @GET ("units")
+    fun getUnits() : Deferred<List<UnitResponseDto>>
 }
 
 object udeaCovApiService {
@@ -42,5 +53,9 @@ object udeaCovApiService {
     val locationService : LocationService by lazy {
         retrofit.create(LocationService::class.java)
     }
+    val unitService : UnitService by lazy {
+        retrofit.create(UnitService::class.java)
+    }
+
     val converter = moshi
 }

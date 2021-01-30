@@ -26,64 +26,43 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10sp"
                 android:gravity="center"
-                android:text="UNIVERSIDAD DE ANTIOQUIA"
-                android:textSize="10sp" />
+                android:textStyle="bold"
+                android:text="@string/universidad_de_antioquia"
+                android:textSize="12sp" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="SISTEMA DE GESTION DE SEGURIDAD Y SALUD EN EL TRABAJO"
-                android:textSize="10sp" />
-
-            <TextView
+             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="DECLARACION DE RESPONSABILIDAD DE CUMPLIMINETO DE MEDIDAS DE PREVENCIÓN ANTE EMERGENCIA SANITARIA DEL COVID 19"
-                android:textSize="10sp" />
+                 android:textStyle="bold"
+                android:text="@string/declaracion_de_responsabilidad_titulo"
+                android:textSize="12sp" />
 
         </LinearLayout>
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/linear_layout_fecha"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/linear_layout_titulo"
-        android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:text="Fecha:" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="15/02/2020" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:text="Área:" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="___________" />
-    </LinearLayout>
 
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/linear_layout_fecha"
-        android:orientation="horizontal">
+        android:orientation="vertical">
+
+        <TableRow>
+            <TextView
+                android:id="@+id/txt_fecha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="@string/fecha" />
+
+            <TextView
+                android:id="@+id/txt_fecha_valor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="02/Feb/2021" />
+        </TableRow>
 
         <TableRow>
 
@@ -91,31 +70,27 @@
                 android:id="@+id/txt_yo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Yo, " />
+                android:text="@string/yo" />
 
             <TextView
-                android:id="@+id/input_nombre_usuario"
-                android:layout_toRightOf="@+id/txt_yo"
+                android:id="@+id/txt_nombre_usuario"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="................, " />
+                android:text="Valentina Perez" />
         </TableRow>
 
         <TableRow>
             <TextView
                 android:id="@+id/txt_cedula"
-                android:layout_toRightOf="@+id/txt_yo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="identificada con cédula" />
+                android:text="@string/identificada_con_cedula" />
 
             <TextView
                 android:id="@+id/input_cedula"
-                android:layout_toRightOf="@+id/txt_cedula"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text= " ................," />
+                android:text= " 1.061.345.678" />
 
         </TableRow>
 
@@ -130,15 +105,13 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="declaro que recibí la debida información respecto a las medidas de prevención que debo llevar a cabo para prevenir
-el contagio con el virus causante del sindrome respiratorio agudo, en el ingreso autorizado, es así que asumo el compromiso con el cumplimiento de las medidas preventivas que me fueron enviadas en
-relación con protocolos de desinfección, autocuidado, uso de elementos de protección personal." />
+            android:text="@string/parrafo_de_declaracion_de_compromiso" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="Declaro que he leído y entendido el protocolo que me fué enviado." />
+            android:text="@string/declaro_que_he_leido_y_entendido_el_protocolo" />
 
 
     </LinearLayout>
@@ -154,14 +127,14 @@ relación con protocolos de desinfección, autocuidado, uso de elementos de prot
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_weight="1"
-            android:text="Aprobación Colaborador" />
+            android:text="@string/aprobacion_colaborador" />
 
         <CheckBox
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_weight="1"
-            android:text="Aprobación Jefe inmediato" />
+            android:text="@string/aprobacion_jefe_inmediato" />
 
     </LinearLayout>
 
