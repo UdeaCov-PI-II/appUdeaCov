@@ -1,6 +1,7 @@
 package co.edu.udea.udeacov.fragmentos.solicitud_permiso
 
 import android.app.DatePickerDialog
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -17,8 +18,6 @@ import co.edu.udea.udeacov.fragmentos.solicitud_permiso.viewmodels.solicitudingr
 import co.edu.udea.udeacov.network.request.PermissionRequestDto
 import co.edu.udea.udeacov.ui.DatePickerFragment
 import com.kofigyan.stateprogressbar.StateProgressBar
-import kotlinx.android.synthetic.main.fragment_preingreso2.*
-import kotlinx.android.synthetic.main.fragment_preingreso3.*
 import kotlinx.android.synthetic.main.fragment_solicitud_ingreso2.*
 
 class SolicitudIngreso2 : Fragment() {
@@ -37,7 +36,6 @@ class SolicitudIngreso2 : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         //instanciamos el viewModel
         viewModel = ViewModelProvider(this).get(Solicitud2ViewModel::class.java)
 
@@ -64,11 +62,11 @@ class SolicitudIngreso2 : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         fecha_inicio_permiso.setOnClickListener{
-            showDatePickerDialogStart()
+            showDatePickerDialog(it as EditText)
         }
 
         fecha_finalizacion.setOnClickListener{
-            showDatePickerDialogEnd()
+            showDatePickerDialog(it as EditText)
         }
 
 
@@ -129,28 +127,23 @@ class SolicitudIngreso2 : Fragment() {
             permissionRequestDto.building = preingreso3_bloque.text.toString()
             permissionRequestDto.officeNumber = input_numeroficina.text.toString()
             permissionRequestDto.locationOutOfUniversity = SolicitudIngreso2_lugar.text.toString()
-            permissionRequestDto.statusId = "f8R4hi0y8Wp32UPLm3sf"
+            permissionRequestDto.statusId = "LZoClJxzXghTxcyiQXw6"
+            val sharedPref = requireActivity().getSharedPreferences(getString(R.string.user_settings_file),Context.MODE_PRIVATE)
+            val userId = sharedPref.getString(getString(R.string.user_id),"")
+            userId?.let{
+                permissionRequestDto.userId = it
+            }
             viewModel.createPermission(permissionRequestDto)
         }
 
 
     }
 
-    private fun showDatePickerDialogStart() {
+    private fun showDatePickerDialog(view:EditText) {
         val newFragment = DatePickerFragment.newInstance(DatePickerDialog.OnDateSetListener { _, year, month, day ->
             // +1 because January is zero
             val selectedDate = day.toString() + "-" + (month + 1) + "-" + year
-            fecha_inicio_permiso.setText(selectedDate)
-        })
-
-        newFragment.show(requireActivity().supportFragmentManager, "datePicker")
-    }
-
-    private fun showDatePickerDialogEnd() {
-        val newFragment = DatePickerFragment.newInstance(DatePickerDialog.OnDateSetListener { _, year, month, day ->
-            // +1 because January is zero
-            val selectedDate = day.toString() + "-" + (month + 1) + "-" + year
-            fecha_finalizacion.setText(selectedDate)
+            view.setText(selectedDate)
         })
 
         newFragment.show(requireActivity().supportFragmentManager, "datePicker")

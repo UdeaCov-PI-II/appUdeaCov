@@ -1,8 +1,6 @@
 package co.edu.udea.udeacov.activities
 
-import android.app.Activity
 import android.content.Intent
-import android.net.Uri
 import android.content.Context
 import android.os.Bundle
 import android.view.Menu
@@ -49,13 +47,13 @@ class SolicitudDeUnPermiso : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if(resultCode== RESULT_OK && StaticData.bandera1 == false ){
             StaticData.bandera1 = true
-            val Uri = data?.getData();
-            Toast.makeText(this, "Imagen subida", Toast.LENGTH_SHORT).show();
+            data?.getData()
+            Toast.makeText(this, "Imagen subida", Toast.LENGTH_SHORT).show()
 
         }else if(resultCode== RESULT_OK && StaticData.bandera1 == true){
             StaticData.bandera2 = true
-            val Uri = data?.getData();
-            Toast.makeText(this, "Imagen subida", Toast.LENGTH_SHORT).show();
+            data?.getData()
+            Toast.makeText(this, "Imagen subida", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -64,6 +62,8 @@ class SolicitudDeUnPermiso : AppCompatActivity() {
         inflater.inflate(R.menu.overflow_menu, menu)
         return true
     }
+
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
      when(item.itemId){
             R.id.cerrar_session_item ->{
@@ -87,9 +87,4 @@ class SolicitudDeUnPermiso : AppCompatActivity() {
             apply()
         }
     }
-
-
-
-
-
 }
