@@ -3,11 +3,16 @@ package co.edu.udea.udeacov.activities
 import android.app.Activity
 import android.content.Intent
 import android.net.Uri
+import android.content.Context
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import co.edu.udea.udeacov.R
+import co.edu.udea.udeacov.activities.main.MainActivity
 import com.kofigyan.stateprogressbar.StateProgressBar
 
 
@@ -39,7 +44,7 @@ class SolicitudDeUnPermiso : AppCompatActivity() {
         // link_coronapp.movementMethod = LinkMovementMethod.getInstance()
 
     }
-    
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if(resultCode== RESULT_OK && StaticData.bandera1 == false ){
@@ -52,7 +57,35 @@ class SolicitudDeUnPermiso : AppCompatActivity() {
             val Uri = data?.getData();
             Toast.makeText(this, "Imagen subida", Toast.LENGTH_SHORT).show();
         }
+    }
 
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.overflow_menu, menu)
+        return true
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+     when(item.itemId){
+            R.id.cerrar_session_item ->{
+                removeContentOfPreferencesFile()
+                val intent= Intent(this, MainActivity::class.java)
+                startActivity(intent)
+            }
+        }
+        return true
+    }
+
+    private fun removeContentOfPreferencesFile() {
+        val sharedPref = this.getSharedPreferences(
+            getString(R.string.user_settings_file),
+            Context.MODE_PRIVATE
+        )
+        with(sharedPref.edit()) {
+            remove(getString(R.string.user_id))
+            remove(getString(R.string.user_role))
+            remove(getString(R.string.user_token))
+            apply()
+        }
     }
 
 

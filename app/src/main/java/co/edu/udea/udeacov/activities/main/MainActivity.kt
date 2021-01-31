@@ -1,5 +1,6 @@
 package co.edu.udea.udeacov.activities.main
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,6 +12,7 @@ import co.edu.udea.udeacov.R
 import co.edu.udea.udeacov.activities.SolicitudDeUnPermiso
 import co.edu.udea.udeacov.activities.preingreso
 import co.edu.udea.udeacov.databinding.ActivityMainBinding
+import co.edu.udea.udeacov.network.response.AuthResponseDto
 
 
 class MainActivity : AppCompatActivity() {
@@ -31,9 +33,9 @@ class MainActivity : AppCompatActivity() {
             val intent= Intent(this, preingreso::class.java)
             startActivity(intent)
         }
-
         viewModel.authResponse.observe(this, Observer {
             it?.let{
+                saveUserInfoInPreferencesFile(it)
                 val intent= Intent(this, SolicitudDeUnPermiso::class.java)
                 startActivity(intent)
                 viewModel.signInIsCompleted()
@@ -48,6 +50,15 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
+    private fun saveUserInfoInPreferencesFile(it: AuthResponseDto) {
+        val sharedPref = this.getSharedPreferences(getString(R.string.user_settings_file), Context.MODE_PRIVATE)
+        with(sharedPref.edit()) {
+            putString(getString(R.string.user_id), it.userId)
+            putString(getString(R.string.user_role), it.roles[0])
+            putString(getString(R.string.user_token), it.token)
+            apply()
+        }
+    }
 
 
 }

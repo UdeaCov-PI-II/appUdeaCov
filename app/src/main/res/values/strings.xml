@@ -281,6 +281,16 @@ Los datos proporcionados por el usuario deben ser veraces, completos, exactos, a
     <string name="declaro_que_he_leido_y_entendido_el_protocolo">Declaro que he leído y entendido el protocolo que me fué enviado.</string>
     <string name="aprobacion_colaborador">Aprobación Colaborador</string>
     <string name="aprobacion_jefe_inmediato">Aprobación Jefe inmediato</string>
+    <!-- User info -->
+    <string name="user_settings_file" >userSettings</string>
+    <string name="user_token" >token</string>
+    <string name="user_id">id</string>
+    <string name="user_role">role</string>
+
+    <!-- Primer requisito -->
+    <string name="cerrar_sesion_text" >Cerrar sesión</string>
+
+
 
 
 </resources>
