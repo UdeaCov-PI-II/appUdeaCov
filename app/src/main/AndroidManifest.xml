@@ -23,15 +23,14 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".activities.SolicitudDeUnPermiso">
+        <activity android:name=".activities.TablaDinamica"></activity>
+        <activity android:name=".activities.ListaSolicitudes" />
+        <activity android:name=".activities.SolicitudDeUnPermiso"/>
+        <activity android:name=".activities.preingreso"/>
 
-
-        </activity>
-
-        <activity android:name=".activities.preingreso">
-        </activity>
-
-        <activity android:name=".activities.main.MainActivity" android:theme="@style/Theme.MaterialComponents.Light.NoActionBar.Bridge">
+        <activity
+            android:name=".activities.main.MainActivity"
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar.Bridge">
             <intent-filter>
                 <!-- Actividad que se lanza como main-->
                 <action android:name="android.intent.action.MAIN" />
@@ -41,7 +40,6 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

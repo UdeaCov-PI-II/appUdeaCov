@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_lista_solicitudes"
+    app:startDestination="@id/listaSolicitudes">
+
+    <fragment
+        android:id="@+id/listaSolicitudes"
+        android:name="co.edu.udea.udeacov.fragmentos.lista_solicitudes.ListaSolicitudes"
+        android:label="fragment_lista_solicitudes"
+        tools:layout="@layout/fragment_lista_solicitudes" >
+        <action
+            android:id="@+id/action_listaSolicitudes_to_detalleSolicitud"
+            app:destination="@id/detalleSolicitud" />
+    </fragment>
+    <fragment
+        android:id="@+id/detalleSolicitud"
+        android:name="co.edu.udea.udeacov.fragmentos.lista_solicitudes.DetalleSolicitud"
+        android:label="fragment_detalle_solicitud"
+        tools:layout="@layout/fragment_detalle_solicitud" >
+        <action
+            android:id="@+id/action_detalleSolicitud_to_ingreso"
+            app:destination="@id/ingreso" />
+    </fragment>
+    <fragment
+        android:id="@+id/ingreso"
+        android:name="co.edu.udea.udeacov.fragmentos.lista_solicitudes.Ingreso"
+        android:label="fragment_ingreso"
+        tools:layout="@layout/fragment_ingreso" />
+</navigation>

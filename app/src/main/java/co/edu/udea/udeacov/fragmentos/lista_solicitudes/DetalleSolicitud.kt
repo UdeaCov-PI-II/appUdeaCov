@@ -1,18 +1,18 @@
-package co.edu.udea.udeacov.fragmentos.solicitud_permiso
+package co.edu.udea.udeacov.fragmentos.lista_solicitudes
 
-import android.content.Intent
 import android.os.Bundle
-import android.provider.MediaStore
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import com.github.chrisbanes.photoview.PhotoView
 import co.edu.udea.udeacov.R
-import co.edu.udea.udeacov.activities.SolicitudDeUnPermiso
-import com.kofigyan.stateprogressbar.StateProgressBar
-import kotlinx.android.synthetic.main.fragment_segundo_requisito.*
+import kotlinx.android.synthetic.main.fragment_detalle_solicitud.*
+import kotlinx.android.synthetic.main.fragment_preingreso1.*
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,13 +21,14 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [SegundoRequisitoFragment.newInstance] factory method to
+ * Use the [DetalleSolicitud.newInstance] factory method to
  * create an instance of this fragment.
  */
-class SegundoRequisitoFragment : Fragment() {
+class DetalleSolicitud : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,43 +38,27 @@ class SegundoRequisitoFragment : Fragment() {
         }
     }
 
-    private fun loadImage(){
-        val intent = Intent(
-            Intent.ACTION_PICK,
-            MediaStore.Images.Media.EXTERNAL_CONTENT_URI
-        );
-        intent.setType("image/");
-
-        startActivityForResult(Intent.createChooser(intent, "Seleccionar imagen"), 10);
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_segundo_requisito, container, false)
+        return inflater.inflate(R.layout.fragment_detalle_solicitud, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        btn_enviarMedellinMeCuida.setOnClickListener {
-            loadImage();
-        }
-        segReqbtn.setOnClickListener{
-            if(SolicitudDeUnPermiso.StaticData.bandera2){
-                it.findNavController().navigate(R.id.action_segundoRequisitoFragment_to_solicitudIngreso1)
-            }else{
-                Toast.makeText(activity, "Ingresar imagen", Toast.LENGTH_SHORT).show();
-            }
-        }
-    }
+        val photoView = view.findViewById(R.id.photo_view) as PhotoView
+        photoView.setImageResource(R.drawable.coronapp_captura)
 
-    override fun onStart() {
-        super.onStart()
-        val stateProgressBar = activity?.findViewById<StateProgressBar>(R.id.your_state_progress_bar_id)
-        stateProgressBar?.setCurrentStateNumber(StateProgressBar.StateNumber.TWO)
+        val photoView1 = view.findViewById(R.id.photo_view1) as PhotoView
+        photoView1.setImageResource(R.drawable.medellin_me_cuida_captura)
+
+        btn_registra_ingreso.setOnClickListener{
+            it.findNavController().navigate(R.id.action_detalleSolicitud_to_ingreso)
+        }
+
     }
 
     companion object {
@@ -83,13 +68,12 @@ class SegundoRequisitoFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment SegundoRequisitoFragment.
+         * @return A new instance of fragment DetalleSolicitud.
          */
-
+        // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            SegundoRequisitoFragment()
-                .apply {
+            DetalleSolicitud().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)

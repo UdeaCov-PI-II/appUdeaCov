@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/cardview"
+    android:layout_margin="10dp"
+    app:cardElevation="4dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/layout_nombre"
+            style="@style/card_layout">
+
+            <TextView
+                android:id="@+id/txt_nombre_key"
+                style="@style/card_txt_key"
+                android:text="Nombre:" />
+
+            <TextView
+                android:id="@+id/txt_nombre"
+                style="@style/card_txt_value"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_cedula"
+            style="@style/card_layout">
+
+            <TextView
+                android:id="@+id/txt_cedula_key"
+                style="@style/card_txt_key"
+                android:text="Cédula:" />
+
+            <TextView
+                android:id="@+id/txt_cc"
+                style="@style/card_txt_value" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_fechaI"
+            style="@style/card_layout">
+
+            <TextView
+                android:id="@+id/txt_fechaI_key"
+                style="@style/card_txt_key"
+                android:text="Fecha de inicio del permiso:" />
+
+            <TextView
+                android:id="@+id/txt_fechaini"
+                style="@style/card_txt_value" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_fechaF"
+            style="@style/card_layout">
+
+            <TextView
+                android:id="@+id/txt_fechaF_key"
+                style="@style/card_txt_key"
+                android:text="Fecha de finalización del permiso:" />
+
+            <TextView
+                android:id="@+id/txt_fechafin"
+                style="@style/card_txt_value" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_ver_solicitud"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginEnd="5dp"
+            android:drawableStart="@drawable/ic_declaracion"
+            style="@style/custom_button"
+            android:text="Ver" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
+

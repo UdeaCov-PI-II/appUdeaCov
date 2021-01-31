@@ -10,12 +10,11 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import co.edu.udea.udeacov.R
 import co.edu.udea.udeacov.activities.SolicitudDeUnPermiso
-import co.edu.udea.udeacov.network.request.PermissionRequestDto
 import com.kofigyan.stateprogressbar.StateProgressBar
 import kotlinx.android.synthetic.main.fragment_primer_requisito.*
 
 
-// TODO: Rename parameter arguments, choose names that match
+
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -39,8 +38,6 @@ class PrimerRequisitoFragment : Fragment() {
         }
 
     }
-
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
