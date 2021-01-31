@@ -218,7 +218,16 @@ Los datos proporcionados por el usuario deben ser veraces, completos, exactos, a
     <string name="descripcion_medellin_mecuida">A continuación debe anexar pantallazo donde certifique su registro en la aplicación de Medellín Me Cuida</string>
     <string name="subir_documento">Subir Documento</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
+    <!-- User info -->
+    <string name="user_settings_file" >userSettings</string>
+    <string name="user_token" >token</string>
+    <string name="user_id">id</string>
+    <string name="user_role">role</string>
+
+    <!-- Primer requisito -->
+    <string name="cerrar_sesion_text" >Cerrar sesión</string>
+
+
 
 
 </resources>
