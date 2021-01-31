@@ -237,7 +237,7 @@ Los datos proporcionados por el usuario deben ser veraces, completos, exactos, a
 
     <!-- formulario de preingreso 2 -->
     <string name="fecha_de_nacimiento">4. Fecha de nacimiento *</string>
-    <string name="mm_dd_yyyy">mm/dd/yyyy</string>
+    <string name="dd_mm_yyyy">dd/mm/yyyy</string>
     <string name="correo_personal_para_notificaciones_o_informaci_n_de_resultados_de_su_evaluaci_n">4.1.Correo personal para notificaciones o información de resultados de su evaluación *</string>
     <string name="tu_respuesta_correoPersonal">Tu respuesta</string>
     <string name="vinculo_universidad">5. Vínculo con la Universidad de Antioquia (si tienes varios vínculos puede elegir varios) *</string>

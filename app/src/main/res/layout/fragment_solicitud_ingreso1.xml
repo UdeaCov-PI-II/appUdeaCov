@@ -1,144 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="10dp"
-    android:layout_margin="10dp"
-    android:background="@android:color/background_light"
-    tools:context=".fragmentos.solicitud_permiso.SolicitudIngreso1">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ScrollView
+    <data>
+        <variable
+            name="viewModel"
+            type="co.edu.udea.udeacov.fragmentos.solicitud_permiso.viewmodels.solicitudingreso1.Solicitud1ViewModel" />
+    </data>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_margin="8dp"
+        android:gravity="center|top"
+        android:orientation="vertical"
+        android:background="@android:color/background_light"
+        tools:context=".fragmentos.solicitud_permiso.SolicitudIngreso1">
 
-        <LinearLayout
-            android:id="@+id/SolicitudIngreso1"
+        <TextView
+            android:id="@+id/SolicitudIngreso1_textView3"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="8dp"
-            android:gravity="center|top"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:textColor="#616161"
+            android:text="Unidad académica o administrativa a la que pertenece*"
+            android:textSize="14sp" />
 
-            <TextView
-                android:id="@+id/SolicitudIngreso1_textView3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#616161"
-                android:text="Unidad académica o administrativa a la que pertenece*"
-                android:textSize="14sp" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="10dp" />
+        <Spinner
+            android:id="@+id/SolicitudIngreso1_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:entries="@{viewModel.unitsResponse}" />
 
-            <Spinner
-                android:id="@+id/SolicitudIngreso1_spinner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="5dp"
-                android:entries="@array/Unidad_académica" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="15dp" />
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="15dp" />
+        <TextView
+            android:id="@+id/SolicitudIngreso1_textView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#616161"
+            android:text="Nombres y apellidos del Decano, Director o Vicerrector *"
+            android:textSize="14sp" />
 
-            <TextView
-                android:id="@+id/SolicitudIngreso1_textView1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#616161"
-                android:text="Nombres y apellidos del Decano, Director o Vicerrector *"
-                android:textSize="14sp" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="10dp" />
+        <TextView
+            android:id="@+id/decano"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="#212121"
+            android:text="TextView" />
 
-            <TextView
-                android:id="@+id/decano"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="14sp"
-                android:textColor="#212121"
-                android:text="TextView" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="15dp" />
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="15dp" />
+        <TextView
+            android:id="@+id/SolicitudIngreso1_textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#616161"
+            android:text="Correo electrónico del Decano, Director o Vicerrector *"
+            android:textSize="14sp" />
 
-            <TextView
-                android:id="@+id/SolicitudIngreso1_textView2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#616161"
-                android:text="Correo electrónico del Decano, Director o Vicerrector *"
-                android:textSize="14sp" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="10dp" />
+        <TextView
+            android:id="@+id/correoDecano"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="#212121"
+            android:text="TextView" />
 
-            <TextView
-                android:id="@+id/correoDecano"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="14sp"
-                android:textColor="#212121"
-                android:text="TextView" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="15dp" />
-
-            <TextView
-                android:id="@+id/SolicitudIngreso1_textView4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#616161"
-                android:text="¿La solicitud es para más de una persona?"
-                android:textSize="14sp" />
-
-            <RadioGroup
-                android:id="@+id/SolicitudIngreso1_radioGroup"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="5dp"
-                android:orientation="horizontal">
-
-                <RadioButton
-                    android:id="@+id/radioButton1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Si" />
-
-                <RadioButton
-                    android:id="@+id/radioButton2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="No" />
-            </RadioGroup>
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="15dp" />
-
-            <Button
-                android:id="@+id/SolicitudIngreso1btn_siguiente1"
-                style="@style/custom_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:text="Siguiente" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="15dp" />
 
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="15dp" />
 
-        </LinearLayout>
-    </ScrollView>
+        <Button
+            android:id="@+id/SolicitudIngreso1btn_siguiente1"
+            style="@style/custom_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="10dp"
+            android:text="Siguiente" />
 
-
-</FrameLayout>
+    </LinearLayout>
+</layout>

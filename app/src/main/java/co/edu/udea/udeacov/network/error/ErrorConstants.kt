@@ -5,7 +5,7 @@ class ErrorConstants {
         const val DEFAULT_ERROR_MESSAGE_AUTH = "No es posible autenticarse en estos momentos. Inténtelo nuevamente."
         const val DEFAULT_ERROR_MESSAGE_LOCATIONS = "No es posible obtener las sedes en estos momentos. Inténtelo nuevamente."
         const val DEFAULT_ERROR_MESSAGE_UNITS = "No es posible obtener las unidades académicas en estos momentos. Inténtelo nuevamente."
-        const val DEFAULT_ERROR_MESSAGE_SIGN_IN = "No fue posible atender su solicitud de registro. Pr favor, inténtelo nuevamente."
-
+        const val DEFAULT_ERROR_MESSAGE_SIGN_IN = "No fue posible atender su solicitud de registro. Por favor, inténtelo nuevamente."
+        const val DEFAULT_ERROR_MESSAGE_PERMISSIONS = "¡Ups! Tuvimos un problema en atender crear tu solicitud de permiso. Por favor, inténtelo nuevamente."
     }
 }

@@ -42,7 +42,7 @@
                     android:focusable="false"
                     android:clickable="true"
                     android:maxLines="1"
-                    android:hint="@string/mm_dd_yyyy"
+                    android:hint="@string/dd_mm_yyyy"
                     android:textSize="14sp" />
 
                 <TextView

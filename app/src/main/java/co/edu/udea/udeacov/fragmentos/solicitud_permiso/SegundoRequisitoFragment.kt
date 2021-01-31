@@ -10,9 +10,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.findNavController
 import co.edu.udea.udeacov.R
-import co.edu.udea.udeacov.SolicitudDeUnPermiso
+import co.edu.udea.udeacov.activities.SolicitudDeUnPermiso
+import co.edu.udea.udeacov.network.request.PermissionRequestDto
 import com.kofigyan.stateprogressbar.StateProgressBar
-import kotlinx.android.synthetic.main.fragment_primer_requisito.*
 import kotlinx.android.synthetic.main.fragment_segundo_requisito.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -59,11 +59,13 @@ class SegundoRequisitoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+
         btn_enviarMedellinMeCuida.setOnClickListener {
             loadImage();
         }
         segReqbtn.setOnClickListener{
-            if(SolicitudDeUnPermiso.StaticData.bandera2==true){
+            if(SolicitudDeUnPermiso.StaticData.bandera2){
                 it.findNavController().navigate(R.id.action_segundoRequisitoFragment_to_solicitudIngreso1)
             }else{
                 Toast.makeText(activity, "Ingresar imagen", Toast.LENGTH_SHORT).show();

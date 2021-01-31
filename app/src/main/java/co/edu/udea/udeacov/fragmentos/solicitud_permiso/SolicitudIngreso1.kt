@@ -8,15 +8,23 @@ import android.widget.AdapterView
 import android.widget.AdapterView.OnItemSelectedListener
 import android.widget.Spinner
 import android.widget.TextView
-import android.widget.Toast
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import co.edu.udea.udeacov.R
+import co.edu.udea.udeacov.databinding.FragmentSolicitudIngreso1Binding
+import co.edu.udea.udeacov.fragmentos.solicitud_permiso.viewmodels.solicitudingreso1.Solicitud1ViewModel
+import co.edu.udea.udeacov.network.request.PermissionRequestDto
 import com.kofigyan.stateprogressbar.StateProgressBar
 import kotlinx.android.synthetic.main.fragment_solicitud_ingreso1.*
 
 
 class SolicitudIngreso1 : Fragment() {
+    private lateinit var permissionRequestDto: PermissionRequestDto
+    private lateinit var viewModel: Solicitud1ViewModel
+    private lateinit var binding: FragmentSolicitudIngreso1Binding
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,21 +37,46 @@ class SolicitudIngreso1 : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        //instanciamos el viewModel
+        viewModel = ViewModelProvider(this).get(Solicitud1ViewModel::class.java)
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_solicitud_ingreso1, container, false)
+        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_solicitud_ingreso1, container, false)
+
+        //unir el binding con el viewModel
+        binding.lifecycleOwner = viewLifecycleOwner
+        binding.viewModel = viewModel
+
+        viewModel.getUnits()
+
+        return binding.root
     }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //Instanciar el objeto
+        permissionRequestDto = PermissionRequestDto()
+
+        //Observar el cambio de unit ID
+        viewModel.unitSelected.observe(viewLifecycleOwner, Observer {
+            it?.let {
+                permissionRequestDto.managerUnitId = it.id
+                binding.decano.text = it.manager.fullName
+                binding.correoDecano.text = it.manager.email
+            }
+        })
+
         SolicitudIngreso1btn_siguiente1.setOnClickListener {
-            it.findNavController().navigate(R.id.action_solicitudIngreso1_to_solicitudIngreso2)
+            it.findNavController().navigate(SolicitudIngreso1Directions.actionSolicitudIngreso1ToSolicitudIngreso2(permissionRequestDto))
         }
 
         var mySpinner = view.findViewById<Spinner>(R.id.SolicitudIngreso1_spinner)
         var text2 = view.findViewById<TextView>(R.id.decano)
         var text3 = view.findViewById<TextView>(R.id.correoDecano)
+
         mySpinner.onItemSelectedListener = object : OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>,
@@ -51,21 +84,7 @@ class SolicitudIngreso1 : Fragment() {
                 position: Int,
                 id: Long
             ) {
-                val text = mySpinner.selectedItem.toString()
-
-                Toast.makeText(activity, text, Toast.LENGTH_SHORT).show();
-                if(text == "Facultad de Artes"){
-                    text2.setText("Gabriel Velez");
-                    text3.setText("gabriel.velez@udea.edu.co");
-
-                }else if(text == "Facultad de Ciencias Agrarias"){
-                    text2.setText("Liliana Mahecha Ledesma");
-                    text3.setText("decaagrarias@udea.edu.co");
-
-                }else if(text == "Facultad de Ciencias Económicas"){
-                    text2.setText("Sergio Iván Restrepo Ochoa");
-                    text3.setText("decaeconomicas@udea.edu.co");
-                }
+                viewModel.unitNameSelected.value = mySpinner.selectedItem.toString()
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {}

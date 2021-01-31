@@ -40,6 +40,10 @@
         <action
             android:id="@+id/action_solicitudIngreso2_to_declaracion_de_responsabilidad"
             app:destination="@id/declaracion_de_responsabilidad" />
+        <argument
+            android:name="permissionRequest"
+            app:argType="co.edu.udea.udeacov.network.request.PermissionRequestDto"
+            app:nullable="false"/>
     </fragment>
     <fragment
         android:id="@+id/declaracion_de_responsabilidad"

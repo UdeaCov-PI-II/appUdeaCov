@@ -1,21 +1,16 @@
 package co.edu.udea.udeacov.fragmentos.solicitud_permiso
 
-import android.R.attr
-import android.app.Activity
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
-import android.text.SpannableStringBuilder
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
-import android.widget.Spinner
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import co.edu.udea.udeacov.R
-import co.edu.udea.udeacov.SolicitudDeUnPermiso
+import co.edu.udea.udeacov.activities.SolicitudDeUnPermiso
+import co.edu.udea.udeacov.network.request.PermissionRequestDto
 import com.kofigyan.stateprogressbar.StateProgressBar
 import kotlinx.android.synthetic.main.fragment_primer_requisito.*
 
@@ -45,15 +40,7 @@ class PrimerRequisitoFragment : Fragment() {
 
     }
 
-    private fun loadImage(){
-        val intent = Intent(
-            Intent.ACTION_PICK,
-            android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI
-        );
-        intent.setType("image/");
 
-        startActivityForResult(Intent.createChooser(intent, "Seleccionar imagen"), 10);
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -71,13 +58,24 @@ class PrimerRequisitoFragment : Fragment() {
             loadImage();
         }
         primerReqbtn.setOnClickListener{
-            if(SolicitudDeUnPermiso.StaticData.bandera1==true){
+            if(SolicitudDeUnPermiso.StaticData.bandera1){
                 it.findNavController().navigate(R.id.action_primerRequisitoFragment_to_segundoRequisitoFragment)
             }else{
                 Toast.makeText(activity, "Ingresar imagen", Toast.LENGTH_SHORT).show();
             }
         }
 
+    }
+
+
+    private fun loadImage(){
+        val intent = Intent(
+            Intent.ACTION_PICK,
+            android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+        );
+        intent.setType("image/");
+
+        startActivityForResult(Intent.createChooser(intent, "Seleccionar imagen"), 10);
     }
 
 

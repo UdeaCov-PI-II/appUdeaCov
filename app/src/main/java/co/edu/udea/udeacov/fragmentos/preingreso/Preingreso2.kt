@@ -13,7 +13,6 @@ import co.edu.udea.udeacov.R
 import co.edu.udea.udeacov.databinding.FragmentPreingreso2Binding
 import co.edu.udea.udeacov.network.request.SignUpRequestDto
 import co.edu.udea.udeacov.ui.DatePickerFragment
-import kotlinx.android.synthetic.main.fragment_preingreso1.*
 import kotlinx.android.synthetic.main.fragment_preingreso2.*
 
 
@@ -28,7 +27,6 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class Preingreso2 : Fragment() {
-    // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
     var bandera: Boolean? = null
@@ -87,8 +85,6 @@ class Preingreso2 : Fragment() {
             showDatePickerDialog()
         }
 
-
-
         val rg = view.findViewById<RadioGroup>(R.id.rgRiesgosLaborales)
         var option = ""
         rg.setOnCheckedChangeListener { _, i ->
@@ -115,7 +111,7 @@ class Preingreso2 : Fragment() {
                 if (preingreso2_otro.text.toString().isNotEmpty()){
                     signUpRequestDto.arlName = preingreso2_otro.text.toString()
                 }
-                signUpRequestDto.birthday = preingreso2_fecha.text.toString().plus(" 00:00")
+                signUpRequestDto.birthday = preingreso2_fecha.text.toString().plus(" 05:00")
                 signUpRequestDto.personalEmail = preingreso2_correoN.text.toString()
                 signUpRequestDto.universityInfo.detailUniversityRelation = preingreso2_vinculo.text.toString()
                 signUpRequestDto.universityInfo.occupation = preingreso2_cargo.text.toString()

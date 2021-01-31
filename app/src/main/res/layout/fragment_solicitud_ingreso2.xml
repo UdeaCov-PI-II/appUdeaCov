@@ -1,452 +1,353 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    style="@style/style_solicitud_ingreso"
-    tools:context=".fragmentos.solicitud_permiso.SolicitudIngreso2">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ScrollView
+    <data>
+        <variable
+            name="viewModel"
+            type="co.edu.udea.udeacov.fragmentos.solicitud_permiso.viewmodels.solicitudingreso2.Solicitud2ViewModel" />
+
+        <variable
+            name="fragmentSolicitudIngreso2"
+            type="co.edu.udea.udeacov.fragmentos.solicitud_permiso.SolicitudIngreso2"/>
+
+    </data>
+
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp">
+        style="@style/style_solicitud_ingreso"
+        tools:context=".fragmentos.solicitud_permiso.SolicitudIngreso2">
 
-        <LinearLayout
-            android:id="@+id/SolicitudIngreso2"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="8dp"
-            android:gravity="center|top"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp">
 
-            <TextView
-                android:id="@+id/SolicitudIngreso2_textView1"
+            <LinearLayout
+                android:id="@+id/SolicitudIngreso2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="#616161"
-                android:text="Número de identificación de quien ingresará *"
-                android:textSize="14sp" />
-
-            <EditText
-                android:id="@+id/SolicitudIngreso2_doc"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Tu respuesta"
-                android:ems="7"
-                android:textSize="14sp"
-                android:inputType="number" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="15dp" />
-
-            <TextView
-                android:id="@+id/SolicitudIngreso2_textView2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#616161"
-                android:text="Nombres y apellidos quien ingresará *"
-                android:textSize="14sp" />
-
-            <EditText
-                android:id="@+id/SolicitudIngreso2_nombre"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="7"
-                android:hint="Tu respuesta"
-                android:textSize="14sp" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="15dp" />
-
-            <TextView
-                android:id="@+id/SolicitudIngreso2_textView3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#616161"
-                android:text="Vínculo con la Universidad (de quien ingresará) *"
-                android:textSize="14sp" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="5dp" />
-
-            <RadioGroup
-                android:id="@+id/SolicitudIngreso2_radioGroup1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="5dp"
+                android:layout_marginTop="8dp"
+                android:gravity="center|top"
                 android:orientation="vertical">
 
-                <RadioButton
-                    android:id="@+id/radioButton"
+                <TextView
+                    android:id="@+id/SolicitudIngreso2_textView4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Empleado" />
+                    android:textColor="#616161"
+                    android:text="¿Cuál es el motivo de ingreso o de realización de actividades por fuera de las instalaciones de la Universidad? *"
+                    android:textSize="14sp" />
 
-                <RadioButton
-                    android:id="@+id/radioButton1"
+                <EditText
+                    android:id="@+id/SolicitudIngreso2_motivo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Profesor cátedra" />
+                    android:ems="7"
+                    android:inputType="text"
+                    android:hint="Tu respuesta"
+                    android:textSize="14sp" />
 
-                <RadioButton
-                    android:id="@+id/radioButton2"
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+                <TextView
+                    android:id="@+id/SolicitudIngreso2_textView5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Contratista - Pres Serv Perso" />
+                    android:text="Lugar donde desempeñará las labores"
+                    android:textColor="#DD000000"
+                    android:textSize="18sp" />
 
-                <RadioButton
-                    android:id="@+id/radioButton3"
+                <TextView
+                    android:id="@+id/SolicitudIngreso2_textView6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="CIS" />
+                    android:layout_marginTop="5dp"
+                    android:text="Diligencie este campo si el lugar donde desempeñará sus funciones es en alguna sede de la Universidad  "
+                    android:textColor="#616161"
+                    android:textSize="15sp" />
 
-                <RadioButton
-                    android:id="@+id/radioButton4"
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+                <Spinner
+                    android:id="@+id/SolicitudIngreso2_spinner"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Fundación" />
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:entries="@{viewModel.locationsResponse}" />
 
-                <RadioButton
-                    android:id="@+id/radioButton5"
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp" />
+
+                <TextView
+                    android:id="@+id/SolicitudIngreso2_textView7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Estudiante pregrado" />
-                <RadioButton
-                    android:id="@+id/radioButton6"
+                    android:textColor="#616161"
+                    android:text="Bloque"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/preingreso3_bloque"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Estudiante posgrado" />
-                <RadioButton
-                    android:id="@+id/radioButton7"
+                    android:hint="Tu respuesta"
+                    android:ems="7"
+                    android:inputType="text"
+                    android:textSize="14sp" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+                <TextView
+                    android:id="@+id/SolicitudIngreso2_textView8"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Proveedor" />
+                    android:textColor="#616161"
+                    android:text="Número de oficina o laboratorio"
+                    android:textSize="14sp" />
 
-                <RadioButton
-                    android:id="@+id/radioButton8"
+                <EditText
+                    android:id="@+id/input_numeroficina"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Externo" />
-            </RadioGroup>
+                    android:hint="Tu respuesta"
+                    android:ems="7"
+                    android:textSize="14sp"
+                    android:inputType="text" />
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="15dp" />
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
 
-            <TextView
-                android:id="@+id/SolicitudIngreso2_textView4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#616161"
-                android:text="¿Cuál es el motivo de ingreso o de realización de actividades por fuera de las instalaciones de la Universidad? *"
-                android:textSize="14sp" />
 
-            <EditText
-                android:id="@+id/SolicitudIngreso2_motivo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="7"
-                android:hint="Tu respuesta"
-                android:textSize="14sp" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="15dp" />
-
-            <TextView
-                android:id="@+id/SolicitudIngreso2_textView5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Lugar donde desempeñará las labores"
-                android:textColor="#DD000000"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/SolicitudIngreso2_textView6"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Diligencie este campo si el lugar donde desempeñará sus funciones es en alguna sede de la Universidad  "
-                android:textColor="#616161"
-                android:textSize="15sp" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="10dp" />
-
-            <Spinner
-                android:id="@+id/SolicitudIngreso2_spinner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="5dp"
-                android:entries="@array/Sede" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="15dp" />
-
-            <TextView
-                android:id="@+id/SolicitudIngreso2_textView7"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#616161"
-                android:text="Bloque"
-                android:textSize="14sp" />
-
-            <EditText
-                android:id="@+id/preingreso3_bloque"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Tu respuesta"
-                android:ems="7"
-                android:textSize="14sp" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="15dp" />
-
-            <TextView
-                android:id="@+id/SolicitudIngreso2_textView8"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#616161"
-                android:text="Número de oficina o laboratorio"
-                android:textSize="14sp" />
-
-            <EditText
-                android:id="@+id/preingreso1_doc"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Tu respuesta"
-                android:ems="7"
-                android:textSize="14sp"
-                android:inputType="number" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="15dp" />
-
-            <TextView
-                android:id="@+id/SolicitudIngreso2_textView9"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Lugar donde desempeñará las labores"
-                android:textColor="#DD000000"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/SolicitudIngreso2_textView10"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Diligencie este campo si el lugar donde desempeñará sus funciones es por fuera de alguna de las sedes de la Universidad"
-                android:textColor="#616161"
-                android:textSize="15sp" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="15dp" />
-
-            <TextView
-                android:id="@+id/SolicitudIngreso2_textView11"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#616161"
-                android:text="Por favor indique la ciudad y el lugar si las actividades son por fuera de las sedes de la Universidad"
-                android:textSize="14sp" />
-
-            <EditText
-                android:id="@+id/SolicitudIngreso2_lugar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="7"
-                android:hint="Tu respuesta"
-                android:textSize="14sp" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="15dp" />
-
-            <TextView
-                android:id="@+id/SolicitudIngreso2_textView12"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#616161"
-                android:text="Días de ingreso y permanencia *"
-                android:textSize="14sp" />
-
-            <CheckBox
-                android:id="@+id/SolicitudIngreso2_checkBox1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Lunes" />
-
-            <CheckBox
-                android:id="@+id/SolicitudIngreso2_checkBox2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Martes" />
-
-            <CheckBox
-                android:id="@+id/SolicitudIngreso2_checkBox3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Miércoles" />
-
-            <CheckBox
-                android:id="@+id/SolicitudIngreso2_checkBox4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Jueves" />
-
-            <CheckBox
-                android:id="@+id/SolicitudIngreso2_checkBox5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Viernes" />
-
-            <CheckBox
-                android:id="@+id/SolicitudIngreso2_checkBox6"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Sábado" />
-
-            <CheckBox
-                android:id="@+id/SolicitudIngreso2_checkBox7"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Domingo" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="15dp" />
-
-            <TextView
-                android:id="@+id/SolicitudIngreso2_textView13"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#616161"
-                android:text="Fecha inicio del permiso *"
-                android:textSize="14sp" />
-
-            <EditText
-                android:id="@+id/SolicitudIngreso2_fechaI"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="mm/dd/yyyy"
-                android:ems="7"
-                android:textSize="14sp"
-                android:inputType="number" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="15dp" />
-
-            <TextView
-                android:id="@+id/SolicitudIngreso2_textView14"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#616161"
-                android:text="Fecha finalización del permiso *"
-                android:textSize="14sp" />
-
-            <EditText
-                android:id="@+id/SolicitudIngreso2_fechaF"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="7"
-                android:hint="mm/dd/yyyy"
-                android:textSize="14sp" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="15dp" />
-
-            <TextView
-                android:id="@+id/SolicitudIngreso2_textView15"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#616161"
-                android:text="Jornada de permanencia *"
-                android:textSize="14sp" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="5dp" />
-
-            <RadioGroup
-                android:id="@+id/SolicitudIngreso2_radioGroup2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="5dp"
-                android:orientation="vertical">
-
-                <RadioButton
-                    android:id="@+id/radioButton9"
+                <TextView
+                    android:id="@+id/SolicitudIngreso2_textView10"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Media jornada en la mañana" />
+                    android:text="Diligencie este campo si el lugar donde desempeñará sus funciones es por fuera de alguna de las sedes de la Universidad"
+                    android:textColor="#616161"
+                    android:textSize="15sp" />
 
-                <RadioButton
-                    android:id="@+id/radioButton10"
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+                <TextView
+                    android:id="@+id/SolicitudIngreso2_textView11"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Media jornada en la tarde" />
+                    android:textColor="#616161"
+                    android:text="Por favor indique la ciudad y el lugar si las actividades son por fuera de las sedes de la Universidad"
+                    android:textSize="14sp" />
 
-                <RadioButton
-                    android:id="@+id/radioButton11"
+                <EditText
+                    android:id="@+id/SolicitudIngreso2_lugar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Jornada completa" />
+                    android:ems="7"
+                    android:inputType="text"
+                    android:hint="Tu respuesta"
+                    android:textSize="14sp" />
 
-                <RadioButton
-                    android:id="@+id/radioButton12"
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+                <TextView
+                    android:id="@+id/SolicitudIngreso2_textView12"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Otro:" />
-            </RadioGroup>
+                    android:textColor="#616161"
+                    android:text="Días de ingreso y permanencia *"
+                    android:textSize="14sp" />
 
-            <EditText
-                android:id="@+id/SolicitudIngreso2_otro"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="7"
-                android:textSize="14sp"/>
+                <CheckBox
+                    android:id="@+id/SolicitudIngreso2_checkBox1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{(view) -> fragmentSolicitudIngreso2.onCheckboxClicked(view)}"
+                    android:text="Lunes" />
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="15dp" />
+                <CheckBox
+                    android:id="@+id/SolicitudIngreso2_checkBox2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{(view) -> fragmentSolicitudIngreso2.onCheckboxClicked(view)}"
+                    android:text="Martes" />
 
-            <Button
-                android:id="@+id/SolicitudIngreso2_siguiente2"
-                style="@style/custom_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start|bottom"
-                android:layout_marginBottom="20dp"
-                android:text="Enviar formulario" />
+                <CheckBox
+                    android:id="@+id/SolicitudIngreso2_checkBox3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{(view) -> fragmentSolicitudIngreso2.onCheckboxClicked(view)}"
+                    android:text="Miércoles" />
+
+                <CheckBox
+                    android:id="@+id/SolicitudIngreso2_checkBox4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{(view) -> fragmentSolicitudIngreso2.onCheckboxClicked(view)}"
+                    android:text="Jueves" />
+
+                <CheckBox
+                    android:id="@+id/SolicitudIngreso2_checkBox5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{(view) -> fragmentSolicitudIngreso2.onCheckboxClicked(view)}"
+                    android:text="Viernes" />
+
+                <CheckBox
+                    android:id="@+id/SolicitudIngreso2_checkBox6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{(view) -> fragmentSolicitudIngreso2.onCheckboxClicked(view)}"
+                    android:text="Sábado" />
+
+                <CheckBox
+                    android:id="@+id/SolicitudIngreso2_checkBox7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{(view) -> fragmentSolicitudIngreso2.onCheckboxClicked(view)}"
+                    android:text="Domingo" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+                <TextView
+                    android:id="@+id/SolicitudIngreso2_textView13"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#616161"
+                    android:text="Fecha inicio del permiso *"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/fecha_inicio_permiso"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="7"
+                    android:inputType="date"
+                    android:focusable="false"
+                    android:clickable="true"
+                    android:maxLines="1"
+                    android:hint="@string/dd_mm_yyyy"
+                    android:textSize="14sp" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp" />
+
+                <TextView
+                    android:id="@+id/SolicitudIngreso2_textView14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#616161"
+                    android:text="Fecha finalización del permiso *"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/fecha_finalizacion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="7"
+                    android:hint="@string/dd_mm_yyyy"
+                    android:inputType="date"
+                    android:focusable="false"
+                    android:clickable="true"
+                    android:maxLines="1"
+                    android:textSize="14sp" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp" />
+
+                <TextView
+                    android:id="@+id/SolicitudIngreso2_textView15"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#616161"
+                    android:text="Jornada de permanencia *"
+                    android:textSize="14sp" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp" />
+
+                <RadioGroup
+                    android:id="@+id/rg_jornadaPermanencia"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:orientation="vertical">
+
+                    <RadioButton
+                        android:id="@+id/rb_jornadaMañana"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Media jornada en la mañana" />
+
+                    <RadioButton
+                        android:id="@+id/rb_jornadaTarde"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Media jornada en la tarde" />
+
+                    <RadioButton
+                        android:id="@+id/rb_jornadaCompleta"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Jornada completa" />
+
+                    <RadioButton
+                        android:id="@+id/rb_otraJornada"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Otro:" />
+
+                </RadioGroup>
+
+                <EditText
+                    android:id="@+id/input_otraJornada"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Tu respuesta"
+                    android:inputType="text"
+                    android:ems="7"
+                    android:textSize="14sp" />
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="15dp" />
+
+                <Button
+                    android:id="@+id/SolicitudIngreso2_siguiente2"
+                    style="@style/custom_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|bottom"
+                    android:layout_marginBottom="20dp"
+                    android:text="Enviar formulario" />
 
 
-        </LinearLayout>
-    </ScrollView>
+            </LinearLayout>
+        </ScrollView>
 
 
-</FrameLayout>
+    </FrameLayout>
+</layout>

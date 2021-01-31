@@ -29,7 +29,7 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class Preingreso3 : Fragment() {
-    // TODO: Rename and change types of parameters
+
     private var param1: String? = null
     private var param2: String? = null
     var bandera: Boolean? = null
@@ -44,29 +44,6 @@ class Preingreso3 : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
-    }
-
-    private fun validate() :Boolean{
-        val radioGroup = preingreso3_radioGroup.checkedRadioButtonId
-        val radioGroup3 = preingreso3_radioGroup1.checkedRadioButtonId
-
-        if(preingreso3_bloques.text.toString().isEmpty()){
-            preingreso3_bloques.error = "campo vacío"
-            return false
-        }else if(radioGroup == -1){
-            Toast.makeText(activity, "Ingresar si perteneces a algún proyecto", Toast.LENGTH_SHORT).show()
-            return false
-        }else if(preingreso3_municipio.text.toString().isEmpty()){
-            preingreso3_municipio.error = "campo vacío"
-            return false
-        }else if(radioGroup3 == -1){
-            Toast.makeText(activity, "Ingresar como te transportas", Toast.LENGTH_SHORT).show()
-            return false
-        }else if(bandera==true && preingreso3_otro.text.toString().isEmpty()){
-            preingreso3_otro.error = "campo vacío"
-            return false
-        }
-        return true
     }
 
     override fun onCreateView(
@@ -96,6 +73,20 @@ class Preingreso3 : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        //Observar el cambio de location ID seleccionado por el usuario
+        viewModel.locationIdSelected.observe(viewLifecycleOwner, Observer{
+            it?.let {
+                signUpRequestDto.universityInfo.locationId = it
+            }
+        })
+
+        //Observar el cambio de unit ID
+        viewModel.unitIdSelected.observe(viewLifecycleOwner, Observer {
+            it?.let {
+                signUpRequestDto.universityInfo.unitId = it
+            }
+        })
 
         val rgProyectoExtension = view.findViewById<RadioGroup>(R.id.preingreso3_radioGroup)
         var rtaProjectoExtension = ""
@@ -131,6 +122,7 @@ class Preingreso3 : Fragment() {
                     }
                 }
             }
+
             preingresobtn_siguiente3.setOnClickListener {
                 if (validate()) {
                     if (preingreso3_otro.text.toString().isNotEmpty()){
@@ -147,19 +139,29 @@ class Preingreso3 : Fragment() {
             }
         }
 
-        viewModel.locationIdSelected.observe(viewLifecycleOwner, Observer{
-            it?.let {
-                signUpRequestDto.universityInfo.locationId = it
-            }
-        })
+    }
 
-        //Observar el cambio de unit ID
-        viewModel.unitIdSelected.observe(viewLifecycleOwner, Observer {
-            it?.let {
-                signUpRequestDto.universityInfo.unitId = it
-            }
-        })
+    private fun validate() :Boolean{
+        val radioGroup = preingreso3_radioGroup.checkedRadioButtonId
+        val radioGroup3 = preingreso3_radioGroup1.checkedRadioButtonId
 
+        if(preingreso3_bloques.text.toString().isEmpty()){
+            preingreso3_bloques.error = "campo vacío"
+            return false
+        }else if(radioGroup == -1){
+            Toast.makeText(activity, "Ingresar si perteneces a algún proyecto", Toast.LENGTH_SHORT).show()
+            return false
+        }else if(preingreso3_municipio.text.toString().isEmpty()){
+            preingreso3_municipio.error = "campo vacío"
+            return false
+        }else if(radioGroup3 == -1){
+            Toast.makeText(activity, "Ingresar como te transportas", Toast.LENGTH_SHORT).show()
+            return false
+        }else if(bandera==true && preingreso3_otro.text.toString().isEmpty()){
+            preingreso3_otro.error = "campo vacío"
+            return false
+        }
+        return true
     }
 
     companion object {

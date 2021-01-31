@@ -1,11 +1,9 @@
 package co.edu.udea.udeacov.network
 
 import co.edu.udea.udeacov.network.request.AuthRequestDto
+import co.edu.udea.udeacov.network.request.PermissionRequestDto
 import co.edu.udea.udeacov.network.request.SignUpRequestDto
-import co.edu.udea.udeacov.network.response.AuthResponseDto
-import co.edu.udea.udeacov.network.response.LocationResponseDTO
-import co.edu.udea.udeacov.network.response.SignUpResponseDto
-import co.edu.udea.udeacov.network.response.UnitResponseDto
+import co.edu.udea.udeacov.network.response.*
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -36,6 +34,11 @@ interface UdeaCovAuthService{
     fun signup(@Query("message") showErrorMessage: Boolean, @Body signUpRequest : SignUpRequestDto) : Deferred<SignUpResponseDto>
 }
 
+interface PermissionService {
+    @POST("permissions")
+    fun createPermission(@Query("message") showErrorMessage: Boolean, @Body permissionRequestDto: PermissionRequestDto): Deferred<PermissionResponseDto>
+}
+
 interface LocationService{
     @GET("locations")
     fun getLocations() : Deferred<List<LocationResponseDTO>>
@@ -50,6 +53,11 @@ object udeaCovApiService {
     val authService : UdeaCovAuthService by lazy {
         retrofit.create(UdeaCovAuthService::class.java)
     }
+
+    val permissionService : PermissionService by lazy {
+        retrofit.create(PermissionService::class.java)
+    }
+
     val locationService : LocationService by lazy {
         retrofit.create(LocationService::class.java)
     }

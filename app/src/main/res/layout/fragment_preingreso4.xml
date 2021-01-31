@@ -649,23 +649,27 @@
                     android:id="@+id/cb_visualPermanente"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:onClick="@{(view) -> fragmentPreingreso4.seleccionarDiscapacidadPermanente(view)}"
                     android:text="Visual permanente, como la ceguera, y que NO pueda corregirse con cirugía, lentes u otros medios de ayuda visual" />
 
                 <CheckBox
                     android:id="@+id/cb_motrizPermanente"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:onClick="@{(view) -> fragmentPreingreso4.seleccionarDiscapacidadPermanente(view)}"
                     android:text="Motriz permanente, que requiera el uso de silla de ruedas o muletas en forma permanente" />
 
                 <CheckBox
                     android:id="@+id/cb_auditivaPermanente"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:onClick="@{(view) -> fragmentPreingreso4.seleccionarDiscapacidadPermanente(view)}"
                     android:text="Auditiva permanente, como sordera que NO sea posible de corregir con cirugía, audífonos u otros medios de ayuda auditiva" />
 
                 <CheckBox
                     android:id="@+id/cb_otra_discapacidad"
                     android:layout_width="match_parent"
+                    android:onClick="@{(view) -> fragmentPreingreso4.seleccionarDiscapacidadPermanente(view)}"
                     android:layout_height="wrap_content"
                     android:text="Otro" />
 

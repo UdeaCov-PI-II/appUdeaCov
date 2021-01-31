@@ -1,4 +1,4 @@
-package co.edu.udea.udeacov.fragmentos.preingreso.viewmodels.preingreso3
+package co.edu.udea.udeacov.fragmentos.solicitud_permiso.viewmodels.solicitudingreso2
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -6,28 +6,38 @@ import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import co.edu.udea.udeacov.network.error.ApiErrorHandler
 import co.edu.udea.udeacov.network.error.ErrorConstants
+import co.edu.udea.udeacov.network.request.PermissionRequestDto
+import co.edu.udea.udeacov.network.request.SignUpRequestDto
 import co.edu.udea.udeacov.network.response.LocationResponseDTO
-import co.edu.udea.udeacov.network.response.UnitResponseDto
+import co.edu.udea.udeacov.network.response.PermissionResponseDto
+import co.edu.udea.udeacov.network.response.SignUpResponseDto
 import co.edu.udea.udeacov.network.udeaCovApiService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
-class Preingreso3ViewModel : ViewModel() {
+class Solicitud2ViewModel: ViewModel() {
+    //Para usar corutinas
     private val viewModelJob = Job()
     private val coroutineScope  = CoroutineScope(viewModelJob + Dispatchers.Main)
 
+
     private val _locationsResponse = MutableLiveData<List<LocationResponseDTO>?>()
+
     val locationNameSelected = MutableLiveData<String?>()
-    private val _unitsResponse = MutableLiveData<List<UnitResponseDto>?>()
-    val unitNameSelected = MutableLiveData<String?>()
 
     private val _responseError = MutableLiveData<String?>()
     val responseError: LiveData<String?>
         get() = _responseError
 
+    private val _permissionResponse = MutableLiveData<PermissionResponseDto?>()
 
+    val permissionResponse: LiveData<PermissionResponseDto?>
+        get() = _permissionResponse
+
+
+    //Retorno el id de las seccionales(location), segun el nombre que recibo del usuario
     val locationIdSelected: LiveData<String?> = Transformations.map(locationNameSelected) {
         it?.let {
             _locationsResponse.value?.stream()?.filter{location ->
@@ -36,15 +46,7 @@ class Preingreso3ViewModel : ViewModel() {
         }
     }
 
-
-    val unitIdSelected: LiveData<String?> = Transformations.map(unitNameSelected) {
-        it?.let {
-            _unitsResponse.value?.stream()?.filter{unit ->
-                unit.name == it
-            }?.findAny()?.get()?.id
-        }
-    }
-
+    //Lista de las seccionales(location) que se le mostraran al usuario en la vista
     val locationsResponse: LiveData<List<String>>
         get() = Transformations.map(_locationsResponse) {
             it?.map { element ->
@@ -52,15 +54,7 @@ class Preingreso3ViewModel : ViewModel() {
             }
         }
 
-    //Retornar el nombre de las unidades academicas
-    val unitsResponse: LiveData<List<String>>
-        get() = Transformations.map(_unitsResponse) {
-            it?.map { element ->
-                element.name
-            }
-        }
-
-
+    //Metodo que consume el servicio para retornar las seccionales de la BD
     fun getLocations(){
         coroutineScope.launch {
             try{
@@ -71,14 +65,23 @@ class Preingreso3ViewModel : ViewModel() {
         }
     }
 
-    fun getUnits(){
+    fun createPermission(permissionRequest: PermissionRequestDto){
         coroutineScope.launch {
             try{
-                _unitsResponse.value = udeaCovApiService.unitService.getUnits().await()
+                _permissionResponse.value = udeaCovApiService.permissionService.createPermission(true, permissionRequest).await()
             }catch (e : Exception) {
-                _responseError.value = ApiErrorHandler.getErrorMessage(e, ErrorConstants.DEFAULT_ERROR_MESSAGE_UNITS)
+                _responseError.value = ApiErrorHandler.getErrorMessage(e, ErrorConstants.DEFAULT_ERROR_MESSAGE_PERMISSIONS)
+
             }
         }
+    }
+
+    fun showErrorIsCompleted(){
+        _responseError.value = null
+    }
+
+    fun navigationIsCompleted(){
+        _permissionResponse.value = null
     }
 
 }
