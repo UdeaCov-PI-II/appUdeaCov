@@ -20,7 +20,24 @@
         android:label="fragment_segundo_requisito"
         tools:layout="@layout/fragment_segundo_requisito" >
         <action
-            android:id="@+id/action_segundoRequisitoFragment_to_solicitudIngreso1"
+            android:id="@+id/action_segundoRequisitoFragment_to_declaracion_de_responsabilidad"
+            app:destination="@id/declaracion_de_responsabilidad" />
+    </fragment>
+    <fragment
+        android:id="@+id/declaracion_de_responsabilidad"
+        android:name="co.edu.udea.udeacov.fragmentos.solicitud_permiso.DeclaracionResponsabilidadFragment"
+        android:label="fragment_declaracion_de_responsabilidad"
+        tools:layout="@layout/fragment_declaracion_de_responsabilidad" >
+        <action
+            android:id="@+id/action_declaracion_de_responsabilidad_to_aprobacionesDeclaracionDeResponsabilidad"
+            app:destination="@id/aprobacionesDeclaracionDeResponsabilidad" />
+    </fragment>
+    <fragment
+        android:id="@+id/aprobacionesDeclaracionDeResponsabilidad"
+        android:name="co.edu.udea.udeacov.fragmentos.solicitud_permiso.AprobacionesDeclaracionDeResponsabilidad"
+        android:label="AprobacionesDeclaracionDeResponsabilidad" >
+        <action
+            android:id="@+id/action_aprobacionesDeclaracionDeResponsabilidad_to_solicitudIngreso1"
             app:destination="@id/solicitudIngreso1" />
     </fragment>
     <fragment
@@ -37,25 +54,18 @@
         android:name="co.edu.udea.udeacov.fragmentos.solicitud_permiso.SolicitudIngreso2"
         android:label="fragment_solicitud_ingreso2"
         tools:layout="@layout/fragment_solicitud_ingreso2" >
-        <action
-            android:id="@+id/action_solicitudIngreso2_to_declaracion_de_responsabilidad"
-            app:destination="@id/declaracion_de_responsabilidad" />
         <argument
             android:name="permissionRequest"
             app:argType="co.edu.udea.udeacov.network.request.PermissionRequestDto"
             app:nullable="false"/>
-    </fragment>
-    <fragment
-        android:id="@+id/declaracion_de_responsabilidad"
-        android:name="co.edu.udea.udeacov.fragmentos.solicitud_permiso.DeclaracionResponsabilidadFragment"
-        android:label="fragment_declaracion_de_responsabilidad"
-        tools:layout="@layout/fragment_declaracion_de_responsabilidad" >
         <action
-            android:id="@+id/action_declaracion_de_responsabilidad_to_aprobacionesDeclaracionDeResponsabilidad"
-            app:destination="@id/aprobacionesDeclaracionDeResponsabilidad" />
+            android:id="@+id/action_solicitudIngreso2_to_detalleSolicitud2"
+            app:destination="@id/detalleSolicitud2" />
     </fragment>
     <fragment
-        android:id="@+id/aprobacionesDeclaracionDeResponsabilidad"
-        android:name="co.edu.udea.udeacov.fragmentos.solicitud_permiso.AprobacionesDeclaracionDeResponsabilidad"
-        android:label="AprobacionesDeclaracionDeResponsabilidad" />
+        android:id="@+id/detalleSolicitud2"
+        android:name="co.edu.udea.udeacov.fragmentos.lista_solicitudes.DetalleSolicitud"
+        android:label="fragment_detalle_solicitud"
+        tools:layout="@layout/fragment_detalle_solicitud" />
+
 </navigation>

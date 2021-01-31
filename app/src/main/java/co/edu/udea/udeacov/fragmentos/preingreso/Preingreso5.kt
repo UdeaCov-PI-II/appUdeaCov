@@ -115,7 +115,7 @@ class Preingreso5 : Fragment() {
                 if (preingreso5_otro.text.toString().isNotEmpty()){
                     signUpRequestDto.healthInfo.roomatesConditions.add(preingreso5_otro.text.toString())
                 }
-                Toast.makeText(activity, "Formulario enviado exitosamente", Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity, "Formulario creado exitosamente. Ingresa con tu usuario y contraseña", Toast.LENGTH_SHORT).show()
                 viewModel.signup(signUpRequestDto)
             }
         }

@@ -14,6 +14,7 @@
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
+            android:contentDescription="logo_udea"
             android:src="@drawable/logo_verde_udea" />
 
         <LinearLayout
@@ -120,15 +121,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
         <CheckBox
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:layout_weight="1"
             android:text="@string/aprobacion_colaborador" />
 
+        <Button
+            android:id="@+id/btn_siguiente"
+            style="@style/custom_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="30dp"
+            android:text="Siguiente" />
+
     </LinearLayout>
+
+
 
 </LinearLayout>

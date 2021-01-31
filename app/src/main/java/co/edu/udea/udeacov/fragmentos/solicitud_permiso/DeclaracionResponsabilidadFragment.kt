@@ -22,6 +22,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
 import co.edu.udea.udeacov.R
 import co.edu.udea.udeacov.databinding.FragmentDeclaracionDeResponsabilidadBinding
+import com.kofigyan.stateprogressbar.StateProgressBar
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -66,6 +67,12 @@ class DeclaracionResponsabilidadFragment : Fragment() {
                 startDownloading()
             }
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        val stateProgressBar = activity?.findViewById<StateProgressBar>(R.id.your_state_progress_bar_id)
+        stateProgressBar?.setCurrentStateNumber(StateProgressBar.StateNumber.THREE)
     }
 
     private fun startDownloading() {

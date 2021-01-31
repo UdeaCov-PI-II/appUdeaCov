@@ -79,7 +79,7 @@ class SolicitudIngreso2 : Fragment() {
 
         viewModel.permissionResponse.observe(viewLifecycleOwner, Observer {
             it?.let {
-                view.findNavController().navigate(R.id.action_solicitudIngreso2_to_declaracion_de_responsabilidad)
+                view.findNavController().navigate(R.id.action_solicitudIngreso2_to_detalleSolicitud2)
                 viewModel.navigationIsCompleted()
             }
         })

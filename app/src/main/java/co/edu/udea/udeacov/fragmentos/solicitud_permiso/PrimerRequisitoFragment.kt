@@ -19,13 +19,8 @@ import kotlinx.android.synthetic.main.fragment_primer_requisito.*
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [PrimerRequisitoFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class PrimerRequisitoFragment : Fragment() {
-    // TODO: Rename and change types of parameters
+
     private var param1: String? = null
     private var param2: String? = null
     var bandera: Boolean? = null
@@ -52,13 +47,13 @@ class PrimerRequisitoFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         btn_enviarCoronapp.setOnClickListener {
-            loadImage();
+            loadImage()
         }
         primerReqbtn.setOnClickListener{
             if(SolicitudDeUnPermiso.StaticData.bandera1){
                 it.findNavController().navigate(R.id.action_primerRequisitoFragment_to_segundoRequisitoFragment)
             }else{
-                Toast.makeText(activity, "Ingresar imagen", Toast.LENGTH_SHORT).show();
+                Toast.makeText(activity, "Ingresar imagen", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -69,10 +64,10 @@ class PrimerRequisitoFragment : Fragment() {
         val intent = Intent(
             Intent.ACTION_PICK,
             android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI
-        );
-        intent.setType("image/");
+        )
+        intent.setType("image/")
 
-        startActivityForResult(Intent.createChooser(intent, "Seleccionar imagen"), 10);
+        startActivityForResult(Intent.createChooser(intent, "Seleccionar imagen"), 10)
     }
 
 

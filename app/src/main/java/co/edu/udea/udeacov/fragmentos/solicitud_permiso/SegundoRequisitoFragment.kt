@@ -44,7 +44,7 @@ class SegundoRequisitoFragment : Fragment() {
         );
         intent.setType("image/");
 
-        startActivityForResult(Intent.createChooser(intent, "Seleccionar imagen"), 10);
+        startActivityForResult(Intent.createChooser(intent, "Seleccionar imagen"), 10)
     }
 
     override fun onCreateView(
@@ -63,9 +63,9 @@ class SegundoRequisitoFragment : Fragment() {
         }
         segReqbtn.setOnClickListener{
             if(SolicitudDeUnPermiso.StaticData.bandera2){
-                it.findNavController().navigate(R.id.action_segundoRequisitoFragment_to_solicitudIngreso1)
+                it.findNavController().navigate(R.id.action_segundoRequisitoFragment_to_declaracion_de_responsabilidad)
             }else{
-                Toast.makeText(activity, "Ingresar imagen", Toast.LENGTH_SHORT).show();
+                Toast.makeText(activity, "Ingresar imagen", Toast.LENGTH_SHORT).show()
             }
         }
     }

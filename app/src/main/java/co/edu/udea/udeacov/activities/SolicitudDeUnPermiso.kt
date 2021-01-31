@@ -22,7 +22,7 @@ class SolicitudDeUnPermiso : AppCompatActivity() {
     var stepIndex = 0
     var steptsTexts = arrayOf<String>("Paso 1","Paso 2","Paso 3", "Paso 4")
     var descriptionTexts = arrayOf<String>("Link de CoronApp","Link de Medellín Me Cuida",
-                                            "Solicitud de Ingreso", "Declaración de Responsabilidad")
+                                            "Declaración de Responsabilidad", "Solicitud de Ingreso")
 
     var descriptionData =
         arrayOf("Paso 1", "Paso 2", "Paso 3", "Paso 4")
@@ -45,12 +45,12 @@ class SolicitudDeUnPermiso : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if(resultCode== RESULT_OK && StaticData.bandera1 == false ){
+        if(resultCode== RESULT_OK && !StaticData.bandera1){
             StaticData.bandera1 = true
             data?.getData()
             Toast.makeText(this, "Imagen subida", Toast.LENGTH_SHORT).show()
 
-        }else if(resultCode== RESULT_OK && StaticData.bandera1 == true){
+        }else if(resultCode== RESULT_OK && StaticData.bandera1){
             StaticData.bandera2 = true
             data?.getData()
             Toast.makeText(this, "Imagen subida", Toast.LENGTH_SHORT).show()
@@ -63,7 +63,7 @@ class SolicitudDeUnPermiso : AppCompatActivity() {
         return true
     }
 
-
+// Item Cerrar sesion
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
      when(item.itemId){
             R.id.cerrar_session_item ->{

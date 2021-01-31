@@ -73,9 +73,7 @@ class SolicitudIngreso1 : Fragment() {
             it.findNavController().navigate(SolicitudIngreso1Directions.actionSolicitudIngreso1ToSolicitudIngreso2(permissionRequestDto))
         }
 
-        var mySpinner = view.findViewById<Spinner>(R.id.SolicitudIngreso1_spinner)
-        var text2 = view.findViewById<TextView>(R.id.decano)
-        var text3 = view.findViewById<TextView>(R.id.correoDecano)
+        val mySpinner = view.findViewById<Spinner>(R.id.SolicitudIngreso1_spinner)
 
         mySpinner.onItemSelectedListener = object : OnItemSelectedListener {
             override fun onItemSelected(
@@ -94,6 +92,6 @@ class SolicitudIngreso1 : Fragment() {
     override fun onStart() {
         super.onStart()
         val stateProgressBar = activity?.findViewById<StateProgressBar>(R.id.your_state_progress_bar_id)
-        stateProgressBar?.setCurrentStateNumber(StateProgressBar.StateNumber.THREE)
+        stateProgressBar?.setCurrentStateNumber(StateProgressBar.StateNumber.FOUR)
     }
 }

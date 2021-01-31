@@ -2,10 +2,9 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".fragmentos.preingreso.Preingreso6">
 
-    <!-- TODO: Update blank fragment layout -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -56,12 +55,12 @@
                 android:layout_height="15dp" />
 
             <Button
-                android:id="@+id/preingresobtn_siguiente6"
+                android:id="@+id/btn_finalizar"
                 style="@style/custom_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
-                android:text="Enviar formulario" />
+                android:text="Finalizar" />
 
 
         </LinearLayout>

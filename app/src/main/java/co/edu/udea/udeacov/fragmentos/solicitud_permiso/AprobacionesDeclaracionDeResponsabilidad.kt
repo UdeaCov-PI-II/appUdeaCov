@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import co.edu.udea.udeacov.R
+import kotlinx.android.synthetic.main.fragment_aprobaciones_declaracion_de_responsabilidad.*
 
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
@@ -38,6 +40,14 @@ class AprobacionesDeclaracionDeResponsabilidad : Fragment() {
             container,
             false
         )
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        btn_siguiente.setOnClickListener {
+            it.findNavController().navigate(R.id.action_aprobacionesDeclaracionDeResponsabilidad_to_solicitudIngreso1)
+        }
     }
 
     companion object {

@@ -163,7 +163,7 @@ class Preingreso4 : Fragment() {
         }
 
         cb_otra_discapacidad.setOnClickListener {
-            var editText1 = view.findViewById<EditText>(R.id.input_otraDiscapacidad)
+            val editText1 = view.findViewById<EditText>(R.id.input_otraDiscapacidad)
             if(cb_otra_discapacidad.isChecked){
                 bandera = true
                 editText1.visibility = View.VISIBLE
@@ -186,7 +186,7 @@ class Preingreso4 : Fragment() {
                     it.findNavController().navigate(Preingreso4Directions.actionPreingreso4ToPreingreso5(signUpRequestDto))
                 } else{
                     signUpRequestDto.healthInfo.hasRoomates = false
-                    Toast.makeText(activity, "Formulario enviado exitosamente", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(activity, "Formulario creado exitosamente. Ingresa con tu usuario y contraseña", Toast.LENGTH_SHORT).show()
                     viewModel.signup(signUpRequestDto)
                 }
             }
