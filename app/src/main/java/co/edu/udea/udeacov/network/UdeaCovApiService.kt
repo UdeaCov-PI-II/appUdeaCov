@@ -3,7 +3,9 @@ package co.edu.udea.udeacov.network
 import co.edu.udea.udeacov.UdeaCovApplication
 import co.edu.udea.udeacov.network.interceptor.AuthTokenInterceptor
 import co.edu.udea.udeacov.network.request.AuthRequestDto
+import co.edu.udea.udeacov.network.request.DeviceTokenRequestDto
 import co.edu.udea.udeacov.network.response.AuthResponseDto
+import co.edu.udea.udeacov.network.response.DeviceTokenResponseDto
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -11,9 +13,7 @@ import kotlinx.coroutines.Deferred
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
-import retrofit2.http.Body
-import retrofit2.http.POST
-import retrofit2.http.Query
+import retrofit2.http.*
 
 
 private const val BASE_URL = "https://rocky-forest-36799.herokuapp.com/"
@@ -31,6 +31,10 @@ private val retrofit = Retrofit.Builder()
     .client(okHttpClient)
     .build()
 
+interface UserService{
+    @PUT("users/{userId}/deviceToken")
+    fun updateTokenForUser(@Path("userId") userId : String, @Body deviceTokenRequest : DeviceTokenRequestDto) : Deferred<DeviceTokenResponseDto>
+}
 
 interface UdeaCovAuthService{
     @POST("auth/signin")
@@ -38,6 +42,10 @@ interface UdeaCovAuthService{
 }
 
 object udeaCovApiService {
+    val userService : UserService by lazy {
+        retrofit.create(UserService::class.java)
+    }
+
     val authService : UdeaCovAuthService by lazy {
         retrofit.create(UdeaCovAuthService::class.java)
     }

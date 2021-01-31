@@ -223,6 +223,7 @@ Los datos proporcionados por el usuario deben ser veraces, completos, exactos, a
     <string name="user_token" >token</string>
     <string name="user_id">id</string>
     <string name="user_role">role</string>
+    <string name="user_device_token">deviceToken</string>
 
     <!-- Primer requisito -->
     <string name="cerrar_sesion_text" >Cerrar sesión</string>

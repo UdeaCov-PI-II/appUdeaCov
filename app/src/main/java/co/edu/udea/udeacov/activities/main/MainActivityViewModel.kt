@@ -1,11 +1,13 @@
 package co.edu.udea.udeacov.activities.main
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import co.edu.udea.udeacov.network.error.ApiErrorHandler
 import co.edu.udea.udeacov.network.error.ErrorConstants
 import co.edu.udea.udeacov.network.request.AuthRequestDto
+import co.edu.udea.udeacov.network.request.DeviceTokenRequestDto
 import co.edu.udea.udeacov.network.response.AuthResponseDto
 import co.edu.udea.udeacov.network.udeaCovApiService
 import kotlinx.coroutines.*
@@ -34,6 +36,17 @@ class MainActivityViewModel : ViewModel() {
                 _authResponse.value = udeaCovApiService.authService.authenticate(true,authRequest).await()
             }catch (e : Exception) {
                 _responseError.value = ApiErrorHandler.getErrorMessage(e, ErrorConstants.DEFAULT_ERROR_MESSAGE_AUTH)
+            }
+        }
+    }
+
+    fun sendTokenToServer(newToken : String, userId: String) {
+        coroutineScope.launch {
+            try{
+                udeaCovApiService.userService.updateTokenForUser(userId, DeviceTokenRequestDto(newToken)).await()
+            }catch (e : Exception) {
+                val errorMsg = ApiErrorHandler.getErrorMessage(e, ErrorConstants.DEFAULT_ERROR_MESSAGE_DEVICE_TOKEN)
+                Log.e("MainActivityViewModel",errorMsg)
             }
         }
     }
