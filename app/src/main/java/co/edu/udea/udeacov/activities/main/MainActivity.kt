@@ -43,6 +43,7 @@ class MainActivity : AppCompatActivity() {
         viewModel.authResponse.observe(this, Observer {
             it?.let{
                 saveUserInfoInPreferencesFile(it)
+                assignDeviceTokenToLoggedUser(it.userId)
                 val intent= Intent(this, SolicitudDeUnPermiso::class.java)
                 startActivity(intent)
                 viewModel.signInIsCompleted()
@@ -55,6 +56,15 @@ class MainActivity : AppCompatActivity() {
                 viewModel.showErrorIsCompleted()
             }
         })
+    }
+
+    private fun assignDeviceTokenToLoggedUser(userId : String) {
+        val sharedPref =
+            this.getSharedPreferences(getString(R.string.user_settings_file), Context.MODE_PRIVATE)
+        val token = sharedPref.getString(getString(R.string.user_device_token),null)
+        token?.let{
+            viewModel.sendTokenToServer(it,userId)
+        }
     }
 
     private fun saveUserInfoInPreferencesFile(it: AuthResponseDto) {
