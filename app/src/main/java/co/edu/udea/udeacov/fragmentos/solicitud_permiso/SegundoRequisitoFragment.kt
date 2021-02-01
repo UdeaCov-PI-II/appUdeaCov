@@ -72,6 +72,7 @@ class SegundoRequisitoFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
+        //Paso numero 2 de la barra de progreso
         val stateProgressBar = activity?.findViewById<StateProgressBar>(R.id.your_state_progress_bar_id)
         stateProgressBar?.setCurrentStateNumber(StateProgressBar.StateNumber.TWO)
     }

@@ -1,17 +1,20 @@
 package co.edu.udea.udeacov.fragmentos.lista_solicitudes
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.Toast
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.github.chrisbanes.photoview.PhotoView
 import co.edu.udea.udeacov.R
+import co.edu.udea.udeacov.databinding.FragmentDetalleSolicitudBinding
+import co.edu.udea.udeacov.fragmentos.lista_solicitudes.viewmodels.viewmodels.DetalleSolicitudViewModel
 import kotlinx.android.synthetic.main.fragment_detalle_solicitud.*
-import kotlinx.android.synthetic.main.fragment_preingreso1.*
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -19,16 +22,13 @@ import kotlinx.android.synthetic.main.fragment_preingreso1.*
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [DetalleSolicitud.newInstance] factory method to
- * create an instance of this fragment.
- */
+
 class DetalleSolicitud : Fragment() {
-    // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
 
+    private lateinit var viewmodel: DetalleSolicitudViewModel
+    private lateinit var binding: FragmentDetalleSolicitudBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,12 +42,42 @@ class DetalleSolicitud : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        //Instanciamos el viewModel
+        viewmodel = ViewModelProvider(this).get(DetalleSolicitudViewModel::class.java)
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_detalle_solicitud, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_detalle_solicitud, container, false)
+
+        //unir el binding con el viewModel
+        binding.lifecycleOwner = viewLifecycleOwner
+        binding.viewModel = viewmodel
+        val sharedPref = requireActivity().getSharedPreferences(getString(R.string.user_settings_file),
+            Context.MODE_PRIVATE)
+        viewmodel.role.value = sharedPref.getString(getString(R.string.user_role),null)
+
+        viewmodel.getPermissionById("MSWks6Y0qxa7ITUL5SaC")
+
+        return binding.root
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+        viewmodel.permissionResponse.observe(viewLifecycleOwner, Observer {
+            it?.let {
+                binding.txtFechainicio.text = it.startTimeStr
+                binding.txtFechafinal.text = it.endTimeStr
+                binding.txtLugarPermanencia.text = it.location
+                binding.txtMotivo.text = it.status.displayName
+                //faltan imagenes y aprobaciones
+            }
+        })
+
+
+
 
         val photoView = view.findViewById(R.id.photo_view) as PhotoView
         photoView.setImageResource(R.drawable.coronapp_captura)

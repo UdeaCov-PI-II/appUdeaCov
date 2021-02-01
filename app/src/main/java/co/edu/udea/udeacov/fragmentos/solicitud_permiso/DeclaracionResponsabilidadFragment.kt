@@ -71,6 +71,7 @@ class DeclaracionResponsabilidadFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
+        //Paso numero 3 de la barra de progreso
         val stateProgressBar = activity?.findViewById<StateProgressBar>(R.id.your_state_progress_bar_id)
         stateProgressBar?.setCurrentStateNumber(StateProgressBar.StateNumber.THREE)
     }

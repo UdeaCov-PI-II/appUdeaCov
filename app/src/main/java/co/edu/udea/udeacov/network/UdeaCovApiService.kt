@@ -42,7 +42,10 @@ interface UdeaCovAuthService{
 
 interface PermissionService {
     @POST("permissions")
-    fun createPermission(@Query("message") showErrorMessage: Boolean, @Body permissionRequestDto: PermissionRequestDto): Deferred<PermissionResponseDto>
+    fun createPermission(@Query("message") showErrorMessage: Boolean, @Body permissionRequestDto: PermissionRequestDto): Deferred<CreatePermissionResponseDto>
+
+    @GET("permissions/{permissionId}")
+    fun getPermissionById(@Query("message") showErrorMessage: Boolean, @Path("permissionId") permissionId: String): Deferred<PermissionResponseDto>
 }
 
 interface LocationService{
@@ -54,6 +57,8 @@ interface UnitService {
     @GET ("units")
     fun getUnits() : Deferred<List<UnitResponseDto>>
 }
+
+
 
 object udeaCovApiService {
     val authService : UdeaCovAuthService by lazy {

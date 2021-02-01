@@ -7,10 +7,8 @@ import androidx.lifecycle.ViewModel
 import co.edu.udea.udeacov.network.error.ApiErrorHandler
 import co.edu.udea.udeacov.network.error.ErrorConstants
 import co.edu.udea.udeacov.network.request.PermissionRequestDto
-import co.edu.udea.udeacov.network.request.SignUpRequestDto
+import co.edu.udea.udeacov.network.response.CreatePermissionResponseDto
 import co.edu.udea.udeacov.network.response.LocationResponseDTO
-import co.edu.udea.udeacov.network.response.PermissionResponseDto
-import co.edu.udea.udeacov.network.response.SignUpResponseDto
 import co.edu.udea.udeacov.network.udeaCovApiService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -31,10 +29,10 @@ class Solicitud2ViewModel: ViewModel() {
     val responseError: LiveData<String?>
         get() = _responseError
 
-    private val _permissionResponse = MutableLiveData<PermissionResponseDto?>()
+    private val _createpermissionResponse = MutableLiveData<CreatePermissionResponseDto?>()
 
-    val permissionResponse: LiveData<PermissionResponseDto?>
-        get() = _permissionResponse
+    val createpermissionResponse: LiveData<CreatePermissionResponseDto?>
+        get() = _createpermissionResponse
 
 
     //Retorno el id de las seccionales(location), segun el nombre que recibo del usuario
@@ -54,7 +52,7 @@ class Solicitud2ViewModel: ViewModel() {
             }
         }
 
-    //Metodo que consume el servicio para retornar las seccionales de la BD
+    //Metodo que consume el servicio para retornar las seccionales(locations) de la BD
     fun getLocations(){
         coroutineScope.launch {
             try{
@@ -65,10 +63,11 @@ class Solicitud2ViewModel: ViewModel() {
         }
     }
 
+    //Método para consumir el servicio de crear una solicitud de permiso
     fun createPermission(permissionRequest: PermissionRequestDto){
         coroutineScope.launch {
             try{
-                _permissionResponse.value = udeaCovApiService.permissionService.createPermission(true, permissionRequest).await()
+                _createpermissionResponse.value = udeaCovApiService.permissionService.createPermission(true, permissionRequest).await()
             }catch (e : Exception) {
                 _responseError.value = ApiErrorHandler.getErrorMessage(e, ErrorConstants.DEFAULT_ERROR_MESSAGE_PERMISSIONS)
 
@@ -76,12 +75,13 @@ class Solicitud2ViewModel: ViewModel() {
         }
     }
 
+    //metodo para controlar el evento de mostrar error
     fun showErrorIsCompleted(){
         _responseError.value = null
     }
 
     fun navigationIsCompleted(){
-        _permissionResponse.value = null
+        _createpermissionResponse.value = null
     }
 
 }

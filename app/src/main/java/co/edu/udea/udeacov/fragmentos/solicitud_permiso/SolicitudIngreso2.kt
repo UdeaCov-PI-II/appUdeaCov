@@ -77,7 +77,7 @@ class SolicitudIngreso2 : Fragment() {
             }
         })
 
-        viewModel.permissionResponse.observe(viewLifecycleOwner, Observer {
+        viewModel.createpermissionResponse.observe(viewLifecycleOwner, Observer {
             it?.let {
                 view.findNavController().navigate(R.id.action_solicitudIngreso2_to_detalleSolicitud2)
                 viewModel.navigationIsCompleted()
@@ -158,8 +158,11 @@ class SolicitudIngreso2 : Fragment() {
         }
     }
 
+
     override fun onStart() {
         super.onStart()
+
+        //Paso numero 4 de la barra de progreso
         val stateProgressBar = activity?.findViewById<StateProgressBar>(R.id.your_state_progress_bar_id)
         stateProgressBar?.setCurrentStateNumber(StateProgressBar.StateNumber.FOUR)
     }
