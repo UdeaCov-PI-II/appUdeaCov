@@ -13,7 +13,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activities.porteria.PersonalDeSeguridad"></activity>
 
         <service
             android:name=".services.DefaultFirebaseMessagingService"
@@ -27,6 +26,7 @@
         <activity android:name=".activities.ListaSolicitudes" />
         <activity android:name=".activities.SolicitudDeUnPermiso" />
         <activity android:name=".activities.preingreso" />
+        <activity android:name=".activities.porteria.PersonalDeSeguridad" />
         <activity
             android:name=".activities.main.MainActivity"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar.Bridge">
