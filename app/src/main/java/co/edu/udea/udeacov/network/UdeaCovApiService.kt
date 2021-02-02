@@ -9,10 +9,12 @@ import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterF
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import kotlinx.coroutines.Deferred
+import okhttp3.MultipartBody
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.*
+import java.util.concurrent.TimeUnit
 
 
 private const val BASE_URL = "https://rocky-forest-36799.herokuapp.com/"
@@ -20,6 +22,8 @@ private const val BASE_URL = "https://rocky-forest-36799.herokuapp.com/"
 private val moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
 
 private val okHttpClient =  OkHttpClient.Builder()
+    .connectTimeout(240, TimeUnit.SECONDS)
+    .readTimeout(240,TimeUnit.SECONDS)
     .addInterceptor(AuthTokenInterceptor(UdeaCovApplication.getAppContext()!!))
     .build()
 
@@ -52,6 +56,14 @@ interface PermissionService {
 
     @GET("permissions")
     fun getPermissionByUser(@Query("userId") userId: String, @Query("message") showErrorMessage: Boolean): Deferred<List<PermissionCardResponseDto>>
+
+    @Multipart
+    @PUT("permissions/{id}/medias")
+    fun uploadImages(@Path("id") id: String,
+                     @Part coronAppEvidence: MultipartBody.Part,
+                     @Part medellinMeCuidaEvidence: MultipartBody.Part,
+                     @Query("message") showErrorMessage: Boolean): Deferred<CreatePermissionResponseDto>
+
 
     @GET("permissions")
     fun getPermissionBydocTypeAndDocNumber(@Query("docType") docType: String, @Query("docNumber") docNumber: String, @Query("showOnlyApproved") showOnlyApproved: Boolean, @Query("message") showErrorMessage: Boolean): Deferred<List<PermissionCardResponseDto>>

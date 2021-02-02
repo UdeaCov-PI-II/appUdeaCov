@@ -11,7 +11,7 @@ data class PermissionResponseDto (
     var endTimeStr: String?,
     var location: String?,
     var status: StatusResponseDto?,
-    var medias: MutableList<MediasResponseDto?> = mutableListOf(),
-    var approvals: MutableList<ApprovalsResponseDto?> = mutableListOf(),
+    var medias: MutableList<MediasResponseDto?>? = mutableListOf(),
+    var approvals: MutableList<ApprovalsResponseDto?>? = mutableListOf(),
     var entrance: EntranceResponseDto?
 ): Parcelable

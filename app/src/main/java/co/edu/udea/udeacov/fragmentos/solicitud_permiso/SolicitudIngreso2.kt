@@ -2,6 +2,7 @@ package co.edu.udea.udeacov.fragmentos.solicitud_permiso
 
 import android.app.DatePickerDialog
 import android.content.Context
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -13,12 +14,15 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import co.edu.udea.udeacov.R
+import co.edu.udea.udeacov.activities.SolicitudDeUnPermiso
 import co.edu.udea.udeacov.databinding.FragmentSolicitudIngreso2Binding
 import co.edu.udea.udeacov.fragmentos.solicitud_permiso.viewmodels.solicitudingreso2.Solicitud2ViewModel
 import co.edu.udea.udeacov.network.request.PermissionRequestDto
 import co.edu.udea.udeacov.ui.DatePickerFragment
+import co.edu.udea.udeacov.utils.FileUtils
 import com.kofigyan.stateprogressbar.StateProgressBar
 import kotlinx.android.synthetic.main.fragment_solicitud_ingreso2.*
+import java.io.File
 
 class SolicitudIngreso2 : Fragment() {
     private lateinit var viewModel: Solicitud2ViewModel
@@ -79,13 +83,16 @@ class SolicitudIngreso2 : Fragment() {
 
         viewModel.createpermissionResponse.observe(viewLifecycleOwner, Observer {
             it?.let {
-                Toast.makeText(activity, "Solicitud de permiso creadada exitosamente", Toast.LENGTH_SHORT).show()
-                view.findNavController().navigate(SolicitudIngreso2Directions
-                 .actionSolicitudIngreso2ToDetalleSolicitud2(it.message))
-                viewModel.navigationIsCompleted()
+                val sharedPref = requireActivity().getSharedPreferences(getString(R.string.user_settings_file)
+                    , Context.MODE_PRIVATE)
+                val activity = requireActivity() as SolicitudDeUnPermiso
+                val coronaAppFile = activity.coronaAppFile
+                val medellinMeCuidaFile = activity.medellinMeCuidaFile
+                if(coronaAppFile.exists() && medellinMeCuidaFile.exists()){
+                    viewModel.updateMediasForPermission(it.message,coronaAppFile,medellinMeCuidaFile)
+                }
             }
         })
-
 
         viewModel.responseError.observe(viewLifecycleOwner, Observer {
             it?.let {
@@ -94,6 +101,23 @@ class SolicitudIngreso2 : Fragment() {
             }
         })
 
+        viewModel.uploadFilesResponse.observe(viewLifecycleOwner,Observer{
+            it?.let{
+                view.findNavController().navigate(SolicitudIngreso2Directions
+                    .actionSolicitudIngreso2ToDetalleSolicitud2(viewModel.createpermissionResponse.value!!.message))
+                viewModel.navigationIsCompleted()
+            }
+        })
+
+        viewModel.mediasResponseError.observe(viewLifecycleOwner,Observer{
+            it?.let{
+                Toast.makeText(requireContext(), it, Toast.LENGTH_LONG).show()
+                viewModel.showMediaErrorIsCompleted()
+                view.findNavController().navigate(SolicitudIngreso2Directions
+                    .actionSolicitudIngreso2ToDetalleSolicitud2(viewModel.createpermissionResponse.value!!.message))
+                viewModel.navigationIsCompleted()
+            }
+        })
 
         val rg = view.findViewById<RadioGroup>(R.id.rg_jornadaPermanencia)
         var option = ""
