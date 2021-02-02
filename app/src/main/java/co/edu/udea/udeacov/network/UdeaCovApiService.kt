@@ -46,6 +46,7 @@ interface UdeaCovAuthService{
     fun signup(@Query("message") showErrorMessage: Boolean, @Body signUpRequest : SignUpRequestDto) : Deferred<SignUpResponseDto>
 }
 
+
 interface PermissionService {
     @POST("permissions")
     fun createPermission(@Query("message") showErrorMessage: Boolean, @Body permissionRequestDto: PermissionRequestDto): Deferred<CreatePermissionResponseDto>
@@ -55,6 +56,9 @@ interface PermissionService {
 
     @GET("permissions")
     fun getPermissionByUser(@Query("userId") userId: String, @Query("message") showErrorMessage: Boolean): Deferred<List<PermissionCardResponseDto>>
+
+    @GET("permissions")
+    fun getList(): Deferred<List<PermissionCardResponseDto>>
 }
 
 interface LocationService{

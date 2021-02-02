@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import co.edu.udea.udeacov.R
@@ -13,6 +14,8 @@ import co.edu.udea.udeacov.activities.adapter.AdapterSolicitud
 import kotlinx.android.synthetic.main.fragment_preingreso1.*
 import kotlinx.android.synthetic.main.lista_solicitudes_cards.*
 import androidx.recyclerview.widget.LinearLayoutManager
+import co.edu.udea.udeacov.fragmentos.lista_solicitudes.viewmodels.ListaSolicitudViewModel
+import co.edu.udea.udeacov.fragmentos.lista_solicitudes.viewmodels.viewmodels.DetalleSolicitudViewModel
 import kotlinx.android.synthetic.main.fragment_lista_solicitudes.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -29,6 +32,8 @@ class ListaSolicitudes : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+
+    private lateinit var viewModel: ListaSolicitudViewModel
     private lateinit var layoutManager: RecyclerView.LayoutManager
     private lateinit var adapter: RecyclerView.Adapter<AdapterSolicitud.ViewHolder>
 
@@ -49,6 +54,11 @@ class ListaSolicitudes : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_lista_solicitudes, container, false)
+
+        //Instanciamos el viewModel
+        viewModel = ViewModelProvider(this).get(ListaSolicitudViewModel::class.java)
+
+        viewModel.getList()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
