@@ -10,5 +10,7 @@ class ErrorConstants {
         const val DEFAULT_ERROR_MESSAGE_PERMISSIONS = "¡Ups! Tuvimos un problema en atender crear tu solicitud de permiso. Por favor, inténtelo nuevamente."
         const val DEFAULT_ERROR_FILE_MESSAGE_PERMISSIONS = "El permiso se ha creado sin las evidencias."
         const val DEFAULT_ERROR_MESSAGE_CREATE_ENTRANCE = "¡Ups!, No fue posible ingresar registro de entrada. Por favor, inténtelo nuevamente."
+        const val DEFAULT_ERROR_MESSAGE_PERMISSIONS_ROLE = "¡Ups! Tuvimos un problema para mostrar los permisos. Por favor, inténtelo nuevamente."
+
     }
 }

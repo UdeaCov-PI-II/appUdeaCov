@@ -99,6 +99,7 @@ class DetalleSolicitud : Fragment() {
                     binding.txtFechafinal.text = it.endTimeStr
                     binding.txtLugarPermanencia.text = it.location
                     binding.txtEstado.text = it.status?.displayName
+                    binding.txtReasonValue.text = it.reason
                 }
                 //faltan imagenes y aprobaciones
             }

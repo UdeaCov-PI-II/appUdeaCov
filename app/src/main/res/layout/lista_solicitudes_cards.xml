@@ -1,91 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/cardview"
-    android:layout_margin="10dp"
-    app:cardElevation="4dp">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+        <variable
+            name="permission"
+            type="co.edu.udea.udeacov.network.response.PermissionCardResponseDto" />
+    </data>
 
-    <LinearLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="10dp"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:id="@+id/cardview"
+        android:layout_margin="10dp"
+        app:cardElevation="4dp">
+
 
         <LinearLayout
-            android:id="@+id/layout_nombre"
-            style="@style/card_layout">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/txt_nombre_key"
-                style="@style/card_txt_key"
-                android:text="Nombre:" />
+            <LinearLayout
+                android:id="@+id/layout_id"
+                style="@style/card_layout">
 
-            <TextView
-                android:id="@+id/txt_nombre"
-                style="@style/card_txt_value"
-                />
+                <TextView
+                    android:id="@+id/txt_id_key"
+                    style="@style/card_txt_key"
+                    android:text="Id:" />
+
+                <TextView
+                    android:id="@+id/txt_id_value"
+                    style="@style/card_txt_value"
+                    android:text="@{permission.id}"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_nombre"
+                style="@style/card_layout">
+
+                <TextView
+                    android:id="@+id/txt_nombre_key"
+                    style="@style/card_txt_key"
+                    android:text="Nombre:" />
+
+                <TextView
+                    android:id="@+id/txt_nombre"
+                    style="@style/card_txt_value"
+                    android:text="@{permission.user.fullName}"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_cedula"
+                style="@style/card_layout">
+
+                <TextView
+                    android:id="@+id/txt_cedula_key"
+                    style="@style/card_txt_key"
+                    android:text="@{permission.user.documentType}" />
+
+                <TextView
+                    android:id="@+id/txt_cc"
+                    style="@style/card_txt_value"
+                    android:text="@{permission.user.documentNumber}"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/layout_fechaI"
+                style="@style/card_layout">
+
+                <TextView
+                    android:id="@+id/txt_fechaI_key"
+                    style="@style/card_txt_key"
+                    android:text="Fecha de inicio:" />
+
+                <TextView
+                    android:id="@+id/txt_fechaini"
+                    style="@style/card_txt_value"
+                    android:text="@{permission.startTimeStr}"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_fechaF"
+                style="@style/card_layout">
+
+                <TextView
+                    android:id="@+id/txt_fechaF_key"
+                    style="@style/card_txt_key"
+                    android:text="Fecha de finalización:" />
+
+                <TextView
+                    android:id="@+id/txt_fechafin"
+                    style="@style/card_txt_value"
+                    android:text="@{permission.endTimeStr}"/>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_ver_solicitud"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginEnd="5dp"
+                android:drawableStart="@drawable/ic_declaracion"
+                style="@style/custom_button"
+                android:text="Ver" />
 
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/layout_cedula"
-            style="@style/card_layout">
-
-            <TextView
-                android:id="@+id/txt_cedula_key"
-                style="@style/card_txt_key"
-                android:text="Cédula:" />
-
-            <TextView
-                android:id="@+id/txt_cc"
-                style="@style/card_txt_value" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/layout_fechaI"
-            style="@style/card_layout">
-
-            <TextView
-                android:id="@+id/txt_fechaI_key"
-                style="@style/card_txt_key"
-                android:text="Fecha de inicio del permiso:" />
-
-            <TextView
-                android:id="@+id/txt_fechaini"
-                style="@style/card_txt_value" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/layout_fechaF"
-            style="@style/card_layout">
-
-            <TextView
-                android:id="@+id/txt_fechaF_key"
-                style="@style/card_txt_key"
-                android:text="Fecha de finalización del permiso:" />
-
-            <TextView
-                android:id="@+id/txt_fechafin"
-                style="@style/card_txt_value" />
-
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/btn_ver_solicitud"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_marginEnd="5dp"
-            android:drawableStart="@drawable/ic_declaracion"
-            style="@style/custom_button"
-            android:text="Ver" />
-
-    </LinearLayout>
-
-</androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>
+</layout>
 

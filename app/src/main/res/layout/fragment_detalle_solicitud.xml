@@ -107,6 +107,22 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/layout_reason"
+                    style="@style/card_layout">
+
+                    <TextView
+                        android:id="@+id/txt_reason_key"
+                        style="@style/card_txt_key"
+                        android:text="Motivo:" />
+
+                    <TextView
+                        android:id="@+id/txt_reason_value"
+                        style="@style/card_txt_value"
+                        android:text="" />
+
+                </LinearLayout>
+
+                <LinearLayout
                     android:id="@+id/layout_archivo"
                     style="@style/card_layout">
 

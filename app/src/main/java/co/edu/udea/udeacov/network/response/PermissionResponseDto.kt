@@ -10,6 +10,7 @@ data class PermissionResponseDto (
     var startTimeStr: String?,
     var endTimeStr: String?,
     var location: String?,
+    var reason : String?,
     var status: StatusResponseDto?,
     var medias: MutableList<MediasResponseDto?>? = mutableListOf(),
     var approvals: MutableList<ApprovalsResponseDto?>? = mutableListOf(),

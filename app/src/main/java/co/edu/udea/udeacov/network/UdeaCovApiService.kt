@@ -57,6 +57,9 @@ interface PermissionService {
     @GET("permissions")
     fun getPermissionByUser(@Query("userId") userId: String, @Query("message") showErrorMessage: Boolean): Deferred<List<PermissionCardResponseDto>>
 
+    @GET("permissions")
+    fun getPermissionByRole(@Query("userRole") role: String, @Query("message") showErrorMessage: Boolean): Deferred<List<PermissionCardResponseDto>>
+
     @Multipart
     @PUT("permissions/{id}/medias")
     fun uploadImages(@Path("id") id: String,

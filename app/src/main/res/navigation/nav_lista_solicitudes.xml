@@ -19,6 +19,10 @@
         android:name="co.edu.udea.udeacov.fragmentos.lista_solicitudes.DetalleSolicitud"
         android:label="fragment_detalle_solicitud"
         tools:layout="@layout/fragment_detalle_solicitud" >
+        <argument
+            android:name="permissionId"
+            app:nullable="false"
+            app:argType="string" />
         <action
             android:id="@+id/action_detalleSolicitud_to_ingreso"
             app:destination="@id/ingreso" />

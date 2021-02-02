@@ -52,16 +52,12 @@ class MainActivity : AppCompatActivity() {
                     val intent= Intent(this, SolicitudDeUnPermiso::class.java)
                     startActivity(intent)
                     viewModel.signInIsCompleted()
-                }
-
-                if (role == "ROLE_ADMIN") {
-                    val intent= Intent(this, ListaSolicitudes::class.java)
+                }else if (role == "ROLE_SECURITY") {
+                    val intent= Intent(this, PersonalDeSeguridad::class.java)
                     startActivity(intent)
                     viewModel.signInIsCompleted()
-                }
-
-                if (role == "ROLE_SECURITY") {
-                    val intent= Intent(this, PersonalDeSeguridad::class.java)
+                }else{
+                    val intent= Intent(this, ListaSolicitudes::class.java)
                     startActivity(intent)
                     viewModel.signInIsCompleted()
                 }

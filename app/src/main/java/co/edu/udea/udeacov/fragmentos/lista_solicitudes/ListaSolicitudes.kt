@@ -1,18 +1,25 @@
 package co.edu.udea.udeacov.fragmentos.lista_solicitudes
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
+import android.widget.Toast
+import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import co.edu.udea.udeacov.R
 import co.edu.udea.udeacov.activities.adapter.AdapterSolicitud
-import kotlinx.android.synthetic.main.fragment_preingreso1.*
-import kotlinx.android.synthetic.main.lista_solicitudes_cards.*
 import androidx.recyclerview.widget.LinearLayoutManager
+import co.edu.udea.udeacov.adapter.PermissionAdapter
+import co.edu.udea.udeacov.databinding.FragmentListaSolicitudesBinding
+import co.edu.udea.udeacov.fragmentos.lista_solicitudes.viewmodels.ListaSolicitudesViewModel
+import co.edu.udea.udeacov.network.response.PermissionCardResponseDto
 import kotlinx.android.synthetic.main.fragment_lista_solicitudes.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -25,12 +32,14 @@ private const val ARG_PARAM2 = "param2"
  * Use the [ListaSolicitudes.newInstance] factory method to
  * create an instance of this fragment.
  */
-class ListaSolicitudes : Fragment() {
+class ListaSolicitudes : Fragment(),PermissionAdapter.PermissionAdapterOnClickListener {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-    private lateinit var layoutManager: RecyclerView.LayoutManager
-    private lateinit var adapter: RecyclerView.Adapter<AdapterSolicitud.ViewHolder>
+    private lateinit var binding : FragmentListaSolicitudesBinding
+    private lateinit var viewManager: RecyclerView.LayoutManager
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var viewModel: ListaSolicitudesViewModel
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,17 +57,32 @@ class ListaSolicitudes : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_lista_solicitudes, container, false)
-    }
+        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_lista_solicitudes,container,false)
+        binding.lifecycleOwner = viewLifecycleOwner
+        viewManager = LinearLayoutManager(context)
+        val viewAdapter = PermissionAdapter(this)
+        recyclerView = binding.recyclerViewSolicitudes.apply {
+            layoutManager = viewManager
+            adapter = viewAdapter
+        }
+        viewModel = ViewModelProvider(this).get(ListaSolicitudesViewModel::class.java)
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+        viewModel.permissionCardResponse.observe(viewLifecycleOwner, Observer {
+            it?.let {
+                viewAdapter.submitList(it)
+            }
+        })
 
-        layoutManager = LinearLayoutManager(context)
-        recycler_view_solicitudes.layoutManager = layoutManager
-        adapter = AdapterSolicitud ()
-        recycler_view_solicitudes.adapter = adapter
+        val sharedPref = requireActivity().getSharedPreferences(getString(R.string.user_settings_file), Context.MODE_PRIVATE)
+        val role = sharedPref.getString(requireActivity().getString(R.string.user_role),null)
+        role?.let{
+            viewModel.getPermissionByRole(it)
+        }
 
+        viewModel.responseError.observe(viewLifecycleOwner, Observer {
+            Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
+        })
+        return binding.root
     }
 
     companion object {
@@ -79,5 +103,12 @@ class ListaSolicitudes : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+
+    override fun btnVerOnClick(permission: PermissionCardResponseDto, view: View) {
+      permission.id?.let{
+          view.findNavController().navigate(ListaSolicitudesDirections.actionListaSolicitudesToDetalleSolicitud(it))
+          viewModel.navToDetailFragmentIsDone()
+      }
     }
 }
