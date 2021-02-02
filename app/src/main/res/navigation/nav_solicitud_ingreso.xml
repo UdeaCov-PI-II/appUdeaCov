@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_primerRequisitoFragment_to_segundoRequisitoFragment"
             app:destination="@id/segundoRequisitoFragment" />
+        <action
+            android:id="@+id/action_primerRequisitoFragment_to_detalleSolicitud2"
+            app:destination="@id/detalleSolicitud2" />
     </fragment>
     <fragment
         android:id="@+id/segundoRequisitoFragment"
@@ -66,6 +69,11 @@
         android:id="@+id/detalleSolicitud2"
         android:name="co.edu.udea.udeacov.fragmentos.lista_solicitudes.DetalleSolicitud"
         android:label="fragment_detalle_solicitud"
-        tools:layout="@layout/fragment_detalle_solicitud" />
+        tools:layout="@layout/fragment_detalle_solicitud" >
+        <argument
+            android:name="permissionId"
+            app:nullable="false"
+            app:argType="string" />
+    </fragment>
 
 </navigation>

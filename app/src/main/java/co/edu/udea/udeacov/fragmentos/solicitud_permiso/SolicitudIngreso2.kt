@@ -79,7 +79,8 @@ class SolicitudIngreso2 : Fragment() {
 
         viewModel.createpermissionResponse.observe(viewLifecycleOwner, Observer {
             it?.let {
-                view.findNavController().navigate(R.id.action_solicitudIngreso2_to_detalleSolicitud2)
+                view.findNavController().navigate(SolicitudIngreso2Directions
+                    .actionSolicitudIngreso2ToDetalleSolicitud2(it.message))
                 viewModel.navigationIsCompleted()
             }
         })

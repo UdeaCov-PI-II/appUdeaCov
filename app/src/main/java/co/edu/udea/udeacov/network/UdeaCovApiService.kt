@@ -51,7 +51,10 @@ interface PermissionService {
     fun createPermission(@Query("message") showErrorMessage: Boolean, @Body permissionRequestDto: PermissionRequestDto): Deferred<CreatePermissionResponseDto>
 
     @GET("permissions/{permissionId}")
-    fun getPermissionById(@Query("message") showErrorMessage: Boolean, @Path("permissionId") permissionId: String): Deferred<PermissionResponseDto>
+    fun getPermissionById(@Path("permissionId") permissionId: String, @Query("message") showErrorMessage: Boolean): Deferred<PermissionResponseDto>
+
+    @GET("permissions")
+    fun getPermissionByUser(@Query("userId") userId: String, @Query("message") showErrorMessage: Boolean): Deferred<List<PermissionCardResponseDto>>
 }
 
 interface LocationService{

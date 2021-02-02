@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp"
+    android:orientation="vertical"
+    android:padding="30dp">
+
+    <TextView
+        android:id="@+id/txt_titulo_filtrar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:textAllCaps="true"
+        android:shadowColor="@color/colorPrimary"
+        android:shadowRadius="5"
+        android:shadowDx="4"
+        android:shadowDy="4"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginBottom="30dp"
+        android:text="Registro de personas" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txt_cedula"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Temperatura Corporal:"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/input_cedula_filtro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:hint="Ingrese valor en numeros"
+                android:textColorLink="@color/colorPrimaryDark" />
+
+            <TextView
+                android:id="@+id/txt_persona"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Fecha y hora:"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/input_persona_filtro"
+                android:importantForAutofill="no"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:hint="23-02-2021 10:00"
+                android:inputType="textNoSuggestions"
+                android:textColorLink="@color/colorPrimaryDark" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

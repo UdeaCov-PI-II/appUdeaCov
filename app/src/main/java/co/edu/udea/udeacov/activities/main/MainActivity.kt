@@ -44,6 +44,19 @@ class MainActivity : AppCompatActivity() {
             it?.let{
                 saveUserInfoInPreferencesFile(it)
                 assignDeviceTokenToLoggedUser(it.userId)
+                /*
+                    If(role == ROLE_USER){
+                        redirigir a SolicitidDeunPermiso
+                    }
+
+                    if(role == ROLE_SECURITY){
+                        redirigir a activity de seguridad
+                    }
+
+                    if(role == ADMIN){
+                        redirigir activity con la lista de permisos a aprobar
+                    }
+                */
                 val intent= Intent(this, SolicitudDeUnPermiso::class.java)
                 startActivity(intent)
                 viewModel.signInIsCompleted()

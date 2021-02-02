@@ -171,15 +171,24 @@
                     android:layout_marginTop="10dp"
                     android:orientation="horizontal">
 
-                    <com.github.chrisbanes.photoview.PhotoView
-                        android:id="@+id/photo_view"
-                        android:layout_width="205dp"
-                        android:layout_height="250dp" />
+                    <ImageView
+                        android:id="@+id/img_primerRequisito"
+                        android:layout_width="150dp"
+                        android:layout_height="220dp"
+                        android:adjustViewBounds="true"
+                        android:padding="2dp"
+                        app:imageUrl="@{viewModel.permissionResponse.medias.get(0).dowloadUrl}"
+                        tools:src= "@tools:sample/backgrounds/scenic"/>
 
-                    <com.github.chrisbanes.photoview.PhotoView
-                        android:id="@+id/photo_view1"
-                        android:layout_width="205dp"
-                        android:layout_height="250dp" />
+                    <ImageView
+                    android:id="@+id/img_segundoRequisito"
+                    android:layout_width="150dp"
+                    android:layout_height="220dp"
+                    android:adjustViewBounds="true"
+                    android:padding="2dp"
+                    app:imageUrl="@{viewModel.permissionResponse.medias.get(1).dowloadUrl}"
+                    tools:src= "@tools:sample/backgrounds/scenic"/>
+
 
                 </LinearLayout>
 
@@ -212,8 +221,8 @@
                 </LinearLayout>
 
                 <Button
-                    android:id="@+id/btn_registra_ingreso"
-                    style="@style/custom_button"
+                    android:id="@+id/btn_registrar_ingreso"
+                    style="@style/botones_barra_progreso"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"

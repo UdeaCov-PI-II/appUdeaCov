@@ -282,16 +282,21 @@ Los datos proporcionados por el usuario deben ser veraces, completos, exactos, a
     <string name="aprobacion_colaborador">Aprobación Colaborador</string>
     <string name="aprobacion_jefe_inmediato">Aprobación Jefe inmediato</string>
     <!-- User info -->
-    <string name="user_settings_file" >userSettings</string>
-    <string name="user_token" >token</string>
+    <string name="user_settings_file">userSettings</string>
+    <string name="user_token">token</string>
     <string name="user_id">id</string>
     <string name="user_role">role</string>
     <string name="user_device_token">deviceToken</string>
 
     <!-- Primer requisito -->
-    <string name="cerrar_sesion_text" >Cerrar sesión</string>
-
-
+    <string name="cerrar_sesion_text">Cerrar sesión</string>
+    <string name="title_activity_personal_seguridad">PersonalSeguridadActivity</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
+    <string name="title_activity_tabla_registro">TablaRegistroActivity</string>
 
 
 </resources>

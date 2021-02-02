@@ -22,7 +22,6 @@ class Solicitud2ViewModel: ViewModel() {
 
 
     private val _locationsResponse = MutableLiveData<List<LocationResponseDTO>?>()
-
     val locationNameSelected = MutableLiveData<String?>()
 
     private val _responseError = MutableLiveData<String?>()
