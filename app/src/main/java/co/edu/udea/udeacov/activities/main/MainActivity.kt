@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import co.edu.udea.udeacov.R
 import co.edu.udea.udeacov.activities.ListaSolicitudes
 import co.edu.udea.udeacov.activities.SolicitudDeUnPermiso
+import co.edu.udea.udeacov.activities.porteria.PersonalDeSeguridad
 import co.edu.udea.udeacov.activities.preingreso
 import co.edu.udea.udeacov.databinding.ActivityMainBinding
 import co.edu.udea.udeacov.network.response.AuthResponseDto
@@ -44,22 +45,27 @@ class MainActivity : AppCompatActivity() {
             it?.let{
                 saveUserInfoInPreferencesFile(it)
                 assignDeviceTokenToLoggedUser(it.userId)
-                /*
-                    If(role == ROLE_USER){
-                        redirigir a SolicitidDeunPermiso
-                    }
 
-                    if(role == ROLE_SECURITY){
-                        redirigir a activity de seguridad
-                    }
+               var role = it.roles[0]
 
-                    if(role == ADMIN){
-                        redirigir activity con la lista de permisos a aprobar
-                    }
-                */
-                val intent= Intent(this, SolicitudDeUnPermiso::class.java)
-                startActivity(intent)
-                viewModel.signInIsCompleted()
+                if (role == "ROLE_USER") {
+                    val intent= Intent(this, SolicitudDeUnPermiso::class.java)
+                    startActivity(intent)
+                    viewModel.signInIsCompleted()
+                }
+
+                if (role == "ROLE_ADMIN") {
+                    val intent= Intent(this, ListaSolicitudes::class.java)
+                    startActivity(intent)
+                    viewModel.signInIsCompleted()
+                }
+
+                if (role == "ROLE_SECURITY") {
+                    val intent= Intent(this, PersonalDeSeguridad::class.java)
+                    startActivity(intent)
+                    viewModel.signInIsCompleted()
+                }
+
             }
         })
 
