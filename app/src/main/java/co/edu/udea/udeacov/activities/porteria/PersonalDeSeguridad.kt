@@ -17,8 +17,13 @@ class PersonalDeSeguridad : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_personal_de_seguridad)
 
+
+
         //Modificar el titulo del actionBar
         this.supportActionBar?.title = activityTitle
+
+
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

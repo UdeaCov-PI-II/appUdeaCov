@@ -45,37 +45,6 @@ class Preingreso1 : Fragment() {
         }
     }
 
-    private fun validate() :Boolean{
-        val radioGroup1 = preingreso1_radioGroup.checkedRadioButtonId
-
-        if(preingreso1_username.text.toString().isEmpty()){
-            preingreso1_username.error = "campo vacío"
-            return false
-        }else if(preingreso1_password.text.toString().isEmpty()){
-            preingreso1_password.error = "campo vacío"
-            return false
-        }else if(preingreso1_correo.text.toString().isEmpty()){
-            preingreso1_correo.error = "campo vacío"
-            return false
-        }else if(radioGroup1 == -1){
-            Toast.makeText(activity, "Ingresar el tipo de documento", Toast.LENGTH_SHORT).show()
-            return false
-        }else if(bandera==true && preingreso1_otro.text.toString().isEmpty()){
-            preingreso1_otro.error = "campo vacío"
-            return false
-        }else if(preingreso1_doc.text.toString().isEmpty()){
-            preingreso1_doc.error = "campo vacío"
-            return false
-        }else if(preingreso1_nombre.text.toString().isEmpty()){
-            preingreso1_nombre.error = "campo vacío"
-            return false
-        }else if(!preingreso1_autorizo.isChecked){
-            preingreso1_autorizo.error = "Es importante tu información para que la Institución pueda dar cumplimiento a la Resolución 0666 del 24 de abril de 2010 expedida por el Ministerio de Salud y poder orientar acciones preventivas frente al COVID-19."
-            return false
-        }
-        return true
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -125,6 +94,37 @@ class Preingreso1 : Fragment() {
                 it.findNavController().navigate(Preingreso1Directions.actionPreingreso1ToPreingreso2(signUpRequestDto))
             }
         }
+    }
+
+    private fun validate() :Boolean{
+        val radioGroup1 = preingreso1_radioGroup.checkedRadioButtonId
+
+        if(preingreso1_username.text.toString().isEmpty()){
+            preingreso1_username.error = "campo vacío"
+            return false
+        }else if(preingreso1_password.text.toString().isEmpty()){
+            preingreso1_password.error = "campo vacío"
+            return false
+        }else if(preingreso1_correo.text.toString().isEmpty()){
+            preingreso1_correo.error = "campo vacío"
+            return false
+        }else if(radioGroup1 == -1){
+            Toast.makeText(activity, "Ingresar el tipo de documento", Toast.LENGTH_SHORT).show()
+            return false
+        }else if(bandera==true && preingreso1_otro.text.toString().isEmpty()){
+            preingreso1_otro.error = "campo vacío"
+            return false
+        }else if(preingreso1_doc.text.toString().isEmpty()){
+            preingreso1_doc.error = "campo vacío"
+            return false
+        }else if(preingreso1_nombre.text.toString().isEmpty()){
+            preingreso1_nombre.error = "campo vacío"
+            return false
+        }else if(!preingreso1_autorizo.isChecked){
+            preingreso1_autorizo.error = "Es importante tu información para que la Institución pueda dar cumplimiento a la Resolución 0666 del 24 de abril de 2010 expedida por el Ministerio de Salud y poder orientar acciones preventivas frente al COVID-19."
+            return false
+        }
+        return true
     }
     companion object {
         /**

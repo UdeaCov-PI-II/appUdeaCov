@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_ingreso_usuarios"
+    app:startDestination="@id/filtroUsuarioPorteria">
+    <fragment
+        android:id="@+id/filtroUsuarioPorteria"
+        android:name="co.edu.udea.udeacov.fragmentos.porteria.FiltroUsuarioPorteria"
+        android:label="fragment_filtro_usuario_porteria"
+        tools:layout="@layout/fragment_filtro_usuario_porteria" >
+        <action
+            android:id="@+id/action_filtroUsuarioPorteria_to_detalleSolicitud4"
+            app:destination="@id/detalleSolicitud4" />
+    </fragment>
+    <fragment
+        android:id="@+id/detalleSolicitud4"
+        android:name="co.edu.udea.udeacov.fragmentos.lista_solicitudes.DetalleSolicitud"
+        android:label="DetalleSolicitud">
+        <argument
+            android:name="permissionId"
+            app:nullable="false"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_detalleSolicitud4_to_filtroUsuarioPorteria"
+            app:destination="@id/filtroUsuarioPorteria" />
+    </fragment>
+</navigation>

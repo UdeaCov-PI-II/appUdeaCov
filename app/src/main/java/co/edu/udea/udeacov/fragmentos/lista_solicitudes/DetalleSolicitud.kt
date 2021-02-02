@@ -13,11 +13,15 @@ import android.widget.TableLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import co.edu.udea.udeacov.R
 import co.edu.udea.udeacov.databinding.FragmentDetalleSolicitudBinding
 import co.edu.udea.udeacov.fragmentos.lista_solicitudes.viewmodels.viewmodels.DetalleSolicitudViewModel
+import co.edu.udea.udeacov.fragmentos.porteria.FiltroUsuarioPorteriaDirections
 import co.edu.udea.udeacov.fragmentos.preingreso.Preingreso5Args
+import co.edu.udea.udeacov.network.request.CreateEntranceRequestDto
 import com.kofigyan.stateprogressbar.StateProgressBar
+import kotlinx.android.synthetic.main.layout_datos_porteria.*
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -32,6 +36,8 @@ class DetalleSolicitud : Fragment() {
 
     private lateinit var viewModel: DetalleSolicitudViewModel
     private lateinit var binding: FragmentDetalleSolicitudBinding
+    private lateinit var permissionId: String
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,7 +54,7 @@ class DetalleSolicitud : Fragment() {
 
         //Recuperar argumentos enviados
         val args = arguments?.let { DetalleSolicitudArgs.fromBundle(it) }
-        val permissionId = args!!.permissionId
+        permissionId = args!!.permissionId
 
         //Instanciamos el viewModel
         viewModel = ViewModelProvider(this).get(DetalleSolicitudViewModel::class.java)
@@ -60,6 +66,7 @@ class DetalleSolicitud : Fragment() {
         binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = viewModel
 
+        //Capturo el rol
         val sharedPref = requireActivity().getSharedPreferences(getString(R.string.user_settings_file),
             Context.MODE_PRIVATE)
         viewModel.role.value = sharedPref.getString(getString(R.string.user_role),null)
@@ -90,12 +97,21 @@ class DetalleSolicitud : Fragment() {
             }
         })
 
+        viewModel.entranceResponse.observe(viewLifecycleOwner, Observer {
+            it?.let{
+                findNavController().navigate(R.id.action_detalleSolicitud4_to_filtroUsuarioPorteria)
+            }
+        })
+
         binding.btnRegistrarIngreso.setOnClickListener {
             //mostrar el Dialog
             val mAlertDialog = AlertDialog.Builder(this.view?.context)
                 .setView(R.layout.layout_datos_porteria)
                 .setNegativeButton("Cancelar") { dialog: DialogInterface?, _: Int ->
-                    dialog?.dismiss()
+                    val temperature = input_temperatura_usuario.text.toString()
+                    val response = viewModel.permissionResponse.value
+                    val isEntry = response != null && response.entrance == null
+                    viewModel.createEntrance(CreateEntranceRequestDto(permissionId,temperature,isEntry))
                 }
                 .setPositiveButton("Agregar") { _: DialogInterface?, _: Int ->
                     Log.d("Tag", "Prueba")

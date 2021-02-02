@@ -2,11 +2,8 @@ package co.edu.udea.udeacov.network
 
 import co.edu.udea.udeacov.UdeaCovApplication
 import co.edu.udea.udeacov.network.interceptor.AuthTokenInterceptor
-import co.edu.udea.udeacov.network.request.AuthRequestDto
-import co.edu.udea.udeacov.network.request.PermissionRequestDto
-import co.edu.udea.udeacov.network.request.SignUpRequestDto
+import co.edu.udea.udeacov.network.request.*
 import co.edu.udea.udeacov.network.response.*
-import co.edu.udea.udeacov.network.request.DeviceTokenRequestDto
 import co.edu.udea.udeacov.network.response.AuthResponseDto
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi
@@ -55,11 +52,19 @@ interface PermissionService {
 
     @GET("permissions")
     fun getPermissionByUser(@Query("userId") userId: String, @Query("message") showErrorMessage: Boolean): Deferred<List<PermissionCardResponseDto>>
+
+    @GET("permissions")
+    fun getPermissionBydocTypeAndDocNumber(@Query("docType") docType: String, @Query("docNumber") docNumber: String, @Query("showOnlyApproved") showOnlyApproved: Boolean, @Query("message") showErrorMessage: Boolean): Deferred<List<PermissionCardResponseDto>>
 }
 
 interface LocationService{
     @GET("locations")
     fun getLocations() : Deferred<List<LocationResponseDTO>>
+}
+
+interface EntranceService{
+    @POST("entrances")
+    fun createEntrance(@Query("message") showErrorMessage: Boolean, @Body createEntranceRequestDto: CreateEntranceRequestDto): Deferred<CreateEntranceResponseDto>
 }
 
 interface UnitService {
@@ -87,6 +92,9 @@ object udeaCovApiService {
     }
     val unitService : UnitService by lazy {
         retrofit.create(UnitService::class.java)
+    }
+    val entranceService : EntranceService by lazy {
+        retrofit.create(EntranceService::class.java)
     }
 
     val converter = moshi

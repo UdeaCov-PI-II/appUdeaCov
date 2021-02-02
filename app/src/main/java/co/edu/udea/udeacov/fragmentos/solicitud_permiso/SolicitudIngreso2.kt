@@ -79,11 +79,13 @@ class SolicitudIngreso2 : Fragment() {
 
         viewModel.createpermissionResponse.observe(viewLifecycleOwner, Observer {
             it?.let {
+                Toast.makeText(activity, "Solicitud de permiso creadada exitosamente", Toast.LENGTH_SHORT).show()
                 view.findNavController().navigate(SolicitudIngreso2Directions
-                    .actionSolicitudIngreso2ToDetalleSolicitud2(it.message))
+                 .actionSolicitudIngreso2ToDetalleSolicitud2(it.message))
                 viewModel.navigationIsCompleted()
             }
         })
+
 
         viewModel.responseError.observe(viewLifecycleOwner, Observer {
             it?.let {
@@ -134,6 +136,7 @@ class SolicitudIngreso2 : Fragment() {
             userId?.let{
                 permissionRequestDto.userId = it
             }
+
             viewModel.createPermission(permissionRequestDto)
         }
 
