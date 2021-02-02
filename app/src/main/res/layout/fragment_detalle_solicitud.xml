@@ -41,38 +41,6 @@
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/layout_tipoDoc"
-                    style="@style/card_layout">
-
-                    <TextView
-                        android:id="@+id/txt_tipoDoc"
-                        style="@style/card_txt_key"
-                        android:text="Tipo de Documento:" />
-
-                    <TextView
-                        android:id="@+id/tipoDoc_value"
-                        style="@style/card_txt_value"
-                        android:text="Cédula de Ciudadanía" />
-
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:id="@+id/layout_Cedula"
-                    style="@style/card_layout">
-
-                    <TextView
-                        android:id="@+id/txt_cedula_key"
-                        style="@style/card_txt_key"
-                        android:text="Cédula:" />
-
-                    <TextView
-                        android:id="@+id/txt_numeroDocumento"
-                        style="@style/card_txt_value"
-                        android:text="123456" />
-
-                </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/layout_fechaI"
@@ -119,22 +87,6 @@
                         android:id="@+id/txt_lugar_permanencia"
                         style="@style/card_txt_value"
                         android:text="Bloque 19" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/layout_motivo"
-                    style="@style/card_layout">
-
-                    <TextView
-                        android:id="@+id/txt_motivo_key"
-                        style="@style/card_txt_key"
-                        android:text="Motivo de ingreso:" />
-
-                    <TextView
-                        android:id="@+id/txt_motivo"
-                        style="@style/card_txt_value"
-                        android:text="Revisión del equipo de computo del laboratorio integrado de sistemas" />
 
                 </LinearLayout>
 
@@ -227,7 +179,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
                     android:visibility="@{viewModel.isSecurityRole()}"
-                    android:text="@{viewModel.entryTextBtn}" />
+                    android:text="@{viewModel.entryTextBtn}"
+                    android:enabled="@{viewModel.enableEntryBtn}"/>
 
             </LinearLayout>
 

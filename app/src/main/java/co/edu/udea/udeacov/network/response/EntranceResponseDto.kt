@@ -9,6 +9,6 @@ data class EntranceResponseDto (
     var permissionId: String,
     var entryTimeStr: String,
     var entryTemperature: String,
-    var departureTimeStr: String,
-    var departureTemperature: String
+    var departureTimeStr: String?,
+    var departureTemperature: String?
 ): Parcelable

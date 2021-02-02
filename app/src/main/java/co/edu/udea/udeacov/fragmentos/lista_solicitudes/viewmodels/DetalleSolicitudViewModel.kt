@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
+import androidx.room.util.StringUtil
 import co.edu.udea.udeacov.network.error.ApiErrorHandler
 import co.edu.udea.udeacov.network.error.ErrorConstants
 import co.edu.udea.udeacov.network.request.CreateEntranceRequestDto
@@ -60,6 +61,11 @@ class DetalleSolicitudViewModel: ViewModel() {
         }else{
             "Registrar salida"
         }
+    }
+
+    val enableEntryBtn : LiveData<Boolean> = Transformations.map(permissionResponse){
+       permissionResponse.value != null && (permissionResponse.value?.entrance == null ||
+               permissionResponse.value?.entrance?.departureTimeStr.isNullOrBlank() )
     }
 
 

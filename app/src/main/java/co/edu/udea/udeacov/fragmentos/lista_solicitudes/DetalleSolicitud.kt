@@ -21,7 +21,11 @@ import co.edu.udea.udeacov.fragmentos.porteria.FiltroUsuarioPorteriaDirections
 import co.edu.udea.udeacov.fragmentos.preingreso.Preingreso5Args
 import co.edu.udea.udeacov.network.request.CreateEntranceRequestDto
 import com.kofigyan.stateprogressbar.StateProgressBar
+import kotlinx.android.synthetic.main.fragment_detalle_solicitud.*
+import kotlinx.android.synthetic.main.fragment_filtro_usuario_porteria.view.*
 import kotlinx.android.synthetic.main.layout_datos_porteria.*
+import kotlinx.android.synthetic.main.layout_datos_porteria.view.*
+import kotlinx.android.synthetic.main.lista_solicitudes_cards.*
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -37,7 +41,7 @@ class DetalleSolicitud : Fragment() {
     private lateinit var viewModel: DetalleSolicitudViewModel
     private lateinit var binding: FragmentDetalleSolicitudBinding
     private lateinit var permissionId: String
-
+    private lateinit var alertDialogView : View
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,17 +71,20 @@ class DetalleSolicitud : Fragment() {
         binding.viewModel = viewModel
 
         //Capturo el rol
-        val sharedPref = requireActivity().getSharedPreferences(getString(R.string.user_settings_file),
-            Context.MODE_PRIVATE)
-        viewModel.role.value = sharedPref.getString(getString(R.string.user_role),null)
+        val sharedPref = requireActivity().getSharedPreferences(
+            getString(R.string.user_settings_file),
+            Context.MODE_PRIVATE
+        )
+        viewModel.role.value = sharedPref.getString(getString(R.string.user_role), null)
 
         viewModel.getPermissionById(permissionId)
 
-        val stateProgressBar = requireActivity().findViewById<StateProgressBar>(R.id.your_state_progress_bar_id)
-        stateProgressBar?.let{
+        val stateProgressBar =
+            requireActivity().findViewById<StateProgressBar>(R.id.your_state_progress_bar_id)
+        stateProgressBar?.let {
             it.visibility = View.GONE
         }
-
+        alertDialogView  = inflater.inflate(R.layout.layout_datos_porteria,null, false)
         return binding.root
 
     }
@@ -91,7 +98,7 @@ class DetalleSolicitud : Fragment() {
                     binding.txtFechainicio.text = it.startTimeStr
                     binding.txtFechafinal.text = it.endTimeStr
                     binding.txtLugarPermanencia.text = it.location
-                    binding.txtMotivo.text = it.status?.displayName
+                    binding.txtEstado.text = it.status?.displayName
                 }
                 //faltan imagenes y aprobaciones
             }
@@ -105,16 +112,18 @@ class DetalleSolicitud : Fragment() {
 
         binding.btnRegistrarIngreso.setOnClickListener {
             //mostrar el Dialog
+
+
             val mAlertDialog = AlertDialog.Builder(this.view?.context)
-                .setView(R.layout.layout_datos_porteria)
+                .setView(alertDialogView)
                 .setNegativeButton("Cancelar") { dialog: DialogInterface?, _: Int ->
-                    val temperature = input_temperatura_usuario.text.toString()
+                    Log.d("Tag", "Prueba")
+                }
+                .setPositiveButton("Agregar") { _: DialogInterface?, _: Int ->
+                    val temperature = alertDialogView.input_temperatura_usuario.text.toString()
                     val response = viewModel.permissionResponse.value
                     val isEntry = response != null && response.entrance == null
                     viewModel.createEntrance(CreateEntranceRequestDto(permissionId,temperature,isEntry))
-                }
-                .setPositiveButton("Agregar") { _: DialogInterface?, _: Int ->
-                    Log.d("Tag", "Prueba")
                 }
             // Create the AlertDialog object and return it
             mAlertDialog.show()
