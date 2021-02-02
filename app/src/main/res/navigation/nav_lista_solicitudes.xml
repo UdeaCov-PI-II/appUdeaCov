@@ -26,6 +26,9 @@
         <action
             android:id="@+id/action_detalleSolicitud_to_ingreso"
             app:destination="@id/ingreso" />
+        <action
+            android:id="@+id/action_detalleSolicitud_to_listaSolicitudes"
+            app:destination="@id/listaSolicitudes" />
     </fragment>
     <fragment
         android:id="@+id/ingreso"

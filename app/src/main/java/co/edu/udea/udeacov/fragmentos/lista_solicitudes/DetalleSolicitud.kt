@@ -10,15 +10,21 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.TableLayout
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import co.edu.udea.udeacov.R
+import co.edu.udea.udeacov.adapter.ApprovalAdapter
+import co.edu.udea.udeacov.databinding.ApprovalItemBinding
 import co.edu.udea.udeacov.databinding.FragmentDetalleSolicitudBinding
 import co.edu.udea.udeacov.fragmentos.lista_solicitudes.viewmodels.viewmodels.DetalleSolicitudViewModel
 import co.edu.udea.udeacov.fragmentos.porteria.FiltroUsuarioPorteriaDirections
 import co.edu.udea.udeacov.fragmentos.preingreso.Preingreso5Args
+import co.edu.udea.udeacov.network.request.ApprovalRequestDto
 import co.edu.udea.udeacov.network.request.CreateEntranceRequestDto
 import com.kofigyan.stateprogressbar.StateProgressBar
 import kotlinx.android.synthetic.main.fragment_detalle_solicitud.*
@@ -34,7 +40,7 @@ private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
 
-class DetalleSolicitud : Fragment() {
+class DetalleSolicitud : Fragment(), ApprovalAdapter.ApprovalAdapterOnClickListener {
     private var param1: String? = null
     private var param2: String? = null
 
@@ -42,6 +48,10 @@ class DetalleSolicitud : Fragment() {
     private lateinit var binding: FragmentDetalleSolicitudBinding
     private lateinit var permissionId: String
     private lateinit var alertDialogView : View
+    private lateinit var viewManager: RecyclerView.LayoutManager
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var viewAdapter : ApprovalAdapter
+    private lateinit var userId : String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -75,6 +85,7 @@ class DetalleSolicitud : Fragment() {
             getString(R.string.user_settings_file),
             Context.MODE_PRIVATE
         )
+        userId = sharedPref.getString(requireContext().getString(R.string.user_id),null)!!
         viewModel.role.value = sharedPref.getString(getString(R.string.user_role), null)
 
         viewModel.getPermissionById(permissionId)
@@ -85,6 +96,13 @@ class DetalleSolicitud : Fragment() {
             it.visibility = View.GONE
         }
         alertDialogView  = inflater.inflate(R.layout.layout_datos_porteria,null, false)
+        viewManager = LinearLayoutManager(context)
+
+        viewAdapter = ApprovalAdapter(this, null, viewModel.role.value!!)
+        recyclerView = binding.recyclerViewApprovals.apply {
+            layoutManager = viewManager
+            adapter = viewAdapter
+        }
         return binding.root
 
     }
@@ -94,6 +112,7 @@ class DetalleSolicitud : Fragment() {
 
         viewModel.permissionResponse.observe(viewLifecycleOwner, Observer {
             it?.let {
+                viewModel.getApproverRoles()
                 it.id?.let{ id->
                     binding.txtFechainicio.text = it.startTimeStr
                     binding.txtFechafinal.text = it.endTimeStr
@@ -102,6 +121,14 @@ class DetalleSolicitud : Fragment() {
                     binding.txtReasonValue.text = it.reason
                 }
                 //faltan imagenes y aprobaciones
+            }
+        })
+
+        viewModel.roleResponse.observe(viewLifecycleOwner, Observer {
+            it?.let{
+                viewAdapter = ApprovalAdapter(this, viewModel.permissionResponse.value?.approvals, viewModel.role.value!!)
+                recyclerView.adapter = viewAdapter
+                viewAdapter.submitList(it)
             }
         })
 
@@ -129,6 +156,11 @@ class DetalleSolicitud : Fragment() {
             // Create the AlertDialog object and return it
             mAlertDialog.show()
         }
+
+        viewModel.approvalResponse.observe(viewLifecycleOwner, Observer {
+            findNavController().navigate(R.id.action_detalleSolicitud_to_listaSolicitudes)
+            viewModel.navigateToListIsDone()
+        })
 
 
 
@@ -166,5 +198,14 @@ class DetalleSolicitud : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+
+    override fun btnApproveOnClick(binding: ApprovalItemBinding, view: View) {
+      val action = viewModel.permissionResponse.value?.status?.action
+        action?.let{ act ->
+            val request = ApprovalRequestDto(userId,binding.chkApproved.isChecked,binding.txtMotivo.text.toString(),act)
+            viewModel.createApproval(permissionId, request)
+
+        }
     }
 }

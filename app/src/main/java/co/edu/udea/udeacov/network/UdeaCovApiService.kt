@@ -39,6 +39,11 @@ interface UserService{
     fun updateTokenForUser(@Path("userId") userId : String, @Body deviceTokenRequest : DeviceTokenRequestDto) : Deferred<DeviceTokenResponseDto>
 }
 
+interface RoleService{
+    @GET("roles/approvers")
+    fun getApproversRoles() : Deferred<List<RoleResponseDto>>
+}
+
 interface UdeaCovAuthService{
     @POST("auth/signin")
     fun authenticate(@Query("message") showErrorMessage : Boolean ,@Body authRequest : AuthRequestDto) : Deferred<AuthResponseDto>
@@ -67,9 +72,12 @@ interface PermissionService {
                      @Part medellinMeCuidaEvidence: MultipartBody.Part,
                      @Query("message") showErrorMessage: Boolean): Deferred<CreatePermissionResponseDto>
 
-
     @GET("permissions")
     fun getPermissionBydocTypeAndDocNumber(@Query("docType") docType: String, @Query("docNumber") docNumber: String, @Query("showOnlyApproved") showOnlyApproved: Boolean, @Query("message") showErrorMessage: Boolean): Deferred<List<PermissionCardResponseDto>>
+
+    @POST("permissions/{id}/approval")
+    fun createApproval(@Path("id") id: String, @Body approvalRequest: ApprovalRequestDto,
+                         @Query("message") showErrorMessage: Boolean): Deferred<CreatePermissionResponseDto>
 }
 
 interface LocationService{
@@ -110,6 +118,9 @@ object udeaCovApiService {
     }
     val entranceService : EntranceService by lazy {
         retrofit.create(EntranceService::class.java)
+    }
+    val roleService : RoleService by lazy {
+        retrofit.create(RoleService::class.java)
     }
 
     val converter = moshi

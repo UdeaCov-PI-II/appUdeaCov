@@ -8,10 +8,13 @@ import androidx.lifecycle.ViewModel
 import androidx.room.util.StringUtil
 import co.edu.udea.udeacov.network.error.ApiErrorHandler
 import co.edu.udea.udeacov.network.error.ErrorConstants
+import co.edu.udea.udeacov.network.request.ApprovalRequestDto
 import co.edu.udea.udeacov.network.request.CreateEntranceRequestDto
 import co.edu.udea.udeacov.network.request.EntranceRequestDto
 import co.edu.udea.udeacov.network.response.CreateEntranceResponseDto
+import co.edu.udea.udeacov.network.response.CreatePermissionResponseDto
 import co.edu.udea.udeacov.network.response.PermissionResponseDto
+import co.edu.udea.udeacov.network.response.RoleResponseDto
 import co.edu.udea.udeacov.network.udeaCovApiService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -36,6 +39,15 @@ class DetalleSolicitudViewModel: ViewModel() {
     val entranceResponse: LiveData<CreateEntranceResponseDto?>
         get() = _entranceResponse
     private val _entranceResponse = MutableLiveData<CreateEntranceResponseDto?>()
+
+    private val _roleResponse = MutableLiveData<List<RoleResponseDto>?>()
+    val roleResponse: LiveData<List<RoleResponseDto>?>
+        get() = _roleResponse
+
+    private val _approvalResponse = MutableLiveData<CreatePermissionResponseDto?>()
+
+    val approvalResponse: LiveData<CreatePermissionResponseDto?>
+        get() = _approvalResponse
 
     val role = MutableLiveData<String?>()
 
@@ -90,6 +102,34 @@ class DetalleSolicitudViewModel: ViewModel() {
 
             }
         }
+    }
+
+    fun getApproverRoles(){
+        coroutineScope.launch {
+            try{
+                _roleResponse.value = udeaCovApiService.roleService.getApproversRoles().await()
+            }catch (e : Exception) {
+                _responseError.value = ApiErrorHandler.getErrorMessage(e, ErrorConstants.DEFAULT_ERROR_MESSAGE_CREATE_ENTRANCE)
+
+            }
+        }
+    }
+
+    fun createApproval(id : String, requestDto: ApprovalRequestDto){
+        coroutineScope.launch {
+            try{
+                _approvalResponse.value = udeaCovApiService.permissionService.createApproval(id,requestDto,false).await()
+            }catch (e : Exception) {
+                _responseError.value = ApiErrorHandler.getErrorMessage(e, ErrorConstants.DEFAULT_ERROR_MESSAGE_CREATE_ENTRANCE)
+
+            }
+        }
+    }
+
+    fun navigateToListIsDone(){
+        _approvalResponse.value = null
+        _roleResponse.value = null
+        _entranceResponse.value = null
     }
 
 

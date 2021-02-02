@@ -43,7 +43,7 @@
 
 
                 <LinearLayout
-                    android:id="@+id/layout_fechaI"
+                    android:id="@+id/layout_fechaI_detalle"
                     style="@style/card_layout">
 
                     <TextView
@@ -160,33 +160,12 @@
 
                 </LinearLayout>
 
-                <LinearLayout
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_view_approvals"
+                    android:scrollbars="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    style="@style/card_layout"
-                    android:layout_marginTop="10dp"
-                    android:orientation="vertical">
-
-                    <CheckBox
-                        android:id="@+id/checkBox1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:enabled="@{!viewModel.isUser()}"
-                        android:text="Aprobación del decano" />
-
-                    <CheckBox
-                        android:id="@+id/checkBox2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Aprobación de Salud ocupacional" />
-
-                    <CheckBox
-                        android:id="@+id/checkBox3"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:enabled="@{viewModel.isHealthAdmin()}"
-                        android:text="Aprobación del talento humano" />
-                </LinearLayout>
+                    android:layout_height="match_parent" />
 
                 <Button
                     android:id="@+id/btn_registrar_ingreso"
@@ -199,6 +178,8 @@
                     android:enabled="@{viewModel.enableEntryBtn}"/>
 
             </LinearLayout>
+
+
 
         </ScrollView>
 
